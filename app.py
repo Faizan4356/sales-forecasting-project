@@ -263,6 +263,56 @@ def _guess_value_column(df, date_col):
 # ---------------------------------------------------------------
 st.title("📈 Sales Forecast & Trend Explorer")
 st.caption("XGBoost model trained on lag / rolling / calendar features (Rossmann Store Sales)")
+
+with st.expander("ℹ️ How this app works — read this first", expanded=False):
+    st.markdown("""
+This app has two independent tools, both built on the same idea: **past sales
+patterns predict near-future sales**, because real-world demand isn't random
+— it repeats on a weekly rhythm, drifts with seasons, and reacts to
+promotions and holidays.
+
+#### 🏬 Tab 1 — Rossmann Store Forecast
+1. **Data cleaning**: 1,115 German drugstores' daily sales (2013–2015) are
+   loaded and every store's calendar is filled to a continuous daily range —
+   including days missing from the raw export. Days a store was genuinely
+   closed (many close every Sunday) keep `Sales = 0`, since that's a real,
+   recurring fact the model needs to learn — not something to hide or
+   average away.
+2. **Feature engineering**: for every day, the model is given the store's
+   own sales from **1, 7, 14, and 30 days ago**, plus **7-day and 30-day
+   rolling averages/volatility**, plus calendar signals (day of week, month,
+   is-weekend, is-holiday, is-promo). These are the columns an
+   [XGBoost](https://en.wikipedia.org/wiki/XGBoost) model is trained on —
+   it has no built-in sense of time, so lag/rolling values are literally how
+   it "remembers" the recent past.
+3. **Forecasting**: predicting more than 1 day ahead is done **recursively**
+   — day 1's prediction is fed back in as if it were real, so day 2 can be
+   predicted from it, and so on. This is why longer horizons (30 days) are
+   less reliable than shorter ones (7 days): later predictions are built
+   partly on earlier *predictions*, not ground truth, so small errors can
+   compound.
+4. Days the model expects a store to be **closed** (inferred from that
+   store's own weekday history, e.g. always-closed Sundays) are forced to a
+   $0 forecast rather than asking the model to guess — a closure is a
+   scheduling fact, not something to predict statistically.
+
+#### 📁 Tab 2 — Upload Your Own Data
+This tool doesn't use the trained model at all — it's a **generic
+exploratory analysis**, not a forecast. Upload any CSV with a date column
+and a numeric column (sales, revenue, orders, web traffic — anything), and
+the app:
+- auto-detects which columns are the date and the value (you can override it),
+- plots the raw values with **7-period and 30-period rolling averages** so
+  you can see the underlying trend through the day-to-day noise,
+- averages by day-of-week and by month to reveal **seasonality patterns**,
+  highlighting the strongest day/month,
+- shows a distribution histogram and summary stats.
+
+It answers *"what patterns exist in this data?"* — a first step before
+anyone would build a forecasting model on it, which is exactly the kind of
+exploration Tab 1's model was originally built on top of.
+""")
+
 st.divider()
 
 tab_forecast, tab_upload = st.tabs(["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data"])
@@ -271,6 +321,11 @@ tab_forecast, tab_upload = st.tabs(["🏬 Rossmann Store Forecast", "📁 Upload
 # TAB 1 — existing Rossmann forecast (unchanged behavior)
 # =================================================================
 with tab_forecast:
+    st.caption(
+        "An XGBoost model trained on this store's own sales history (lag + rolling-average "
+        "features) predicts sales day-by-day, feeding each prediction back in to forecast "
+        "the next — accuracy is highest in the first few days of the horizon."
+    )
     with st.spinner("Loading and cleaning data..."):
         data = load_clean_data()
 
@@ -355,8 +410,9 @@ with tab_forecast:
 with tab_upload:
     st.subheader("Upload a CSV to explore its trends")
     st.caption(
-        "Works with any date + numeric-value time series (not just Rossmann data) — "
-        "e.g. your own sales export, web traffic, orders, etc."
+        "This is exploratory analysis, not a forecast — it reveals trend and seasonality "
+        "patterns in whatever you upload. Works with any date + numeric-value time series "
+        "(not just Rossmann data) — e.g. your own sales export, web traffic, orders, etc."
     )
 
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
