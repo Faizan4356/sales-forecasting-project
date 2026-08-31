@@ -87,11 +87,11 @@ train_features.csv            Output of Phase 4
 ## How to Run
 
 ### 1. Get the data
-Download `train.csv` and `store.csv` from the
+`train.csv` and `store.csv` are committed in this repo, so no download is
+needed to run locally. To refresh them from source instead:
 [Rossmann Store Sales](https://www.kaggle.com/c/rossmann-store-sales/data)
-competition (requires accepting the competition rules on Kaggle) and place
-them in the project root. Alternatively, a public dataset mirror avoids the
-rules-acceptance step:
+(competition, requires accepting the rules on Kaggle) or a public mirror
+that skips that step:
 
 ```bash
 kaggle datasets download -d pratyushakar/rossmann-store-sales -p . --unzip
@@ -122,6 +122,21 @@ streamlit run app.py
 Select a store and a forecast horizon (7 / 14 / 30 days) to see historical
 sales alongside the XGBoost forecast, with closed-day predictions flagged
 separately.
+
+## Deployment (Streamlit Community Cloud)
+
+1. Push this repo to GitHub (already done if you're reading this on GitHub).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with
+   GitHub.
+3. Click **New app**, select this repo/branch, and set the main file path to
+   `app.py`.
+4. Deploy. The first load will take a minute or two (cleaning ~1M rows and
+   training XGBoost on the fly) — after that, Streamlit's `@st.cache_data`
+   / `@st.cache_resource` keep it fast for subsequent visits until the app
+   restarts.
+
+`train.csv` and `store.csv` are committed to the repo specifically so the
+hosted app has data to read — no extra secrets or storage setup required.
 
 ## Limitations / Next Steps
 
