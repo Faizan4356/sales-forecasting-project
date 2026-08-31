@@ -5,9 +5,11 @@ see historical sales + XGBoost forecast on one chart.
 
 Run with:  streamlit run app.py
 
-Requires train.csv and store.csv (raw Kaggle files) in the same folder.
-The app rebuilds cleaning + features + model itself so it's self-contained
-and doesn't depend on having run Phases 1-5 as separate scripts first.
+Requires train.csv (raw Kaggle file) in the same folder. The app rebuilds
+cleaning + features + model itself so it's self-contained and doesn't
+depend on having run Phases 1-5 as separate scripts first. (store.csv is
+kept in the repo for the phase2/phase4 scripts but isn't read by this app
+-- none of its columns are used in FEATURE_COLS.)
 """
 
 import pandas as pd
@@ -55,50 +57,61 @@ FEATURE_COLS = [
 
 
 # ---------------------------------------------------------------
-# Data loading + cleaning (Phase 2 logic, condensed)
+# Data loading + cleaning (Phase 2 logic, condensed for low memory)
 # ---------------------------------------------------------------
+# MEMORY NOTES (this app runs on Streamlit Community Cloud's free tier,
+# capped at ~1GB RAM -- the original version crashed with "gone over
+# resource limits" because of this function):
+#   1. store.csv was merged in but none of its columns (StoreType,
+#      CompetitionDistance, etc.) are in FEATURE_COLS below -- pure waste.
+#      Dropped entirely; is_holiday only needs StateHoliday from train.csv.
+#   2. `Customers` isn't used anywhere downstream -- dropped at load time
+#      via usecols instead of carrying a whole extra float column through
+#      every later copy.
+#   3. groupby("Store").apply(reindex_store) builds ~1,115 separate
+#      DataFrames (one per store) and holds them ALL in memory before
+#      concatenating them -- a well-known pandas memory spike. Replaced
+#      with a single vectorized MultiIndex reindex (Store x full date
+#      range), which does the same thing in one allocation.
+#   4. float64/int64 are pandas' default dtypes but are 2x the size we
+#      need here -- downcast to float32/int8/int16 right after loading.
 @st.cache_data
 def load_clean_data():
-    df = pd.read_csv("train.csv", parse_dates=["Date"], low_memory=False)
-    store = pd.read_csv("store.csv")
+    df = pd.read_csv(
+        "train.csv",
+        usecols=["Store", "Date", "Sales", "Open", "Promo", "StateHoliday", "SchoolHoliday"],
+        parse_dates=["Date"],
+        dtype={"Store": "int16", "Promo": "int8", "SchoolHoliday": "int8", "StateHoliday": "category"},
+        low_memory=False,
+    )
     df = df.sort_values(["Store", "Date"])
 
-    def reindex_store(g):
-        g = g.set_index("Date")
-        full_range = pd.date_range(g.index.min(), g.index.max(), freq="D")
-        g = g.reindex(full_range)
-        g.index.name = "Date"
-        return g
-
-    df = (
-        df.groupby("Store", group_keys=True)
-        .apply(reindex_store, include_groups=False)
-        .reset_index()
-        .rename(columns={"level_1": "Date"})
-    )
-    if "Store" not in df.columns:
-        df = df.rename(columns={df.columns[0]: "Store"})
+    full_dates = pd.date_range(df["Date"].min(), df["Date"].max(), freq="D")
+    full_index = pd.MultiIndex.from_product([df["Store"].unique(), full_dates], names=["Store", "Date"])
+    df = df.set_index(["Store", "Date"]).reindex(full_index).reset_index()
 
     is_gap = df["Sales"].isna() & df["Open"].isna()
-    df["DayOfWeek"] = df["Date"].dt.dayofweek + 1
-    df.loc[is_gap & (df["DayOfWeek"] == 7), "Open"] = 0
-    df.loc[is_gap & (df["DayOfWeek"] != 7), "Open"] = 1
+    dow = df["Date"].dt.dayofweek + 1  # Mon=1..Sun=7
+    df.loc[is_gap & (dow == 7), "Open"] = 0
+    df.loc[is_gap & (dow != 7), "Open"] = 1
 
     closed = df["Open"] == 0
     df.loc[closed, "Sales"] = df.loc[closed, "Sales"].fillna(0)
-    df.loc[closed, "Customers"] = df.loc[closed, "Customers"].fillna(0)
     df["Sales"] = df.groupby("Store")["Sales"].transform(
         lambda s: s.interpolate(method="linear", limit=3)
     )
-    for col, default in [("Promo", 0), ("StateHoliday", "0"), ("SchoolHoliday", 0)]:
-        df[col] = df[col].fillna(default)
+    df["Promo"] = df["Promo"].fillna(0)
+    df["SchoolHoliday"] = df["SchoolHoliday"].fillna(0)
+    df["StateHoliday"] = df["StateHoliday"].astype(object).fillna("0").astype("category")
 
-    df = df.merge(store, on="Store", how="left")
-    if "CompetitionDistance" in df.columns:
-        df["CompetitionDistance"] = df["CompetitionDistance"].fillna(
-            df["CompetitionDistance"].max() * 2
-        )
     df = df.dropna(subset=["Sales"])
+
+    # Downcast after all fills/interpolation so no precision is lost mid-computation.
+    df["Sales"] = df["Sales"].astype("float32")
+    df["Open"] = df["Open"].astype("int8")
+    df["Promo"] = df["Promo"].astype("int8")
+    df["SchoolHoliday"] = df["SchoolHoliday"].astype("int8")
+
     return df
 
 
@@ -139,10 +152,17 @@ def train_model(df):
     feat = add_lag_roll_features(feat)
     feat = feat[feat["Open"] == 1].dropna(subset=FEATURE_COLS + ["Sales"])
 
-    X, y = feat[FEATURE_COLS], feat["Sales"]
+    # Downcast the feature matrix to float32 -- XGBoost trains just as well
+    # on it and it's half the memory of pandas' default float64, which
+    # matters directly against the platform's ~1GB cap.
+    X = feat[FEATURE_COLS].astype("float32")
+    y = feat["Sales"].astype("float32")
+    del feat  # drop the larger intermediate frame before fit() allocates its own copies
+
     model = xgb.XGBRegressor(
-        n_estimators=300, max_depth=6, learning_rate=0.05,
+        n_estimators=150, max_depth=5, learning_rate=0.08,
         subsample=0.8, colsample_bytree=0.8, random_state=42,
+        tree_method="hist",  # histogram-binned splits: much lower memory than the exact method
     )
     model.fit(X, y)
     return model
