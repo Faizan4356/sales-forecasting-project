@@ -1,0 +1,18 @@
+# Raw Kaggle data (download per README instead of committing)
+train.csv
+test.csv
+store.csv
+sample_submission.csv
+
+# Generated intermediate/output files
+train_cleaned.csv
+train_features.csv
+*.png
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/secrets.toml
