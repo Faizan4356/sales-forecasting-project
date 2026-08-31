@@ -213,86 +213,251 @@ def recursive_forecast(model, store_history, horizon_days):
 
 
 # ---------------------------------------------------------------
+# Extra palette entries for the multi-series trend/seasonality charts
+# in the "Upload Your Own Data" tab (kept distinct in hue from the
+# forecast-tab colors above so nothing clashes if both tabs are open).
+# ---------------------------------------------------------------
+COLOR_SKY = "#4CC3FF"
+COLOR_ROLL7 = "#FFB020"   # amber, reused: short rolling window
+COLOR_ROLL30 = "#8B7CF6"  # violet, reused: long rolling window
+
+
+def _guess_date_column(df):
+    for col in df.columns:
+        if "date" in col.lower():
+            return col
+    return df.columns[0]
+
+
+def _guess_value_column(df, date_col):
+    numeric_cols = [c for c in df.columns if c != date_col and pd.api.types.is_numeric_dtype(df[c])]
+    for kw in ["sales", "revenue", "amount", "value", "qty", "quantity", "total"]:
+        for c in numeric_cols:
+            if kw in c.lower():
+                return c
+    return numeric_cols[0] if numeric_cols else None
+
+
+# ---------------------------------------------------------------
 # Streamlit UI
 # ---------------------------------------------------------------
-st.title("📈 Store Sales Forecast")
+st.title("📈 Sales Forecast & Trend Explorer")
 st.caption("XGBoost model trained on lag / rolling / calendar features (Rossmann Store Sales)")
 st.divider()
 
-with st.spinner("Loading and cleaning data..."):
-    data = load_clean_data()
+tab_forecast, tab_upload = st.tabs(["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data"])
 
-store_ids = sorted(data["Store"].unique())
+# =================================================================
+# TAB 1 — existing Rossmann forecast (unchanged behavior)
+# =================================================================
+with tab_forecast:
+    with st.spinner("Loading and cleaning data..."):
+        data = load_clean_data()
 
-col1, col2 = st.columns(2)
-with col1:
-    selected_store = st.selectbox("Select a store", store_ids, index=0)
-with col2:
-    horizon = st.selectbox("Forecast horizon (days)", [7, 14, 30], index=0)
+    store_ids = sorted(data["Store"].unique())
 
-with st.spinner("Training model (cached after first run)..."):
-    model = train_model(data)
+    col1, col2 = st.columns(2)
+    with col1:
+        selected_store = st.selectbox("Select a store", store_ids, index=0)
+    with col2:
+        horizon = st.selectbox("Forecast horizon (days)", [7, 14, 30], index=0)
 
-store_history = data[data["Store"] == selected_store].sort_values("Date")
+    with st.spinner("Training model (cached after first run)..."):
+        model = train_model(data)
 
-if st.button("Generate Forecast", type="primary"):
-    with st.spinner(f"Forecasting next {horizon} days for Store {selected_store}..."):
-        forecast_df = recursive_forecast(model, store_history, horizon)
+    store_history = data[data["Store"] == selected_store].sort_values("Date")
 
-    open_days = forecast_df[forecast_df["Open"] == 1]
-    closed_days = forecast_df[forecast_df["Open"] == 0]
+    if st.button("Generate Forecast", type="primary"):
+        with st.spinner(f"Forecasting next {horizon} days for Store {selected_store}..."):
+            forecast_df = recursive_forecast(model, store_history, horizon)
 
-    # KPI cards for a quick read before looking at the chart
-    m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Avg forecast (open days)", f"{open_days['Predicted_Sales'].mean():,.0f}"
-               if len(open_days) else "—")
-    m2.metric("Peak day", f"{forecast_df['Predicted_Sales'].max():,.0f}")
-    m3.metric("Closed days in horizon", int((forecast_df["Open"] == 0).sum()))
-    last_hist_avg = store_history["Sales"].tail(30).mean()
-    delta_pct = (
-        (open_days["Predicted_Sales"].mean() - last_hist_avg) / last_hist_avg * 100
-        if len(open_days) and last_hist_avg else 0
+        open_days = forecast_df[forecast_df["Open"] == 1]
+        closed_days = forecast_df[forecast_df["Open"] == 0]
+
+        # KPI cards for a quick read before looking at the chart
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("Avg forecast (open days)", f"{open_days['Predicted_Sales'].mean():,.0f}"
+                   if len(open_days) else "—")
+        m2.metric("Peak day", f"{forecast_df['Predicted_Sales'].max():,.0f}")
+        m3.metric("Closed days in horizon", int((forecast_df["Open"] == 0).sum()))
+        last_hist_avg = store_history["Sales"].tail(30).mean()
+        delta_pct = (
+            (open_days["Predicted_Sales"].mean() - last_hist_avg) / last_hist_avg * 100
+            if len(open_days) and last_hist_avg else 0
+        )
+        m4.metric("vs last 30-day avg", f"{delta_pct:+.1f}%")
+
+        # Plot: last 90 days of actual history + forecast, dark theme palette
+        history_window = store_history.tail(90)
+
+        fig, ax = plt.subplots(figsize=(14, 6))
+        ax.plot(history_window["Date"], history_window["Sales"],
+                label="Historical Sales", color=COLOR_ACTUAL, linewidth=2)
+        ax.plot(open_days["Date"], open_days["Predicted_Sales"],
+                label=f"Forecast (next {horizon} days)", color=COLOR_FORECAST,
+                linestyle="--", marker="o", markersize=5, linewidth=2)
+        if len(closed_days):
+            ax.scatter(closed_days["Date"], closed_days["Predicted_Sales"],
+                        label="Predicted closed", color=COLOR_CLOSED, marker="x", s=60, zorder=5)
+        ax.axvline(history_window["Date"].max(), color=COLOR_ACCENT, linestyle=":", linewidth=1.5)
+        ax.set_title(f"Store {selected_store} — Historical Sales & {horizon}-Day Forecast", color=TEXT_LIGHT)
+        ax.set_xlabel("Date")
+        ax.set_ylabel("Sales")
+        ax.legend(loc="upper left")
+        ax.grid(alpha=0.25)
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+        st.pyplot(fig)
+
+        st.subheader("Forecast values")
+        display_df = forecast_df.rename(
+            columns={"Predicted_Sales": "Predicted Sales", "Open": "Store Open"}
+        )
+        display_df["Store Open"] = display_df["Store Open"].map({1: "Yes", 0: "No (closed)"})
+        st.dataframe(
+            display_df.style.format({"Predicted Sales": "{:.0f}"}),
+            use_container_width=True,
+        )
+    else:
+        st.info("Select a store and horizon, then click **Generate Forecast**.")
+        fig, ax = plt.subplots(figsize=(14, 4))
+        recent = store_history.tail(180)
+        ax.plot(recent["Date"], recent["Sales"], color=COLOR_ACTUAL, linewidth=1.5)
+        ax.set_title(f"Store {selected_store} — Last 180 Days", color=TEXT_LIGHT)
+        ax.grid(alpha=0.25)
+        plt.tight_layout()
+        st.pyplot(fig)
+
+# =================================================================
+# TAB 2 — upload any CSV, auto-explore trends/seasonality
+# =================================================================
+with tab_upload:
+    st.subheader("Upload a CSV to explore its trends")
+    st.caption(
+        "Works with any date + numeric-value time series (not just Rossmann data) — "
+        "e.g. your own sales export, web traffic, orders, etc."
     )
-    m4.metric("vs last 30-day avg", f"{delta_pct:+.1f}%")
 
-    # Plot: last 90 days of actual history + forecast, dark theme palette
-    history_window = store_history.tail(90)
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
-    fig, ax = plt.subplots(figsize=(14, 6))
-    ax.plot(history_window["Date"], history_window["Sales"],
-            label="Historical Sales", color=COLOR_ACTUAL, linewidth=2)
-    ax.plot(open_days["Date"], open_days["Predicted_Sales"],
-            label=f"Forecast (next {horizon} days)", color=COLOR_FORECAST,
-            linestyle="--", marker="o", markersize=5, linewidth=2)
-    if len(closed_days):
-        ax.scatter(closed_days["Date"], closed_days["Predicted_Sales"],
-                    label="Predicted closed", color=COLOR_CLOSED, marker="x", s=60, zorder=5)
-    ax.axvline(history_window["Date"].max(), color=COLOR_ACCENT, linestyle=":", linewidth=1.5)
-    ax.set_title(f"Store {selected_store} — Historical Sales & {horizon}-Day Forecast", color=TEXT_LIGHT)
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Sales")
-    ax.legend(loc="upper left")
-    ax.grid(alpha=0.25)
-    plt.xticks(rotation=45)
-    plt.tight_layout()
+    if uploaded_file is None:
+        st.info("Upload a CSV with at least one date column and one numeric column to get started.")
+    else:
+        try:
+            raw_upload = pd.read_csv(uploaded_file)
+        except Exception as e:
+            st.error(f"Couldn't read that file as CSV: {e}")
+            st.stop()
 
-    st.pyplot(fig)
+        if raw_upload.empty or raw_upload.shape[1] < 2:
+            st.error("The file needs at least two columns: a date and a numeric value.")
+            st.stop()
 
-    st.subheader("Forecast values")
-    display_df = forecast_df.rename(
-        columns={"Predicted_Sales": "Predicted Sales", "Open": "Store Open"}
-    )
-    display_df["Store Open"] = display_df["Store Open"].map({1: "Yes", 0: "No (closed)"})
-    st.dataframe(
-        display_df.style.format({"Predicted Sales": "{:.0f}"}),
-        use_container_width=True,
-    )
-else:
-    st.info("Select a store and horizon, then click **Generate Forecast**.")
-    fig, ax = plt.subplots(figsize=(14, 4))
-    recent = store_history.tail(180)
-    ax.plot(recent["Date"], recent["Sales"], color=COLOR_ACTUAL, linewidth=1.5)
-    ax.set_title(f"Store {selected_store} — Last 180 Days", color=TEXT_LIGHT)
-    ax.grid(alpha=0.25)
-    plt.tight_layout()
-    st.pyplot(fig)
+        st.write(f"Loaded **{raw_upload.shape[0]:,} rows × {raw_upload.shape[1]} columns**")
+        st.dataframe(raw_upload.head(), use_container_width=True)
+
+        col_a, col_b = st.columns(2)
+        with col_a:
+            date_col = st.selectbox(
+                "Date column", raw_upload.columns,
+                index=list(raw_upload.columns).index(_guess_date_column(raw_upload)),
+            )
+        # Guess the value column AFTER date_col is chosen, so it's never the same column
+        numeric_candidates = [c for c in raw_upload.columns if c != date_col]
+        guessed_value = _guess_value_column(raw_upload, date_col)
+        with col_b:
+            value_col = st.selectbox(
+                "Value column to analyze", numeric_candidates,
+                index=numeric_candidates.index(guessed_value) if guessed_value in numeric_candidates else 0,
+            )
+
+        df_u = raw_upload[[date_col, value_col]].rename(columns={date_col: "Date", value_col: "Value"})
+        df_u["Date"] = pd.to_datetime(df_u["Date"], errors="coerce")
+        df_u["Value"] = pd.to_numeric(df_u["Value"], errors="coerce")
+        n_before = len(df_u)
+        df_u = df_u.dropna(subset=["Date", "Value"]).sort_values("Date")
+        n_dropped = n_before - len(df_u)
+        if n_dropped:
+            st.warning(f"Dropped {n_dropped} row(s) with unparseable date/value.")
+
+        if len(df_u) < 2:
+            st.error("Not enough valid rows left to analyze after parsing dates/values.")
+            st.stop()
+
+        # Collapse duplicate dates (e.g. multiple stores/rows per day) by summing,
+        # since trend/seasonality analysis needs one value per date.
+        df_u = df_u.groupby("Date", as_index=False)["Value"].sum()
+
+        # --- Summary stats ---
+        s1, s2, s3, s4 = st.columns(4)
+        s1.metric("Date range", f"{(df_u['Date'].max() - df_u['Date'].min()).days} days")
+        s2.metric("Mean", f"{df_u['Value'].mean():,.1f}")
+        s3.metric("Min / Max", f"{df_u['Value'].min():,.0f} / {df_u['Value'].max():,.0f}")
+        s4.metric("Total", f"{df_u['Value'].sum():,.0f}")
+
+        # --- Raw series + rolling trend ---
+        st.markdown("#### Raw values over time, with rolling trend")
+        df_u["roll_7"] = df_u["Value"].rolling(7, min_periods=1).mean()
+        df_u["roll_30"] = df_u["Value"].rolling(30, min_periods=1).mean()
+
+        fig1, ax1 = plt.subplots(figsize=(14, 5))
+        ax1.plot(df_u["Date"], df_u["Value"], color=COLOR_SKY, alpha=0.5, linewidth=1, label=value_col)
+        ax1.plot(df_u["Date"], df_u["roll_7"], color=COLOR_ROLL7, linewidth=2, label="7-period rolling mean")
+        ax1.plot(df_u["Date"], df_u["roll_30"], color=COLOR_ROLL30, linewidth=2, label="30-period rolling mean")
+        ax1.set_xlabel("Date")
+        ax1.set_ylabel(value_col)
+        ax1.legend(loc="upper left")
+        ax1.grid(alpha=0.25)
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        st.pyplot(fig1)
+
+        # --- Weekly & monthly seasonality (only meaningful if data spans enough time) ---
+        st.markdown("#### Seasonality patterns")
+        weekday_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        month_order = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"]
+
+        df_u["DayOfWeek"] = df_u["Date"].dt.day_name()
+        df_u["Month"] = df_u["Date"].dt.month_name()
+
+        weekly_avg_u = df_u.groupby("DayOfWeek")["Value"].mean().reindex(weekday_order)
+        monthly_avg_u = df_u.groupby("Month")["Value"].mean().reindex(month_order).dropna()
+
+        seas_col1, seas_col2 = st.columns(2)
+        with seas_col1:
+            fig2, ax2 = plt.subplots(figsize=(7, 4.5))
+            colors_wd = [COLOR_ACTUAL if v == weekly_avg_u.max() else COLOR_SKY for v in weekly_avg_u]
+            weekly_avg_u.plot(kind="bar", ax=ax2, color=colors_wd)
+            ax2.set_title("Average by Day of Week", color=TEXT_LIGHT)
+            ax2.set_ylabel(value_col)
+            ax2.grid(alpha=0.25, axis="y")
+            plt.tight_layout()
+            st.pyplot(fig2)
+
+        with seas_col2:
+            if len(monthly_avg_u) >= 2:
+                fig3, ax3 = plt.subplots(figsize=(7, 4.5))
+                colors_m = [COLOR_FORECAST if v == monthly_avg_u.max() else COLOR_ACCENT for v in monthly_avg_u]
+                monthly_avg_u.plot(kind="bar", ax=ax3, color=colors_m)
+                ax3.set_title("Average by Month", color=TEXT_LIGHT)
+                ax3.set_ylabel(value_col)
+                ax3.grid(alpha=0.25, axis="y")
+                plt.tight_layout()
+                st.pyplot(fig3)
+            else:
+                st.info("Not enough distinct months in this data to show monthly seasonality.")
+
+        # --- Distribution ---
+        st.markdown("#### Distribution of values")
+        fig4, ax4 = plt.subplots(figsize=(14, 3.5))
+        ax4.hist(df_u["Value"], bins=40, color=COLOR_ACCENT, edgecolor=BG_DARK)
+        ax4.set_xlabel(value_col)
+        ax4.set_ylabel("Frequency")
+        ax4.grid(alpha=0.25)
+        plt.tight_layout()
+        st.pyplot(fig4)
+
+        with st.expander("View cleaned data used for these charts"):
+            st.dataframe(df_u, use_container_width=True)

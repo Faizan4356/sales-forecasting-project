@@ -119,9 +119,18 @@ python sales_forecast_phase5.py   # compare Prophet vs XGBoost
 streamlit run app.py
 ```
 
-Select a store and a forecast horizon (7 / 14 / 30 days) to see historical
-sales alongside the XGBoost forecast, with closed-day predictions flagged
-separately.
+The app has two tabs:
+
+- **🏬 Rossmann Store Forecast** — select a store and a forecast horizon
+  (7 / 14 / 30 days) to see historical sales alongside the XGBoost forecast,
+  with closed-day predictions flagged separately.
+- **📁 Upload Your Own Data** — upload any CSV with a date column and a
+  numeric value column (sales, revenue, orders, etc.). The app auto-detects
+  likely date/value columns (editable via dropdown), then generates: the raw
+  series with 7- and 30-period rolling-mean trend lines, day-of-week and
+  monthly seasonality bar charts, a value distribution histogram, and
+  summary stats (range, mean, min/max, total). Not specific to Rossmann or
+  retail — works with any date + numeric time series.
 
 ## Deployment (Streamlit Community Cloud)
 
