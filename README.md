@@ -1,5 +1,7 @@
 # Sales / Demand Forecasting — Rossmann Store Sales
 
+**🔗 Live app: [sales-forecasting-project-espba4qtsytr6h4sjctpzr.streamlit.app](https://sales-forecasting-project-espba4qtsytr6h4sjctpzr.streamlit.app/)**
+
 A time-series forecasting pipeline that predicts daily store-level sales using
 historical patterns, engineered lag/rolling features, and a comparison of
 Prophet vs. XGBoost. Deployed as an interactive Streamlit app.
@@ -133,6 +135,10 @@ The app has two tabs:
   retail — works with any date + numeric time series.
 
 ## Deployment (Streamlit Community Cloud)
+
+Already deployed at **https://sales-forecasting-project-espba4qtsytr6h4sjctpzr.streamlit.app/**
+— it auto-redeploys on every push to `main`. To set it up from scratch on a
+fork or a new app:
 
 1. Push this repo to GitHub (already done if you're reading this on GitHub).
 2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with
