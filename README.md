@@ -72,18 +72,70 @@ all 1,115 stores (with `Store` as a feature), instead of one model per store.
   a real, recurring pattern the model needs to learn — dropping them would
   reintroduce time gaps and bias the model toward never predicting closures.
 
+## Sales Intelligence Platform
+
+The forecasting model above is the foundation of a broader **Sales
+Intelligence Platform**, layering deep learning and NLP on top of it into
+one combined per-store score:
+
+```
+Data Science          EDA, cleaning, seasonal decomposition (Phases 1-3)
+      ↓
+Machine Learning       XGBoost sales forecast (Phases 4-5)
+      ↓
+Deep Learning          LSTM Autoencoder — flags anomalous sales days
+      ↓
+NLP                    Review sentiment analysis (SYNTHETIC data)
+      ↓
+Combined Score          Store Health Score (0-100) + What-If Simulator
+```
+
+- **Anomaly detection** (`train_anomaly_model.py`): an LSTM Autoencoder
+  learns each store's normal 14-(open)-day sales pattern from
+  `train_cleaned.csv` and flags days with unusually high reconstruction
+  error — a data error, a one-off event, or something worth a manager's
+  attention. Only trades on `Open == 1` days (closures are a known,
+  scheduled fact, not an anomaly). Validated with a sanity check:
+  `StateHoliday` days show **2.73x higher** reconstruction error than
+  regular days — evidence the model learned real structure, not noise.
+  (Built in PyTorch, not TensorFlow/Keras — TensorFlow has no distribution
+  available for this project's Python version.)
+- **Review sentiment** (`generate_and_analyze_reviews.py`): **⚠️ the
+  Rossmann dataset has no real customer review data.** This script
+  generates synthetic review text with tone correlated to real store
+  metadata (`CompetitionDistance`, `StoreType`), scores it with a
+  HuggingFace sentiment pipeline, and tags a dominant theme (Staff, Stock
+  Availability, Pricing, Cleanliness). Treat `avg_sentiment` as a
+  demonstration of the pipeline, not ground truth about any real store.
+- **Store Health Score** (`combine_store_health.py`): merges forecast
+  reliability (XGBoost MAPE on a chronological holdout), anomaly rate, and
+  review sentiment into one 0-100 score with a tier (`Needs Attention` /
+  `Monitor` / `Performing Well`) and a plain-language explanation.
+  Forecast reliability is weighted highest (50%, vs. 30% anomaly rate and
+  20% sentiment) since an unpredictable store is an operational risk
+  regardless of the underlying cause. Verified the score separates
+  meaningfully: worst stores (score 11-40) combine 28-120% MAPE, 21-27%
+  anomaly rates, and low sentiment; best stores (93-94.5) have ~5-6%
+  MAPE, zero anomalies, and near-perfect sentiment.
+
 ## Project Structure
 
 ```
-train.csv, store.csv          Raw Kaggle data
-sales_forecast_phase1.py      Load data, parse dates, plot raw sales
-sales_forecast_phase2.py      Clean: reindex dates, handle closures, merge store metadata
-sales_forecast_phase3.py      EDA: decomposition, seasonality, ADF test, ACF/PACF
-sales_forecast_phase4.py      Feature engineering: lags, rolling stats, calendar/promo flags
-sales_forecast_phase5.py      Model comparison: Prophet vs XGBoost
-app.py                        Streamlit app: interactive forecast by store + horizon
-train_cleaned.csv             Output of Phase 2
-train_features.csv            Output of Phase 4
+train.csv, store.csv              Raw Kaggle data
+sales_forecast_phase1.py          Load data, parse dates, plot raw sales
+sales_forecast_phase2.py          Clean: reindex dates, handle closures, merge store metadata
+sales_forecast_phase3.py          EDA: decomposition, seasonality, ADF test, ACF/PACF
+sales_forecast_phase4.py          Feature engineering: lags, rolling stats, calendar/promo flags
+sales_forecast_phase5.py          Model comparison: Prophet vs XGBoost
+train_anomaly_model.py            LSTM Autoencoder anomaly detection -> anomaly_flags.csv
+generate_and_analyze_reviews.py   Synthetic reviews + sentiment -> store_review_scores.csv
+combine_store_health.py           Combines everything -> store_health_scores.csv
+app.py                            Streamlit app: 4 tabs (forecast, upload, health, what-if)
+requirements.txt                  Deployed app's dependencies
+requirements-offline.txt          Extra deps for the offline Steps 1-2 scripts (torch, transformers)
+train_cleaned.csv                 Output of Phase 2
+train_features.csv                Output of Phase 4
+store_health_scores.csv           Output of combine_store_health.py (committed -- app.py reads it)
 ```
 
 ## How to Run
@@ -102,26 +154,32 @@ kaggle datasets download -d pratyushakar/rossmann-store-sales -p . --unzip
 ### 2. Install dependencies
 
 ```bash
-pip install pandas numpy matplotlib statsmodels scikit-learn xgboost prophet streamlit
+pip install -r requirements.txt
+# only needed for Steps 1-2 below (LSTM training, review generation) --
+# NOT needed to run the app itself:
+pip install -r requirements-offline.txt
 ```
 
 ### 3. Run the pipeline (in order)
 
 ```bash
-python sales_forecast_phase1.py   # load + plot raw sales
-python sales_forecast_phase2.py   # clean -> train_cleaned.csv
-python sales_forecast_phase3.py   # decomposition, ADF, ACF/PACF plots
-python sales_forecast_phase4.py   # engineer features -> train_features.csv
-python sales_forecast_phase5.py   # compare Prophet vs XGBoost
+python sales_forecast_phase1.py         # load + plot raw sales
+python sales_forecast_phase2.py         # clean -> train_cleaned.csv
+python sales_forecast_phase3.py         # decomposition, ADF, ACF/PACF plots
+python sales_forecast_phase4.py         # engineer features -> train_features.csv
+python sales_forecast_phase5.py         # compare Prophet vs XGBoost
+python train_anomaly_model.py           # LSTM Autoencoder -> anomaly_flags.csv (needs requirements-offline.txt)
+python generate_and_analyze_reviews.py  # synthetic reviews + sentiment -> store_review_scores.csv (needs requirements-offline.txt)
+python combine_store_health.py          # merges everything -> store_health_scores.csv
 ```
 
-### 4. Launch the forecasting app
+### 4. Launch the app
 
 ```bash
 streamlit run app.py
 ```
 
-The app has two tabs:
+The app has four tabs:
 
 - **🏬 Rossmann Store Forecast** — select a store and a forecast horizon
   (7 / 14 / 30 days) to see historical sales alongside the XGBoost forecast,
@@ -133,6 +191,20 @@ The app has two tabs:
   monthly seasonality bar charts, a value distribution histogram, and
   summary stats (range, mean, min/max, total). Not specific to Rossmann or
   retail — works with any date + numeric time series.
+- **📊 Store Health** — reads `store_health_scores.csv`. Shows a chain-wide
+  breakdown of stores by health tier, then lets you pick a store to see its
+  0-100 score, tier, plain-language explanation, the three contributing
+  signals (forecast reliability, anomaly rate, review sentiment) as metric
+  cards, and the same forecast chart as Tab 1 for context.
+- **🔮 What-If: New Store Simulator** — projects a Store Health Score for a
+  *hypothetical* store with no sales history. You enter StoreType,
+  Assortment, CompetitionDistance, Promo2, and a sample review; forecast
+  reliability and anomaly rate are estimated from existing stores with
+  similar characteristics (shown as "estimated based on N existing
+  stores"), and the sample review is scored by a lightweight keyword
+  matcher — not the transformer model Tab 3's data uses — so the live
+  simulator adds no memory overhead to the deployed app. Clearly labeled
+  as a projection, not a guarantee.
 
 ## Deployment (Streamlit Community Cloud)
 
@@ -164,3 +236,11 @@ hosted app has data to read — no extra secrets or storage setup required.
 - Future `Promo`/`StateHoliday` values are unknown at forecast time and are
   assumed neutral (no promo, no holiday); feeding in a known promo calendar
   would likely improve accuracy further.
+- The anomaly detection and review sentiment layers are **demonstration
+  additions**, not production-ready: the LSTM Autoencoder's anomaly
+  threshold (95th percentile of training reconstruction error) has only
+  been sanity-checked against StateHoliday days, not validated against
+  known real-world incidents; and review sentiment is scored on
+  **synthetically generated** text, not real customer feedback. Both
+  would need real labeled anomalies and real review data respectively
+  before the Store Health Score should inform actual business decisions.

@@ -259,6 +259,67 @@ def _guess_value_column(df, date_col):
 
 
 # ---------------------------------------------------------------
+# What-If Simulator helpers
+# ---------------------------------------------------------------
+# combine_store_score / assign_tier are duplicated here (not imported)
+# from combine_store_health.py, kept identical on purpose: importing that
+# script would re-run its full offline training pipeline as a side effect
+# of the import, which is exactly what we avoided for the deployed app's
+# memory budget. Keep these two in sync by hand if the scoring formula
+# changes in combine_store_health.py.
+def combine_store_score(forecast_mape, anomaly_rate, sentiment_score):
+    if forecast_mape is None or (isinstance(forecast_mape, float) and np.isnan(forecast_mape)):
+        forecast_mape = 50.0
+    reliability = np.clip(100 - forecast_mape * 2, 0, 100)
+    anomaly_component = np.clip(100 - anomaly_rate * 400, 0, 100)
+    sentiment_component = np.clip(sentiment_score * 100, 0, 100)
+    return round(0.5 * reliability + 0.3 * anomaly_component + 0.2 * sentiment_component, 1)
+
+
+def assign_tier(score):
+    if score <= 40:
+        return "Needs Attention"
+    elif score <= 70:
+        return "Monitor"
+    return "Performing Well"
+
+
+# Lightweight, dependency-free keyword sentiment scorer for the live text
+# box below -- deliberately NOT the HuggingFace transformer pipeline used
+# in generate_and_analyze_reviews.py. Loading a transformer model inside
+# the deployed app risks the exact memory crash already fixed once; this
+# runs in microseconds with zero extra RAM.
+POSITIVE_WORDS = {
+    "good", "great", "excellent", "friendly", "clean", "helpful", "fast", "quick",
+    "convenient", "love", "loved", "nice", "fair", "fresh", "organized", "polite",
+    "amazing", "wonderful", "well-stocked", "stocked", "affordable", "easy", "pleasant",
+    "best", "recommend", "efficient", "welcoming", "spacious", "reliable",
+}
+NEGATIVE_WORDS = {
+    "bad", "dirty", "rude", "slow", "expensive", "overpriced", "empty", "messy",
+    "unhelpful", "poor", "terrible", "awful", "disorganized", "cramped", "dark",
+    "worst", "avoid", "disappointing", "unfriendly", "understaffed", "chaotic",
+    "outdated", "cluttered", "sold-out", "closed", "long", "wait", "hassle",
+}
+
+
+def simple_sentiment_score(text):
+    words = set(w.strip(".,!?;:'\"").lower() for w in text.split())
+    pos = len(words & POSITIVE_WORDS)
+    neg = len(words & NEGATIVE_WORDS)
+    if pos + neg == 0:
+        return 0.5  # neutral default: no recognized sentiment-bearing words
+    return pos / (pos + neg)
+
+
+@st.cache_data
+def load_health_with_metadata():
+    health = pd.read_csv("store_health_scores.csv")
+    store_meta = pd.read_csv("store.csv", usecols=["Store", "StoreType", "Assortment", "CompetitionDistance"])
+    return health.merge(store_meta, on="Store", how="left")
+
+
+# ---------------------------------------------------------------
 # Streamlit UI
 # ---------------------------------------------------------------
 st.title("📈 Sales Forecast & Trend Explorer")
@@ -311,12 +372,31 @@ the app:
 It answers *"what patterns exist in this data?"* — a first step before
 anyone would build a forecasting model on it, which is exactly the kind of
 exploration Tab 1's model was originally built on top of.
+
+#### 📊 Tab 3 — Store Health
+Combines three independent signals into one 0-100 score per store:
+forecast reliability (how low the XGBoost model's error is on that
+store's held-out days), anomaly rate (how often an LSTM Autoencoder
+flags irregular sales days), and review sentiment (**synthetic** — the
+Rossmann dataset has no real customer reviews). Forecast reliability is
+weighted highest, since an unpredictable store is an operational risk
+regardless of the underlying cause.
+
+#### 🔮 Tab 4 — What-If: New Store Simulator
+Projects a Store Health Score for a **hypothetical** store that has no
+sales history yet. Forecast reliability and anomaly rate are estimated
+from existing stores sharing the entered StoreType and a similar
+CompetitionDistance — an approximation, not a guarantee. Review
+sentiment for the entered sample text is scored by a lightweight keyword
+matcher (not the transformer model Tab 3's underlying data uses), so the
+live simulator stays fast and doesn't add memory overhead to the
+deployed app.
 """)
 
 st.divider()
 
-tab_forecast, tab_upload, tab_health = st.tabs(
-    ["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data", "📊 Store Health"]
+tab_forecast, tab_upload, tab_health, tab_whatif = st.tabs(
+    ["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data", "📊 Store Health", "🔮 What-If: New Store Simulator"]
 )
 
 # =================================================================
@@ -645,3 +725,83 @@ with tab_health:
     plt.xticks(rotation=45)
     plt.tight_layout()
     st.pyplot(fig_h)
+
+# =================================================================
+# TAB 4 — What-If: New Store Simulator
+# =================================================================
+with tab_whatif:
+    st.subheader("What-If: New Store Simulator")
+    st.caption(
+        "Project a Store Health Score for a hypothetical store that doesn't exist yet — "
+        "useful for \"should we open a store here\" questions. A new store has no sales "
+        "history, so forecast reliability and anomaly rate are estimated from existing "
+        "stores with similar characteristics, not calculated directly."
+    )
+
+    wi_col1, wi_col2 = st.columns(2)
+    with wi_col1:
+        wi_store_type = st.selectbox("Store Type", ["a", "b", "c", "d"], key="wi_store_type")
+        wi_assortment = st.selectbox("Assortment Level", ["a", "b", "c"], key="wi_assortment")
+    with wi_col2:
+        wi_competition_distance = st.number_input(
+            "Competition Distance (meters)", min_value=0, max_value=50000, value=1000, step=100,
+            key="wi_competition_distance",
+        )
+        wi_promo2 = st.checkbox("Will run Promo2 (recurring promotion)?", key="wi_promo2")
+
+    wi_review_text = st.text_area(
+        "Sample customer review text (simulates expected sentiment)",
+        placeholder="e.g. Friendly staff, always well stocked, but a bit expensive.",
+        key="wi_review_text",
+    )
+
+    if st.button("Run Simulation", type="primary"):
+        health_meta = load_health_with_metadata()
+
+        # Comparable stores: same StoreType, CompetitionDistance within a
+        # tolerance band. If too few match, widen to the nearest N by
+        # distance within the same StoreType instead of failing outright.
+        same_type = health_meta[health_meta["StoreType"] == wi_store_type]
+        tolerance = 1000
+        similar = same_type[(same_type["CompetitionDistance"] - wi_competition_distance).abs() <= tolerance]
+        if len(similar) < 5 and len(same_type) > 0:
+            similar = same_type.assign(
+                _dist_diff=(same_type["CompetitionDistance"] - wi_competition_distance).abs()
+            ).nsmallest(12, "_dist_diff")
+        if len(similar) == 0:
+            similar = health_meta  # ultimate fallback: chain-wide average
+
+        est_mape = float(similar["forecast_mape"].median())
+        est_anomaly_rate = float(similar["anomaly_rate"].median())
+        sentiment_score = simple_sentiment_score(wi_review_text) if wi_review_text.strip() else 0.5
+
+        st.caption(
+            f"Estimated based on {len(similar)} existing store(s) with StoreType='{wi_store_type}' "
+            f"and similar CompetitionDistance."
+        )
+
+        projected_score = combine_store_score(est_mape, est_anomaly_rate, sentiment_score)
+        projected_tier = assign_tier(projected_score)
+        proj_color = TIER_COLORS.get(projected_tier, TEXT_LIGHT)
+
+        st.markdown(
+            f"<div style='display:flex; align-items:baseline; gap:16px; margin-top:8px;'>"
+            f"<span style='font-size:64px; font-weight:700; color:{proj_color};'>{projected_score:.0f}</span>"
+            f"<span style='font-size:20px; color:{TEXT_LIGHT};'>/ 100 (projected)</span>"
+            f"<span style='background:{proj_color}; color:{BG_DARK}; padding:4px 14px; "
+            f"border-radius:14px; font-weight:600; font-size:14px;'>{projected_tier}</span>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
+
+        w1, w2, w3 = st.columns(3)
+        w1.metric("Est. Forecast Reliability", f"{max(0.0, 100 - est_mape * 2):.0f}/100",
+                   help=f"Estimated MAPE from comparable stores: {est_mape:.1f}%")
+        w2.metric("Est. Anomaly Rate", f"{est_anomaly_rate * 100:.1f}%")
+        w3.metric("Review Sentiment", f"{sentiment_score * 100:.0f}/100",
+                   help="Scored by a lightweight keyword matcher, not a full ML model")
+
+        st.warning(
+            "⚠️ This is a projection based on similar existing stores, not a guarantee — "
+            "this hypothetical store has no actual sales history yet."
+        )
