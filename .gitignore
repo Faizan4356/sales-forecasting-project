@@ -10,11 +10,15 @@ train_features.csv
 
 # Sales Intelligence Platform intermediate artifacts (large / regenerable
 # from train_anomaly_model.py, generate_and_analyze_reviews.py --
-# store_health_scores.csv IS committed since app.py reads it directly)
+# store_health_scores.csv and portfolio_forecast.csv ARE committed since
+# app.py reads them directly; store_health_scores_previous.csv IS
+# committed too since generate_weekly_alert.py's week-over-week
+# tier-drop comparison needs a persistent baseline across runs)
 anomaly_model.pt
 anomaly_threshold.joblib
 anomaly_flags.csv
 store_review_scores.csv
+weekly_alert_report.md
 
 # Python
 __pycache__/

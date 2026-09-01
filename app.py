@@ -5,18 +5,22 @@ see historical sales + XGBoost forecast on one chart.
 
 Run with:  streamlit run app.py
 
-Requires train.csv (raw Kaggle file) in the same folder. The app rebuilds
-cleaning + features + model itself so it's self-contained and doesn't
-depend on having run Phases 1-5 as separate scripts first. (store.csv is
-kept in the repo for the phase2/phase4 scripts but isn't read by this app
--- none of its columns are used in FEATURE_COLS.)
+Requires train.csv and store.csv (raw Kaggle files) in the same folder,
+plus store_health_scores.csv (output of combine_store_health.py). The app
+rebuilds cleaning + features + the point-forecast model itself so it's
+self-contained and doesn't depend on having run Phases 1-5 as separate
+scripts first. store.csv is only read by the What-If Simulator tab (for
+StoreType/CompetitionDistance) -- FEATURE_COLS still doesn't use any of
+its columns for the forecast model itself.
 """
 
 import pandas as pd
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import xgboost as xgb
+import shap
 
 st.set_page_config(page_title="Sales Forecast", layout="wide", page_icon="📈")
 
@@ -146,19 +150,29 @@ def add_lag_roll_features(df):
     return df
 
 
-@st.cache_resource
-def train_model(df):
+@st.cache_data
+def build_training_matrix(df):
+    """
+    Feature engineering, done ONCE and cached, then reused by both
+    train_model and train_quantile_models below. Three separate XGBoost
+    models (point + 10th/90th percentile) each independently recomputing
+    add_calendar_features/add_lag_roll_features on the full ~1M-row
+    dataframe would triple both compute time and peak memory for no
+    benefit, since all three train on identical X/y -- exactly the kind
+    of redundant allocation the earlier memory-crash fix was about
+    eliminating.
+    """
     feat = add_calendar_features(df)
     feat = add_lag_roll_features(feat)
     feat = feat[feat["Open"] == 1].dropna(subset=FEATURE_COLS + ["Sales"])
-
-    # Downcast the feature matrix to float32 -- XGBoost trains just as well
-    # on it and it's half the memory of pandas' default float64, which
-    # matters directly against the platform's ~1GB cap.
     X = feat[FEATURE_COLS].astype("float32")
     y = feat["Sales"].astype("float32")
-    del feat  # drop the larger intermediate frame before fit() allocates its own copies
+    return X, y
 
+
+@st.cache_resource
+def train_model(df):
+    X, y = build_training_matrix(df)
     model = xgb.XGBRegressor(
         n_estimators=150, max_depth=5, learning_rate=0.08,
         subsample=0.8, colsample_bytree=0.8, random_state=42,
@@ -166,6 +180,27 @@ def train_model(df):
     )
     model.fit(X, y)
     return model
+
+
+@st.cache_resource
+def train_quantile_models(df):
+    """
+    Trains two extra XGBoost models at the 10th and 90th percentiles
+    (native XGBoost quantile regression, objective="reg:quantileerror")
+    to produce a prediction INTERVAL alongside the point forecast, rather
+    than a single number that implies false precision. Trained on the
+    exact same X/y as the point model (via the shared, cached
+    build_training_matrix) for consistency and to avoid recomputing
+    features a second time.
+    """
+    X, y = build_training_matrix(df)
+    common = dict(n_estimators=150, max_depth=5, learning_rate=0.08,
+                   subsample=0.8, colsample_bytree=0.8, random_state=42, tree_method="hist")
+    model_lo = xgb.XGBRegressor(objective="reg:quantileerror", quantile_alpha=0.10, **common)
+    model_hi = xgb.XGBRegressor(objective="reg:quantileerror", quantile_alpha=0.90, **common)
+    model_lo.fit(X, y)
+    model_hi.fit(X, y)
+    return model_lo, model_hi
 
 
 # ---------------------------------------------------------------
@@ -180,7 +215,16 @@ def train_model(df):
 # for one-step-ahead prediction, but note that errors can compound the
 # further out the horizon goes (day 30's forecast rests partly on 29
 # earlier predictions, not ground truth).
-def recursive_forecast(model, store_history, horizon_days):
+def recursive_forecast(model, store_history, horizon_days, quantile_models=None):
+    """
+    Returns (forecast_df, X_forecast):
+      - forecast_df: Date, Predicted_Sales, Open, and (if quantile_models
+        given) Predicted_Sales_Lower/Upper for the 10th/90th percentile band.
+      - X_forecast: the FEATURE_COLS row used for each OPEN forecasted day,
+        in order -- exposed so a SHAP explainer can be run on the exact
+        inputs that produced these predictions (used by the "Why this
+        forecast?" panel), without recomputing feature engineering twice.
+    """
     history = store_history.sort_values("Date").copy()
     last_date = history["Date"].max()
     future_dates = pd.date_range(last_date + pd.Timedelta(days=1), periods=horizon_days, freq="D")
@@ -195,6 +239,7 @@ def recursive_forecast(model, store_history, horizon_days):
 
     working = history[["Store", "Date", "Sales", "Open", "Promo", "StateHoliday", "SchoolHoliday"]].copy()
     predictions = []
+    feature_rows = []
 
     for future_date in future_dates:
         dow = future_date.dayofweek
@@ -218,18 +263,41 @@ def recursive_forecast(model, store_history, horizon_days):
         }])
         working = pd.concat([working, new_row], ignore_index=True)
 
+        pred_lo = pred_hi = None
         if is_open:
             feat = add_calendar_features(working)
             feat = add_lag_roll_features(feat)
             row = feat.iloc[[-1]]
             pred = max(0.0, model.predict(row[FEATURE_COLS])[0])
             working.loc[working.index[-1], "Sales"] = pred
+            feature_rows.append(row[FEATURE_COLS])
+
+            if quantile_models is not None:
+                model_lo, model_hi = quantile_models
+                # Quantile models score the SAME feature row as the point
+                # model (built from the median trajectory), not independent
+                # quantile paths -- a documented simplification. It keeps
+                # the interval anchored to a single self-consistent
+                # forecast path instead of requiring 3x the recursive
+                # rollouts, at the cost of the band not fully reflecting
+                # uncertainty that would compound differently at each
+                # quantile over a multi-day horizon.
+                pred_lo = max(0.0, model_lo.predict(row[FEATURE_COLS])[0])
+                pred_hi = max(pred_lo, model_hi.predict(row[FEATURE_COLS])[0])
         else:
             pred = 0.0
+            if quantile_models is not None:
+                pred_lo = pred_hi = 0.0
 
-        predictions.append({"Date": future_date, "Predicted_Sales": pred, "Open": is_open})
+        pred_row = {"Date": future_date, "Predicted_Sales": pred, "Open": is_open}
+        if quantile_models is not None:
+            pred_row["Predicted_Sales_Lower"] = pred_lo
+            pred_row["Predicted_Sales_Upper"] = pred_hi
+        predictions.append(pred_row)
 
-    return pd.DataFrame(predictions)
+    forecast_df = pd.DataFrame(predictions)
+    X_forecast = pd.concat(feature_rows, ignore_index=True) if feature_rows else pd.DataFrame(columns=FEATURE_COLS)
+    return forecast_df, X_forecast
 
 
 # ---------------------------------------------------------------
@@ -391,12 +459,22 @@ sentiment for the entered sample text is scored by a lightweight keyword
 matcher (not the transformer model Tab 3's underlying data uses), so the
 live simulator stays fast and doesn't add memory overhead to the
 deployed app.
+
+#### 🗺️ Tab 5 — Portfolio Overview
+Zooms out to all 1,115 stores at once — a chain-wide view for "where should
+I focus this week?" instead of inspecting one store at a time. Precomputed
+offline (forecasting every store live was measured at ~11 minutes, too slow
+for a tab), so this reads `portfolio_forecast.csv` directly. **Read the
+warning banner on that tab** — the % change figures compare against a
+period with a very different school-holiday rate than the forecast assumes,
+so treat them as a rough signal, not a precise number.
 """)
 
 st.divider()
 
-tab_forecast, tab_upload, tab_health, tab_whatif = st.tabs(
-    ["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data", "📊 Store Health", "🔮 What-If: New Store Simulator"]
+tab_forecast, tab_upload, tab_health, tab_whatif, tab_portfolio = st.tabs(
+    ["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data", "📊 Store Health",
+     "🔮 What-If: New Store Simulator", "🗺️ Portfolio Overview"]
 )
 
 # =================================================================
@@ -421,17 +499,91 @@ with tab_forecast:
 
     with st.spinner("Training model (cached after first run)..."):
         model = train_model(data)
+        model_lo, model_hi = train_quantile_models(data)
 
     store_history = data[data["Store"] == selected_store].sort_values("Date")
 
+    # Cache the forecast in session_state, keyed by (store, horizon), so
+    # widgets rendered AFTER this point (like the staffing-ratio input
+    # below) can be changed without needing to re-click "Generate
+    # Forecast" -- any other widget change triggers a Streamlit rerun,
+    # and st.button() only evaluates True on the actual click event, so
+    # without this the whole results section would vanish the moment the
+    # ratio slider moved.
+    forecast_key = (selected_store, horizon)
     if st.button("Generate Forecast", type="primary"):
         with st.spinner(f"Forecasting next {horizon} days for Store {selected_store}..."):
-            forecast_df = recursive_forecast(model, store_history, horizon)
+            forecast_df, X_forecast = recursive_forecast(
+                model, store_history, horizon, quantile_models=(model_lo, model_hi)
+            )
+        st.session_state["tab1_forecast"] = (forecast_df, X_forecast, forecast_key)
 
+    cached = st.session_state.get("tab1_forecast")
+    if cached is not None and cached[2] == forecast_key:
+        forecast_df, X_forecast, _ = cached
         open_days = forecast_df[forecast_df["Open"] == 1]
         closed_days = forecast_df[forecast_df["Open"] == 0]
 
-        # KPI cards for a quick read before looking at the chart
+        # =========================================================
+        # Business Impact — translate the raw forecast into decision-
+        # relevant language, shown ABOVE the chart since that's what a
+        # store manager actually needs first.
+        # =========================================================
+        st.markdown("### 💼 Business Impact")
+
+        forecast_total = open_days["Predicted_Sales"].sum()
+        prev_period = store_history.tail(horizon)
+        prev_total = prev_period["Sales"].sum()
+        period_pct_change = (forecast_total - prev_total) / prev_total * 100 if prev_total else 0.0
+
+        bi1, bi2, bi3 = st.columns(3)
+        bi1.metric(f"Forecasted total ({horizon}d)", f"{forecast_total:,.0f}",
+                   f"{period_pct_change:+.1f}% vs prior {horizon}d")
+
+        staff_ratio = st.number_input(
+            "Units per staff member (editable)", min_value=50, max_value=5000,
+            value=500, step=50, key="staff_ratio",
+            help="Adjust to your own staffing rule of thumb; suggested staffing recalculates live.",
+        )
+        avg_daily_forecast = open_days["Predicted_Sales"].mean() if len(open_days) else 0.0
+        suggested_staff = int(np.ceil(avg_daily_forecast / staff_ratio)) if staff_ratio else 0
+        bi2.metric("Suggested staffing (avg day)", f"{suggested_staff} staff",
+                   help=f"= avg daily forecast ({avg_daily_forecast:,.0f}) / {staff_ratio} units per staff")
+        bi3.metric("Suggested inventory order", f"{forecast_total:,.0f} units",
+                   help=f"Sum of forecasted demand across all {horizon} days")
+
+        # Flag days whose forecast is unusually high/low vs. this store's
+        # own typical pattern for that weekday (not vs. a generic average
+        # -- Monday always looks different from Wednesday, that's not an
+        # anomaly, so the comparison has to be weekday-specific).
+        weekday_avg = (
+            store_history[store_history["Open"] == 1]
+            .assign(dow=store_history["Date"].dt.dayofweek)
+            .groupby("dow")["Sales"].mean()
+        )
+        flagged = []
+        for i, (_, row) in enumerate(open_days.iterrows()):
+            typical = weekday_avg.get(row["Date"].dayofweek, np.nan)
+            if pd.isna(typical) or typical <= 0:
+                continue
+            diff_pct = (row["Predicted_Sales"] - typical) / typical * 100
+            if abs(diff_pct) < 25:
+                continue
+            reason = "unusually high demand expected" if diff_pct > 0 else "unusually low demand expected"
+            if i < len(X_forecast):
+                feat_row = X_forecast.iloc[i]
+                if feat_row.get("is_holiday", 0) == 1:
+                    reason = "likely holiday effect"
+                elif feat_row.get("Promo", 0) == 1 and diff_pct > 0:
+                    reason = "active promo likely driving higher sales"
+            flagged.append(f"**{row['Date'].strftime('%b %d')}** forecast is {diff_pct:+.0f}% vs. typical "
+                            f"{row['Date'].strftime('%A')} — {reason}")
+        if flagged:
+            st.markdown("\n".join(f"- {line}" for line in flagged[:5]))
+
+        # =========================================================
+        # KPI cards
+        # =========================================================
         m1, m2, m3, m4 = st.columns(4)
         m1.metric("Avg forecast (open days)", f"{open_days['Predicted_Sales'].mean():,.0f}"
                    if len(open_days) else "—")
@@ -444,36 +596,97 @@ with tab_forecast:
         )
         m4.metric("vs last 30-day avg", f"{delta_pct:+.1f}%")
 
-        # Plot: last 90 days of actual history + forecast, dark theme palette
+        # =========================================================
+        # Signature interaction: Plotly chart with a shaded 80%
+        # confidence band, kept at a stable `key` so Streamlit updates
+        # the SAME chart in place (Plotly.react) rather than replacing
+        # it -- combined with layout.transition, changing the horizon
+        # animates the forecast line smoothly extending/retracting
+        # instead of the chart instantly redrawing.
+        # =========================================================
         history_window = store_history.tail(90)
 
-        fig, ax = plt.subplots(figsize=(14, 6))
-        ax.plot(history_window["Date"], history_window["Sales"],
-                label="Historical Sales", color=COLOR_ACTUAL, linewidth=2)
-        ax.plot(open_days["Date"], open_days["Predicted_Sales"],
-                label=f"Forecast (next {horizon} days)", color=COLOR_FORECAST,
-                linestyle="--", marker="o", markersize=5, linewidth=2)
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(
+            x=history_window["Date"], y=history_window["Sales"],
+            mode="lines", name="Historical Sales",
+            line=dict(color=COLOR_ACTUAL, width=2),
+        ))
+        if len(open_days) and "Predicted_Sales_Upper" in open_days.columns:
+            band_x = list(open_days["Date"]) + list(open_days["Date"][::-1])
+            band_y = list(open_days["Predicted_Sales_Upper"]) + list(open_days["Predicted_Sales_Lower"][::-1])
+            fig.add_trace(go.Scatter(
+                x=band_x, y=band_y, fill="toself", fillcolor="rgba(255,176,32,0.15)",
+                line=dict(color="rgba(0,0,0,0)"), name="80% interval", hoverinfo="skip",
+            ))
+        fig.add_trace(go.Scatter(
+            x=open_days["Date"], y=open_days["Predicted_Sales"],
+            mode="lines+markers", name=f"Forecast (next {horizon} days)",
+            line=dict(color=COLOR_FORECAST, width=2, dash="dash"), marker=dict(size=6),
+        ))
         if len(closed_days):
-            ax.scatter(closed_days["Date"], closed_days["Predicted_Sales"],
-                        label="Predicted closed", color=COLOR_CLOSED, marker="x", s=60, zorder=5)
-        ax.axvline(history_window["Date"].max(), color=COLOR_ACCENT, linestyle=":", linewidth=1.5)
-        ax.set_title(f"Store {selected_store} — Historical Sales & {horizon}-Day Forecast", color=TEXT_LIGHT)
-        ax.set_xlabel("Date")
-        ax.set_ylabel("Sales")
-        ax.legend(loc="upper left")
-        ax.grid(alpha=0.25)
-        plt.xticks(rotation=45)
-        plt.tight_layout()
+            fig.add_trace(go.Scatter(
+                x=closed_days["Date"], y=closed_days["Predicted_Sales"],
+                mode="markers", name="Predicted closed",
+                marker=dict(color=COLOR_CLOSED, symbol="x", size=10),
+            ))
+        fig.update_layout(
+            template="plotly_dark",
+            paper_bgcolor=BG_DARK, plot_bgcolor=PANEL_DARK,
+            font=dict(color=TEXT_LIGHT),
+            title=f"Store {selected_store} — Historical Sales & {horizon}-Day Forecast",
+            xaxis_title="Date", yaxis_title="Sales",
+            legend=dict(x=0.01, y=0.99),
+            margin=dict(t=60, b=40),
+            transition=dict(duration=600, easing="cubic-in-out"),
+        )
+        st.plotly_chart(fig, use_container_width=True, key="tab1_forecast_chart")
+        st.caption(
+            "Shaded band = 80% prediction interval (10th-90th percentile quantile models) — "
+            "actual sales are expected to fall in this range 80% of the time."
+        )
 
-        st.pyplot(fig)
+        # =========================================================
+        # "Why this forecast?" — SHAP explainability
+        # =========================================================
+        with st.expander("🔍 Why this forecast?"):
+            if len(X_forecast) == 0:
+                st.info("No open forecasted days to explain (store predicted closed for the full horizon).")
+            else:
+                explainer = shap.TreeExplainer(model)
+                shap_values = explainer.shap_values(X_forecast)
+                mean_signed = shap_values.mean(axis=0)
+                top_idx = np.argsort(np.abs(mean_signed))[-5:][::-1]
+
+                shap_df = pd.DataFrame({
+                    "feature": [FEATURE_COLS[i] for i in top_idx],
+                    "contribution": [mean_signed[i] for i in top_idx],
+                }).sort_values("contribution")
+
+                fig_shap, ax_shap = plt.subplots(figsize=(8, 4))
+                bar_colors = [COLOR_ACTUAL if v >= 0 else COLOR_CLOSED for v in shap_df["contribution"]]
+                ax_shap.barh(shap_df["feature"], shap_df["contribution"], color=bar_colors)
+                ax_shap.set_xlabel("Avg. contribution to forecast (sales units)")
+                ax_shap.set_title(f"Top drivers of Store {selected_store}'s forecast", color=TEXT_LIGHT)
+                ax_shap.axvline(0, color=GRID_COLOR, linewidth=1)
+                ax_shap.grid(alpha=0.25, axis="x")
+                plt.tight_layout()
+                st.pyplot(fig_shap)
+                plt.close(fig_shap)
+                st.caption(
+                    "Positive bars push the forecast higher than the model's baseline; negative bars pull "
+                    "it lower. Averaged (SHAP values) across all open days in the selected horizon."
+                )
 
         st.subheader("Forecast values")
-        display_df = forecast_df.rename(
-            columns={"Predicted_Sales": "Predicted Sales", "Open": "Store Open"}
-        )
+        display_cols = {"Predicted_Sales": "Predicted Sales", "Open": "Store Open"}
+        if "Predicted_Sales_Lower" in forecast_df.columns:
+            display_cols["Predicted_Sales_Lower"] = "80% Interval Low"
+            display_cols["Predicted_Sales_Upper"] = "80% Interval High"
+        display_df = forecast_df.rename(columns=display_cols)
         display_df["Store Open"] = display_df["Store Open"].map({1: "Yes", 0: "No (closed)"})
         st.dataframe(
-            display_df.style.format({"Predicted Sales": "{:.0f}"}),
+            display_df.style.format({c: "{:.0f}" for c in display_cols.values() if c != "Store Open"}),
             use_container_width=True,
         )
     else:
@@ -485,6 +698,7 @@ with tab_forecast:
         ax.grid(alpha=0.25)
         plt.tight_layout()
         st.pyplot(fig)
+        plt.close(fig)
 
 # =================================================================
 # TAB 2 — upload any CSV, auto-explore trends/seasonality
@@ -570,6 +784,7 @@ with tab_upload:
         plt.xticks(rotation=45)
         plt.tight_layout()
         st.pyplot(fig1)
+        plt.close(fig1)
 
         # --- Weekly & monthly seasonality (only meaningful if data spans enough time) ---
         st.markdown("#### Seasonality patterns")
@@ -593,6 +808,7 @@ with tab_upload:
             ax2.grid(alpha=0.25, axis="y")
             plt.tight_layout()
             st.pyplot(fig2)
+            plt.close(fig2)
 
         with seas_col2:
             if len(monthly_avg_u) >= 2:
@@ -604,6 +820,7 @@ with tab_upload:
                 ax3.grid(alpha=0.25, axis="y")
                 plt.tight_layout()
                 st.pyplot(fig3)
+                plt.close(fig3)
             else:
                 st.info("Not enough distinct months in this data to show monthly seasonality.")
 
@@ -616,6 +833,7 @@ with tab_upload:
         ax4.grid(alpha=0.25)
         plt.tight_layout()
         st.pyplot(fig4)
+        plt.close(fig4)
 
         with st.expander("View cleaned data used for these charts"):
             st.dataframe(df_u, use_container_width=True)
@@ -667,6 +885,7 @@ with tab_health:
         ax_ov.grid(alpha=0.25, axis="y")
         plt.tight_layout()
         st.pyplot(fig_ov)
+        plt.close(fig_ov)
 
     st.divider()
 
@@ -706,7 +925,7 @@ with tab_health:
     # --- Same forecast chart as Tab 1, for this store, for context ---
     st.markdown(f"#### Forecast context for Store {health_selected_store}")
     health_store_history = data[data["Store"] == health_selected_store].sort_values("Date")
-    health_forecast_df = recursive_forecast(model, health_store_history, 14)
+    health_forecast_df, _ = recursive_forecast(model, health_store_history, 14)
     health_open = health_forecast_df[health_forecast_df["Open"] == 1]
     health_closed = health_forecast_df[health_forecast_df["Open"] == 0]
 
@@ -725,6 +944,7 @@ with tab_health:
     plt.xticks(rotation=45)
     plt.tight_layout()
     st.pyplot(fig_h)
+    plt.close(fig_h)
 
 # =================================================================
 # TAB 4 — What-If: New Store Simulator
@@ -805,3 +1025,102 @@ with tab_whatif:
             "⚠️ This is a projection based on similar existing stores, not a guarantee — "
             "this hypothetical store has no actual sales history yet."
         )
+
+# =================================================================
+# TAB 5 — Portfolio Overview (chain-wide, all stores at once)
+# =================================================================
+with tab_portfolio:
+    st.subheader("Portfolio Overview")
+    st.caption(
+        "All 1,115 stores at once — answers \"where should I focus this week?\" without "
+        "clicking into individual stores. Precomputed offline (`generate_portfolio_forecast.py`) "
+        "since forecasting all stores live was measured at ~11 minutes — too slow for a Streamlit tab."
+    )
+
+    try:
+        portfolio = pd.read_csv("portfolio_forecast.csv")
+    except FileNotFoundError:
+        st.warning("`portfolio_forecast.csv` not found. Run `generate_portfolio_forecast.py` first.")
+        st.stop()
+
+    st.warning(
+        "⚠️ **Read this before trusting the % change column**: the forecast assumes no "
+        "`SchoolHoliday` on any future day (it isn't knowable in advance), but the prior-period "
+        "actuals it's compared against had a 58-84% SchoolHoliday rate for this specific date "
+        "range (German summer school holidays). That mismatch alone plausibly explains most of "
+        "the uniform decline you'll see below — treat `pct_change` as a rough signal, not a "
+        "clean apples-to-apples comparison, until a real forward holiday calendar is added."
+    )
+
+    # --- Chain-wide summary ---
+    total_forecast = portfolio["forecast_7d_total"].sum()
+    tier_counts_p = portfolio["health_tier"].value_counts()
+    best_store = portfolio.loc[portfolio["pct_change"].idxmax()]
+    worst_store = portfolio.loc[portfolio["pct_change"].idxmin()]
+
+    p1, p2, p3, p4 = st.columns(4)
+    p1.metric("Chain-wide forecast (7d)", f"{total_forecast:,.0f}")
+    p2.metric("Needs Attention stores", int(tier_counts_p.get("Needs Attention", 0)))
+    p3.metric("Best this week", f"Store {int(best_store['Store'])}", f"{best_store['pct_change']:+.1f}%")
+    p4.metric("Worst this week", f"Store {int(worst_store['Store'])}", f"{worst_store['pct_change']:+.1f}%")
+
+    st.divider()
+
+    # --- Filters ---
+    st.markdown("#### Filters")
+    f1, f2 = st.columns(2)
+    with f1:
+        store_types = sorted(portfolio["StoreType"].dropna().unique())
+        selected_types = st.multiselect("StoreType", store_types, default=store_types)
+    with f2:
+        min_dist, max_dist = int(portfolio["CompetitionDistance"].min()), int(portfolio["CompetitionDistance"].max())
+        dist_range = st.slider("CompetitionDistance range (meters)", min_dist, max_dist, (min_dist, max_dist))
+
+    filtered = portfolio[
+        portfolio["StoreType"].isin(selected_types)
+        & portfolio["CompetitionDistance"].between(*dist_range)
+    ]
+    st.caption(f"Showing {len(filtered)} of {len(portfolio)} stores")
+
+    # --- Top/bottom 10 by forecasted growth ---
+    st.markdown("#### Top 10 / Bottom 10 by forecasted growth")
+    top10 = filtered.nlargest(10, "pct_change")
+    bottom10 = filtered.nsmallest(10, "pct_change")
+
+    fig_p, (ax_top, ax_bot) = plt.subplots(1, 2, figsize=(14, 5))
+    ax_top.barh(top10["Store"].astype(str), top10["pct_change"], color=COLOR_ACTUAL)
+    ax_top.set_title("Top 10 (best % change)", color=TEXT_LIGHT)
+    ax_top.set_xlabel("% change vs prior 7d")
+    ax_top.invert_yaxis()
+    ax_top.grid(alpha=0.25, axis="x")
+
+    ax_bot.barh(bottom10["Store"].astype(str), bottom10["pct_change"], color=COLOR_CLOSED)
+    ax_bot.set_title("Bottom 10 (worst % change)", color=TEXT_LIGHT)
+    ax_bot.set_xlabel("% change vs prior 7d")
+    ax_bot.invert_yaxis()
+    ax_bot.grid(alpha=0.25, axis="x")
+
+    plt.tight_layout()
+    st.pyplot(fig_p)
+    plt.close(fig_p)
+
+    # --- Sortable full table ---
+    st.markdown("#### All stores")
+    table_display = filtered[[
+        "Store", "health_tier", "StoreType", "CompetitionDistance",
+        "forecast_7d_total", "prev_7d_actual", "pct_change",
+    ]].rename(columns={
+        "health_tier": "Health Tier", "StoreType": "Store Type",
+        "CompetitionDistance": "Competition Dist. (m)",
+        "forecast_7d_total": "Forecast (7d)", "prev_7d_actual": "Prior Actual (7d)",
+        "pct_change": "% Change",
+    }).sort_values("% Change", ascending=False)
+
+    st.dataframe(
+        table_display.style.format({
+            "Forecast (7d)": "{:,.0f}", "Prior Actual (7d)": "{:,.0f}",
+            "% Change": "{:+.1f}%", "Competition Dist. (m)": "{:,.0f}",
+        }),
+        use_container_width=True,
+        height=400,
+    )

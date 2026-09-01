@@ -1,0 +1,1116 @@
+Store,forecast_mape,anomaly_rate,anomaly_count_90d,avg_sentiment,dominant_theme,health_score,tier,explanation
+1,7.339208316669746,0.0,0,0.445560896396637,Staff,81.6,Performing Well,Forecasts are reliable.
+2,10.693718908317472,0.0,0,0.5922318816184997,Pricing,81.2,Performing Well,Forecasts are moderately reliable.
+3,7.613826440807495,0.0,0,0.9930956562360128,Staff,92.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+4,8.884719625963037,0.0666666666666666,5,0.3340668082237243,Pricing,69.8,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+5,10.093427461618418,0.0,0,0.5566034615039825,Staff,81.0,Performing Well,Forecasts are moderately reliable.
+6,7.241822893142288,0.0133333333333333,1,0.2003592371940613,Stock Availability,75.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+7,8.496537320282979,0.0133333333333333,1,0.7495559006929398,Pricing,84.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+8,7.83319882105903,0.0666666666666666,5,0.6666812698046366,Cleanliness,77.5,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+9,8.811619313584947,0.0405405405405405,3,0.2524500886599223,Cleanliness,71.4,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+10,11.838492195878388,0.04,3,0.5923604965209961,Pricing,75.2,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter."
+11,9.257210680382697,0.0,0,0.5889028072357178,Staff,82.5,Performing Well,Forecasts are reliable.
+12,10.171860394611873,0.0133333333333333,1,0.5568686574697495,Stock Availability,79.4,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+13,15.69915732907314,0.0135135135135135,1,0.2456347465515136,Stock Availability,67.6,Monitor,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+14,6.100259532544095,0.0945945945945946,7,0.333154817422231,Pricing,69.2,Monitor,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+15,7.330838495042722,0.0,0,0.666573146979014,Staff,86.0,Performing Well,Forecasts are reliable.
+16,7.5373337638212385,0.0135135135135135,1,0.5954028964042664,Cleanliness,82.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+17,10.043574157385438,0.0133333333333333,1,0.739981472492218,Cleanliness,83.2,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+18,7.517381784079288,0.08,6,0.33835502465566,Staff,69.6,Monitor,"Forecasts are reliable, but 6 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+19,7.245518518619469,0.027027027027027,2,0.3272519508997599,Cleanliness,76.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+20,10.098627760736534,0.0,0,0.4344020634889602,Cleanliness,78.6,Performing Well,Forecasts are moderately reliable.
+21,9.977685986708446,0.0,0,0.0757485032081604,Cleanliness,71.5,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+22,9.255207170751872,0.0405405405405405,3,0.3951749086380005,Staff,73.8,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+23,8.182124361382526,0.0135135135135135,1,0.6028775215148926,Staff,82.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+24,8.356634415742693,0.027027027027027,2,0.6025196790695191,Pricing,80.5,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+25,8.936942380651129,0.0405405405405405,3,0.3065753728151321,Stock Availability,72.3,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+26,9.664818517898905,0.0,0,0.7510023713111877,Pricing,85.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+27,12.158521339173667,0.0135135135135135,1,0.200230860710144,Stock Availability,70.2,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+28,7.428440198857237,0.0,0,0.1930116713047027,Stock Availability,76.4,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+29,10.18334878399418,0.0135135135135135,1,0.000289777914683,Stock Availability,68.2,Monitor,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+30,10.77928018750648,0.0,0,0.9931671222050984,Pricing,89.1,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+31,6.4694140064327295,0.0,0,0.9856641441583632,Pricing,93.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+32,9.373421009150032,0.0135135135135135,1,0.7399450391530991,Pricing,83.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+33,8.633242843908121,0.0,0,0.55644491314888,Stock Availability,82.5,Performing Well,Forecasts are reliable.
+34,7.369590552447722,0.0,0,0.0458352327346801,Pricing,73.5,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+35,10.203670135138504,0.0405405405405405,3,0.999609187245369,Pricing,84.9,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+36,7.429685545404934,0.0,0,0.7476042747497559,Stock Availability,87.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+37,8.295230905570056,0.0,0,0.2538308203220367,Staff,76.8,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+38,7.559957399500542,0.0,0,0.5566673576831818,Stock Availability,83.6,Performing Well,Forecasts are reliable.
+39,7.888172298024977,0.2432432432432432,18,0.0004878282546997,Cleanliness,42.9,Monitor,"Forecasts are reliable, but 18 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+40,11.85461786078558,0.0,0,0.4997525811195373,Staff,78.1,Performing Well,Forecasts are moderately reliable.
+41,10.635647119024144,0.0,0,0.9997281630833944,Cleanliness,89.4,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about cleanliness."
+42,8.849905014171672,0.027027027027027,2,0.0006518959999084,Cleanliness,67.9,Monitor,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+43,7.892224135575347,0.0,0,0.4394408762454986,Staff,80.9,Performing Well,Forecasts are reliable.
+44,7.5635715989444865,0.0133333333333333,1,0.9871142307917276,Cleanliness,90.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+45,7.808337995255717,0.0135135135135135,1,0.5567119866609573,Cleanliness,81.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+46,11.903719686648904,0.0,0,0.3281381924947102,Staff,74.7,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+47,9.371231134493089,0.0533333333333333,4,0.3997138500213623,Pricing,72.2,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+48,7.881117366358409,0.0266666666666666,2,0.5568686574697495,Stock Availability,80.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+49,5.305198674767837,0.054054054054054,4,0.8373867034912109,Pricing,85.0,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+50,9.214529302291044,0.0,0,0.9386227428913116,Cleanliness,89.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+51,8.844754030483946,0.0,0,0.596050763130188,Pricing,83.1,Performing Well,Forecasts are reliable.
+52,7.775573358839035,0.0,0,0.3334644039471944,Cleanliness,78.9,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+53,7.889902434771598,0.0133333333333333,1,0.9945698827505112,Pricing,90.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+54,6.676653931353801,0.0266666666666666,2,0.4453847050666809,Pricing,79.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+55,10.50620011458862,0.0133333333333333,1,0.739739328622818,Pricing,82.7,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+56,8.444561008257041,0.0,0,0.9862420558929444,Pricing,91.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+57,8.730444983290766,0.0,0,0.4000375151634216,Pricing,79.3,Performing Well,Forecasts are reliable.
+58,13.650008530280752,0.0,0,0.40285165309906,Staff,74.4,Performing Well,Forecasts are moderately reliable.
+59,11.602708180594332,0.0666666666666666,5,0.4452019095420837,Staff,69.3,Monitor,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter."
+60,10.34584004654184,0.0,0,0.6668824950853983,Stock Availability,83.0,Performing Well,Forecasts are moderately reliable.
+61,11.952113926666405,0.0405405405405405,3,0.3028471916913986,Stock Availability,69.2,Monitor,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+62,7.496357388256988,0.0405405405405405,3,0.5003305077552795,Pricing,77.6,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+63,8.92111149677061,0.04,3,0.7449827641248703,Pricing,81.2,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+64,5.910870308500546,0.0,0,0.2501664012670517,Stock Availability,79.1,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+65,6.861305374195258,0.0,0,0.7487787902355194,Staff,88.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+66,7.073947517487619,0.027027027027027,2,0.749787375330925,Cleanliness,84.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+67,8.448112723002556,0.0135135135135135,1,0.2501931637525558,Stock Availability,74.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+68,11.857191303663631,0.0266666666666666,2,0.5000376403331757,Cleanliness,74.9,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently."
+69,8.511933704318016,0.0675675675675675,5,0.6666542490323385,Cleanliness,76.7,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+70,7.886134902022768,0.0,0,0.7452275454998016,Cleanliness,87.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+71,5.4608083907356,0.0,0,0.9882516860961914,Cleanliness,94.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+72,11.082647157277073,0.0,0,0.5527191609144211,Stock Availability,80.0,Performing Well,Forecasts are moderately reliable.
+73,7.0874376390457225,0.08,6,0.4090202252070109,Stock Availability,71.5,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+74,9.050546637231902,0.0,0,0.0036449432373046,Staff,71.0,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+75,9.463889034678711,0.0,0,0.3251716097195943,Cleanliness,77.0,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+76,11.888041261843306,0.0,0,0.8064992874860764,Cleanliness,84.2,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about cleanliness."
+77,7.13029756416774,0.0,0,0.4955634176731109,Stock Availability,82.8,Performing Well,Forecasts are reliable.
+78,10.031851093220952,0.0133333333333333,1,0.7497247904539108,Stock Availability,83.4,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+79,7.678380195646948,0.0,0,0.3338833649953206,Stock Availability,79.0,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+80,8.487632457623953,0.054054054054054,4,0.5001072436571121,Pricing,75.0,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+81,7.520022996699735,0.0,0,0.8373545209566752,Stock Availability,89.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+82,8.755208260020046,0.027027027027027,2,0.7417033712069193,Pricing,82.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+83,8.077490917805394,0.0,0,0.2503615021705627,Pricing,76.9,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+84,6.872090828822289,0.0,0,0.799630343914032,Cleanliness,89.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+85,10.349467485192047,0.3888888888888889,35,0.2406001985073089,Staff,44.5,Monitor,"Forecasts are moderately reliable, but 35 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+86,10.670115679744868,0.0,0,0.7838284134864807,Pricing,85.0,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+87,9.541819369263896,0.0,0,0.1517271637916565,Cleanliness,73.5,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+88,7.682458905214435,0.0666666666666666,5,0.2501664012670517,Cleanliness,69.3,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+89,7.970218936380784,0.0,0,0.8373545209566752,Stock Availability,88.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+90,10.014845401481464,0.0,0,0.0010196765263875,Staff,70.0,Monitor,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+91,8.898144949378903,0.0,0,0.6481202443440756,Pricing,84.1,Performing Well,Forecasts are reliable.
+92,9.541471894657162,0.0135135135135135,1,0.9996182521184286,Staff,88.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+93,7.661082759614033,0.0675675675675675,5,0.6027002334594727,Staff,76.3,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+94,6.530358684317814,0.027027027027027,2,0.3335070808728536,Staff,76.9,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+95,5.946882708043084,0.0,0,0.7997068285942077,Pricing,90.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+96,10.94513352318892,0.0533333333333333,4,0.9924413919448852,Cleanliness,82.5,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+97,7.277756398382131,0.0266666666666666,2,0.4061429381370544,Staff,77.6,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+98,8.478273060428556,0.0,0,0.5000206381082535,Cleanliness,81.5,Performing Well,Forecasts are reliable.
+99,8.926482059559259,0.0,0,0.590294082959493,Staff,82.9,Performing Well,Forecasts are reliable.
+100,8.058710679659873,0.0,0,0.6029710173606873,Staff,84.0,Performing Well,Forecasts are reliable.
+101,8.795217977024961,0.0,0,0.4031521081924438,Staff,79.3,Performing Well,Forecasts are reliable.
+102,12.386844061714369,0.0,0,0.3335694273312886,Cleanliness,74.3,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+103,10.119673950081497,0.0,0,0.5993240237236023,Staff,81.9,Performing Well,Forecasts are moderately reliable.
+104,8.382174422913405,0.0,0,0.660209596157074,Stock Availability,84.8,Performing Well,Forecasts are reliable.
+105,8.358679198005333,0.027027027027027,2,0.645285964012146,Staff,81.3,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+106,9.356318380396836,0.0133333333333333,1,0.5962403655052185,Cleanliness,81.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+107,7.909895808929226,0.0133333333333333,1,0.5999145865440368,Staff,82.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+108,7.391159395357703,0.0,0,0.6662633220354716,Stock Availability,85.9,Performing Well,Forecasts are reliable.
+109,9.346618836078214,0.0,0,0.2501022517681122,Cleanliness,75.7,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+110,11.537955904837093,0.0133333333333333,1,0.99477156996727,Staff,86.8,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+111,6.447033410547268,0.0,0,0.3433826764424642,Staff,80.4,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+112,11.697139534497456,0.0266666666666666,2,0.5999361038208008,Staff,77.1,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently."
+113,10.721295131023064,0.0,0,0.7452069669961929,Stock Availability,84.2,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about stock availability."
+114,10.408705103797551,0.0,0,0.6452671885490417,Cleanliness,82.5,Performing Well,Forecasts are moderately reliable.
+115,8.747125976429723,0.0,0,0.600042712688446,Pricing,83.3,Performing Well,Forecasts are reliable.
+116,5.83919065413486,0.0133333333333333,1,0.3338859279950459,Staff,79.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+117,7.257713642866497,0.081081081081081,6,0.5855280955632528,Stock Availability,74.7,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+118,8.536922321690795,0.0,0,0.6667242050170898,Cleanliness,84.8,Performing Well,Forecasts are reliable.
+119,7.135629085160283,0.0133333333333333,1,0.6543494462966919,Cleanliness,84.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+120,9.464310968273654,0.0135135135135135,1,0.6662512818972269,Pricing,82.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+121,9.338762058806712,0.04,3,0.5997608780860901,Staff,77.9,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+122,13.771941113335224,0.5222222222222223,47,0.7996125221252441,Pricing,52.2,Monitor,"Forecasts are moderately reliable, but 47 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+123,7.579852819514069,0.0,0,0.9928249835968016,Stock Availability,92.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+124,13.521719607002764,0.5675675675675675,42,0.3275096416473388,Cleanliness,43.0,Monitor,"Forecasts are moderately reliable, but 42 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+125,8.03097130086118,0.0666666666666666,5,0.6613020300865173,Stock Availability,77.2,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+126,9.756515243887224,0.0,0,0.4028869032859802,Staff,78.3,Performing Well,Forecasts are reliable.
+127,14.338377076104711,0.0,0,0.3924157619476318,Pricing,73.5,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+128,6.883976362043312,0.0,0,0.4002514719963074,Cleanliness,81.1,Performing Well,Forecasts are reliable.
+129,8.25492336507763,0.0,0,0.6661668022473654,Pricing,85.1,Performing Well,Forecasts are reliable.
+130,11.379283801763844,0.0675675675675675,5,0.5003434717655182,Cleanliness,70.5,Performing Well,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter."
+131,10.662048650571885,0.0,0,0.3333001931508382,Pricing,76.0,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+132,6.753642265000617,0.0,0,0.6534907619158427,Pricing,86.3,Performing Well,Forecasts are reliable.
+133,8.087691935312614,0.0,0,0.6666934490203857,Cleanliness,85.2,Performing Well,Forecasts are reliable.
+134,8.649327513757118,0.0666666666666666,5,0.3335765401522318,Pricing,70.0,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+135,8.437477144384822,0.0135135135135135,1,0.5032819658517838,Staff,80.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+136,7.985064694012964,0.0,0,0.397172737121582,Cleanliness,80.0,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+137,11.059807167225832,0.0,0,0.2404994815587997,Pricing,73.8,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+138,7.412184796124024,0.0133333333333333,1,0.7507639288902282,Stock Availability,86.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+139,11.39391646154741,0.0,0,0.9933483203252156,Staff,88.5,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about staff."
+140,8.092801204581447,0.0,0,0.602735698223114,Staff,84.0,Performing Well,Forecasts are reliable.
+141,8.57540122555769,0.0,0,0.151391327381134,Stock Availability,74.5,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+142,7.929123713429428,0.027027027027027,2,0.7420356273651123,Pricing,83.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+143,6.378621666334808,0.0,0,0.0036100268363952,Pricing,73.7,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+144,8.105274747691023,0.0266666666666666,2,0.9996698498725892,Cleanliness,88.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+145,7.563170339614018,0.0,0,0.5520403981208801,Cleanliness,83.5,Performing Well,Forecasts are reliable.
+146,7.012293337518867,0.0,0,0.600012993812561,Staff,85.0,Performing Well,Forecasts are reliable.
+147,7.799057897240572,0.0135135135135135,1,0.4998654574155807,Cleanliness,80.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+148,5.847697212499418,0.0133333333333333,1,0.5998578548431397,Cleanliness,84.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+149,13.658362025208492,0.0,0,0.4032289862632751,Pricing,74.4,Performing Well,Forecasts are moderately reliable.
+150,6.83954783439474,0.0,0,0.9880414724349976,Staff,92.9,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+151,8.11772491940628,0.0,0,0.8060613423585892,Pricing,88.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+152,5.401120706964276,0.0135135135135135,1,0.0006518602371215,Cleanliness,73.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+153,8.551190860815518,0.0135135135135135,1,0.6905877232551575,Stock Availability,83.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+154,7.255165362739595,0.0,0,0.3105069547891617,Cleanliness,79.0,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+155,13.881385192244982,0.0,0,0.3336152036984761,Cleanliness,72.8,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+156,7.809278720211737,0.0666666666666666,5,0.3924973011016845,Pricing,72.0,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+157,6.473876607542412,0.0135135135135135,1,0.7878411293029786,Pricing,87.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+158,7.5050380041870355,0.0135135135135135,1,0.3205288648605346,Pricing,77.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+159,5.271683958465856,0.0,0,0.644885802268982,Stock Availability,87.6,Performing Well,Forecasts are reliable.
+160,7.076954618047621,0.0,0,0.9931419293085734,Stock Availability,92.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+161,7.426583496083882,0.0,0,0.0757752855618794,Stock Availability,74.1,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+162,6.747119840057689,0.0,0,0.653087298075358,Pricing,86.3,Performing Well,Forecasts are reliable.
+163,9.377018109908716,0.0,0,0.7495759874582291,Pricing,85.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+164,9.053882557115228,0.0,0,0.4374340772628784,Pricing,79.7,Performing Well,Forecasts are reliable.
+165,11.33403051190419,0.0,0,0.6532936493555704,Pricing,81.7,Performing Well,Forecasts are moderately reliable.
+166,9.637914463462774,0.0,0,0.9908043444156648,Pricing,90.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+167,6.656572688757152,0.0,0,0.5510485529899597,Pricing,84.4,Performing Well,Forecasts are reliable.
+168,7.223723441957055,0.0135135135135135,1,0.4463253319263458,Staff,80.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+169,7.717255065247122,0.0,0,0.4454884767532349,Cleanliness,81.2,Performing Well,Forecasts are reliable.
+170,10.436435270871344,0.0,0,0.6666987538337708,Cleanliness,82.9,Performing Well,Forecasts are moderately reliable.
+171,7.602029768117094,0.027027027027027,2,0.7442215323448181,Stock Availability,84.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+172,7.537865086526879,0.0,0,0.3993390917778015,Cleanliness,80.4,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+173,8.800326630536484,0.0,0,0.0003384947776794,Cleanliness,71.2,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+174,9.693407792727884,0.0,0,0.5841037432352701,Cleanliness,82.0,Performing Well,Forecasts are reliable.
+175,8.559926887288363,0.0,0,0.9997588843107224,Staff,91.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+176,10.216760044992595,0.0405405405405405,3,0.918196737766266,Staff,83.3,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+177,11.238583470927692,0.0666666666666666,5,0.4963165521621704,Stock Availability,70.7,Performing Well,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter."
+178,7.635266327878977,0.0133333333333333,1,0.7924042224884034,Cleanliness,86.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+179,11.108468458912231,0.0,0,0.4960783720016479,Stock Availability,78.8,Performing Well,Forecasts are moderately reliable.
+180,8.425444613996124,0.0266666666666666,2,0.7496016919612885,Stock Availability,83.4,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+181,8.06752320009258,0.0,0,0.552744522690773,Staff,83.0,Performing Well,Forecasts are reliable.
+182,7.070508470969518,0.0,0,0.4000603914260864,Cleanliness,80.9,Performing Well,Forecasts are reliable.
+183,15.089052203795406,0.3387096774193548,21,0.6660123666127523,Pricing,48.2,Monitor,"Forecasts are moderately reliable, but 21 anomalous sales days in the last quarter."
+184,7.801275765126527,0.0135135135135135,1,0.8449419379234314,Cleanliness,87.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+185,9.212153240186792,0.0133333333333333,1,0.5567249208688736,Staff,80.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+186,8.702080445021625,0.0,0,0.9940978288650512,Stock Availability,91.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+187,8.775408319001118,0.0133333333333333,1,0.6058149337768555,Staff,81.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+188,10.669188228979166,0.0135135135135135,1,0.2419941186904907,Cleanliness,72.5,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+189,7.622231886732933,0.0,0,0.7399851381778717,Stock Availability,87.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+190,7.115285558818937,0.0,0,0.3950984597206116,Staff,80.8,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+191,6.883486890028447,0.0,0,0.3517928123474121,Staff,80.2,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+192,6.711773003870659,0.0,0,0.9182430108388264,Stock Availability,91.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+193,8.416797980960464,0.0,0,0.2032614350318908,Staff,75.6,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+194,9.059643677489436,0.0135135135135135,1,0.7501631677150726,Cleanliness,84.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+195,7.356476791575539,0.0,0,0.666191021601359,Staff,86.0,Performing Well,Forecasts are reliable.
+196,8.35978367310629,0.0666666666666666,5,0.9950867891311646,Cleanliness,83.5,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+197,8.250446244852466,0.0,0,0.7411605417728424,Cleanliness,86.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+198,17.3623229005413,0.0266666666666666,2,0.9955674171447754,Cleanliness,79.3,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+199,5.507950120319687,0.0,0,0.5963017106056213,Cleanliness,86.4,Performing Well,Forecasts are reliable.
+200,10.154656577479514,0.2567567567567567,19,0.4422190070152282,Stock Availability,48.7,Monitor,"Forecasts are moderately reliable, but 19 anomalous sales days in the last quarter."
+201,8.623009004432573,0.0,0,0.3067883104085922,Staff,77.5,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+202,6.928161038611797,0.0135135135135135,1,0.3932245373725891,Cleanliness,79.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+203,10.26230244402615,0.0,0,0.4001463770866394,Cleanliness,77.7,Performing Well,Forecasts are moderately reliable.
+204,7.094226278501363,0.0,0,0.5997954845428467,Cleanliness,84.9,Performing Well,Forecasts are reliable.
+205,6.912488359668576,0.0133333333333333,1,0.595983362197876,Stock Availability,83.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+206,11.354894057025843,0.0405405405405405,3,0.2457761317491531,Staff,68.7,Monitor,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+207,6.79269635032724,0.0,0,0.6609211762746176,Stock Availability,86.4,Performing Well,Forecasts are reliable.
+208,8.866324891064664,0.0133333333333333,1,0.4957876354455948,Stock Availability,79.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+209,12.478988796412734,0.5555555555555556,50,0.7363330572843552,Staff,52.2,Monitor,"Forecasts are moderately reliable, but 50 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+210,9.228485973140568,0.0,0,0.2506277561187744,Pricing,75.8,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+211,9.008602922916022,0.0133333333333333,1,0.3338037331899007,Staff,76.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+212,9.428056232145966,0.04,3,0.9931498765945436,Cleanliness,85.6,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+213,9.72804668969062,0.0,0,0.7960240840911865,Cleanliness,86.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+214,5.564528769443796,0.0,0,0.5960764169692994,Cleanliness,86.4,Performing Well,Forecasts are reliable.
+215,11.24732081878887,0.0,0,0.3951278924942016,Pricing,76.7,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+216,8.121804395187889,0.0,0,0.6613285541534424,Cleanliness,85.1,Performing Well,Forecasts are reliable.
+217,9.020026330470316,0.1066666666666666,8,0.5857332150141398,Stock Availability,69.9,Monitor,"Forecasts are reliable, but 8 anomalous sales days in the last quarter."
+218,10.064966974199905,0.0405405405405405,3,0.3280882438023885,Stock Availability,71.6,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+219,11.543249384918727,0.1621621621621621,12,0.2506548911333084,Staff,54.0,Monitor,"Forecasts are moderately reliable, but 12 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+220,13.851805592206285,0.1351351351351351,10,0.3336271444956462,Stock Availability,56.6,Monitor,"Forecasts are moderately reliable, but 10 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+221,7.528574363224681,0.0,0,0.9947490692138672,Pricing,92.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+222,7.423522524280663,0.04,3,0.327442467212677,Cleanliness,74.3,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+223,10.02924375243639,0.0133333333333333,1,0.6599764625231425,Cleanliness,81.6,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+224,7.441051447772605,0.0,0,0.9934279123942056,Staff,92.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+225,10.918066892217947,0.08,6,0.3333268364270528,Stock Availability,66.1,Monitor,"Forecasts are moderately reliable, but 6 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+226,9.243795803947016,0.0,0,0.3960630893707275,Pricing,78.7,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+227,7.198124740875936,0.0,0,0.745861142873764,Staff,87.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+228,7.754602994832414,0.1216216216216216,9,0.9934279123942056,Staff,77.5,Performing Well,"Forecasts are reliable, but 9 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+229,5.568213667573507,0.0405405405405405,3,0.8025785833597183,Stock Availability,85.6,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+230,9.373370198567258,0.0133333333333333,1,0.739486813545227,Cleanliness,83.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+231,11.230002389961472,0.0,0,0.2541291564702987,Staff,73.9,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+232,10.216192700458189,0.12,9,0.4000692725181579,Staff,63.4,Monitor,"Forecasts are moderately reliable, but 9 anomalous sales days in the last quarter."
+233,7.686157736451843,0.0,0,0.3335119088490804,Cleanliness,79.0,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+234,11.738918309843202,0.0,0,0.6663296024004618,Staff,81.6,Performing Well,Forecasts are moderately reliable.
+235,7.932337492062914,0.0,0,0.7498703300952911,Stock Availability,87.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+236,7.245093088827839,0.0666666666666666,5,0.6450680375099183,Staff,77.7,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+237,11.89407249544834,0.2933333333333333,22,0.9861797094345092,Pricing,57.8,Monitor,"Forecasts are moderately reliable, but 22 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+238,6.962941165759327,0.027027027027027,2,0.0056955218315124,Staff,69.9,Monitor,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+239,6.980715762318311,0.0,0,0.2544098347425461,Staff,78.1,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+240,8.820569505979986,0.0666666666666666,5,0.3334041833877563,Staff,69.8,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+241,7.697895757366828,0.0,0,0.3338325023651123,Cleanliness,79.0,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+242,10.78997276817511,0.0135135135135135,1,0.3068478107452392,Staff,73.7,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+243,7.42199352554001,0.0,0,0.7350270003080368,Pricing,87.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+244,10.700682026226376,0.0135135135135135,1,0.6664965947469076,Staff,81.0,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+245,8.099898780273108,0.0,0,0.3969588756561279,Stock Availability,79.8,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+246,8.14206923701888,0.1066666666666666,8,0.5034808218479156,Staff,69.1,Monitor,"Forecasts are reliable, but 8 anomalous sales days in the last quarter."
+247,7.821982529975442,0.0,0,0.7459244281053543,Stock Availability,87.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+248,10.17211180878589,0.0,0,0.3335261940956116,Staff,76.5,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+249,10.224704888083773,0.0,0,0.5036748647689819,Pricing,79.8,Performing Well,Forecasts are moderately reliable.
+250,7.579118521006427,0.0,0,0.6663634181022644,Staff,85.7,Performing Well,Forecasts are reliable.
+251,8.672290443162503,0.0,0,0.6560375094413757,Stock Availability,84.4,Performing Well,Forecasts are reliable.
+252,6.896612146787649,0.0,0,0.9993460178375244,Stock Availability,93.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+253,10.830238084582062,0.0135135135135135,1,0.3333360354105631,Staff,74.2,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+254,10.98940563759842,0.054054054054054,4,0.3335023125012715,Cleanliness,69.2,Monitor,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+255,6.386356402355001,0.0405405405405405,3,0.3380494515101115,Pricing,75.5,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+256,10.320592181723054,0.0,0,0.6845812648534775,Cleanliness,83.4,Performing Well,Forecasts are moderately reliable.
+257,8.365694766264282,0.0533333333333333,4,0.5000879466533661,Pricing,75.2,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+258,9.093352658520809,0.0,0,0.7417033712069193,Pricing,85.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+259,6.004622765722307,0.5777777777777777,52,0.0005712509155273,Pricing,44.0,Monitor,"Forecasts are reliable, but 52 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+260,9.142479005952817,0.0,0,0.5725427071253458,Pricing,82.3,Performing Well,Forecasts are reliable.
+261,7.767178423974082,0.0,0,0.3380494515101115,Stock Availability,79.0,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+262,5.846003993799871,0.3888888888888889,35,0.6481202443440756,Staff,57.1,Monitor,"Forecasts are reliable, but 35 anomalous sales days in the last quarter."
+263,8.561167233449927,0.0,0,0.1931213438510894,Staff,75.3,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+264,7.52972936123429,0.0,0,0.7492270618677139,Pricing,87.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+265,9.53531839350193,0.0675675675675675,5,0.6666855414708456,Cleanliness,75.7,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+266,11.095571922549444,0.04,3,0.7498634606599808,Staff,79.1,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+267,11.67450074466882,0.0133333333333333,1,0.6616172591845194,Staff,80.0,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+268,8.155140924375964,0.12,9,0.2504649609327316,Cleanliness,62.5,Monitor,"Forecasts are reliable, but 9 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+269,13.98351558030351,0.0,0,0.9848220348358154,Pricing,85.7,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+270,6.424555341491336,0.0,0,0.3338497479756673,Staff,80.3,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+271,12.158155521633317,0.0,0,0.4000734686851501,Stock Availability,75.8,Performing Well,Forecasts are moderately reliable.
+272,6.341703647328957,0.0135135135135135,1,0.9959461331367492,Cleanliness,92.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+273,5.432263457890377,0.027027027027027,2,0.9945952445268632,Cleanliness,91.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+274,8.354760446280006,0.4222222222222222,38,0.7399217784404755,Cleanliness,56.4,Monitor,"Forecasts are reliable, but 38 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+275,6.916439021107511,0.0,0,0.000629444917043,Cleanliness,73.1,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+276,7.945490863606075,0.0666666666666666,5,0.5035174340009689,Stock Availability,74.1,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+277,7.774673791667791,0.0,0,0.5854540665944418,Stock Availability,83.9,Performing Well,Forecasts are reliable.
+278,12.18066824980027,0.0133333333333333,1,0.6649459600448608,Pricing,79.5,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+279,19.721359757060345,0.0,0,0.2459295392036438,Cleanliness,65.2,Monitor,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+280,6.9625228166612745,0.0135135135135135,1,0.8017933666706085,Cleanliness,87.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+281,7.353960272745817,0.0133333333333333,1,0.7881685733795166,Pricing,86.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+282,8.069746322500466,0.04,3,0.2457183599472046,Staff,72.0,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+283,11.45028599462833,0.0,0,0.5038402229547501,Cleanliness,78.6,Performing Well,Forecasts are moderately reliable.
+284,9.135382572210473,0.0,0,0.6001489162445068,Staff,82.9,Performing Well,Forecasts are reliable.
+285,9.401228585068091,0.0405405405405405,3,0.7989351391792298,Staff,81.7,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+286,8.260020160382876,0.0135135135135135,1,0.5857843160629272,Stock Availability,81.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+287,6.011952304831626,0.0,0,0.3334529002507527,Stock Availability,80.7,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+288,10.75764404483794,0.0,0,0.599931538105011,Pricing,81.2,Performing Well,Forecasts are moderately reliable.
+289,7.616234349565332,0.0,0,0.7470609545707703,Pricing,87.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+290,8.051098321643225,0.0135135135135135,1,0.2503781765699386,Pricing,75.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+291,6.987271229201888,0.0,0,0.490466034412384,Stock Availability,82.8,Performing Well,Forecasts are reliable.
+292,120.44776872021026,0.2105263157894736,12,0.3337366183598836,Pricing,11.4,Needs Attention,"Forecasts are unreliable, suggesting unpredictable demand patterns, but 12 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+293,6.830739918520311,0.0133333333333333,1,0.2004449844360351,Pricing,75.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+294,9.311513024164752,0.081081081081081,6,0.2453571796417236,Stock Availability,65.9,Monitor,"Forecasts are reliable, but 6 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+295,7.910380300284149,0.0,0,0.3285289208094279,Staff,78.7,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+296,8.900688604028929,0.027027027027027,2,0.7305637796719869,Stock Availability,82.5,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+297,7.036833130346822,0.0,0,0.7460005283355713,Stock Availability,87.9,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+298,9.137043210434458,0.0,0,0.5562355071306229,Pricing,82.0,Performing Well,Forecasts are reliable.
+299,16.129239608441967,0.5222222222222223,47,0.6663662592569987,Pricing,47.2,Monitor,"Forecasts are moderately reliable, but 47 anomalous sales days in the last quarter."
+300,10.37487103530736,0.0135135135135135,1,0.2454667448997497,Stock Availability,72.9,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+301,8.838022162445153,0.0666666666666666,5,0.7510282158851623,Staff,78.2,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+302,12.93951651892295,0.0135135135135135,1,0.6613192955652872,Pricing,78.7,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+303,8.938694559443478,0.0,0,0.9917834401130676,Pricing,90.9,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+304,9.10735652234334,0.04,3,0.666575014591217,Cleanliness,79.4,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+305,7.53689992700002,0.0,0,0.3997178316116333,Pricing,80.5,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+306,7.549690514894808,0.0,0,0.7399895042181015,Cleanliness,87.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+307,8.810365762123345,0.0133333333333333,1,0.7451789379119873,Cleanliness,84.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+308,11.00552151827056,0.0,0,0.0758240024248759,Stock Availability,70.5,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+309,5.272407262954257,0.0,0,0.5003030300140381,Stock Availability,84.7,Performing Well,Forecasts are reliable.
+310,9.86386254898734,0.4222222222222222,38,0.5857380429903666,Staff,51.9,Monitor,"Forecasts are reliable, but 38 anomalous sales days in the last quarter."
+311,5.899536733478678,0.0,0,0.560406044125557,Staff,85.3,Performing Well,Forecasts are reliable.
+312,7.187453547582612,0.0,0,0.403055477142334,Cleanliness,80.9,Performing Well,Forecasts are reliable.
+313,8.411371404699942,0.0266666666666666,2,0.9872413873672484,Cleanliness,88.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+314,9.066717622332538,0.027027027027027,2,0.4004344940185547,Staff,75.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+315,10.461415922846829,0.1466666666666666,11,0.9852131754159928,Cleanliness,71.6,Performing Well,"Forecasts are moderately reliable, but 11 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+316,7.112158462638465,0.0,0,0.671476682027181,Staff,86.3,Performing Well,Forecasts are reliable.
+317,9.291555935623144,0.0,0,0.9349455088377,Stock Availability,89.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+318,8.528169749458092,0.0533333333333333,4,0.4003282189369201,Staff,73.1,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+319,8.99142437994312,0.0666666666666666,5,0.0033671021461486,Staff,63.1,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+320,7.595563130170604,0.0,0,0.5469721555709839,Stock Availability,83.3,Performing Well,Forecasts are reliable.
+321,8.402211242267242,0.0,0,0.3027693480253219,Stock Availability,77.7,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+322,9.282077073182547,0.0533333333333333,4,0.7999191284179688,Pricing,80.3,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+323,7.250995261041358,0.0,0,0.7417808622121811,Stock Availability,87.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+324,11.311393923810613,0.0266666666666666,2,0.4138363401095072,Staff,73.8,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently."
+325,11.7778626383887,0.1081081081081081,8,0.9191199988126756,Pricing,73.6,Performing Well,"Forecasts are moderately reliable, but 8 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+326,7.280899578021706,0.0945945945945946,7,0.5856489936510721,Pricing,73.1,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter."
+327,9.748826402532282,0.0,0,0.7917540907859802,Pricing,86.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+328,8.035092817996278,0.054054054054054,4,0.6668654481569926,Pricing,78.8,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+329,5.8713715929043255,0.0135135135135135,1,0.795502531528473,Pricing,88.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+330,9.976942347239127,0.0,0,0.9181829889615376,Pricing,88.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+331,9.526228060089114,0.0405405405405405,3,0.7509387850761413,Cleanliness,80.6,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+332,8.211501914315035,0.0933333333333333,7,0.7411962300539017,Pricing,75.4,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+333,9.198731246574312,0.0133333333333333,1,0.5854202707608541,Stock Availability,80.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+334,7.589215400271394,0.0405405405405405,3,0.1513028740882873,Stock Availability,70.6,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+335,10.564101735266082,0.1444444444444444,13,0.4392073452472687,Staff,60.9,Monitor,"Forecasts are moderately reliable, but 13 anomalous sales days in the last quarter."
+336,6.767645627407138,0.0,0,0.0007040619850158,Staff,73.2,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+337,8.541307915440305,0.081081081081081,6,0.5074107348918915,Staff,71.9,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+338,7.977917390664491,0.0,0,0.5725427071253458,Pricing,83.5,Performing Well,Forecasts are reliable.
+339,11.529745901394772,0.0,0,0.9882869482040404,Pricing,88.2,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+340,7.863476405020983,0.0133333333333333,1,0.7966803789138794,Pricing,86.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+341,6.91176302994286,0.0135135135135135,1,0.4086002707481384,Stock Availability,79.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+342,6.238278406879924,0.0,0,0.9996312061945596,Stock Availability,93.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+343,7.071377505187279,0.027027027027027,2,0.929449662566185,Cleanliness,88.3,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+344,8.393401984630382,0.0133333333333333,1,0.3020624369382858,Cleanliness,76.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+345,11.679772497860444,0.0,0,0.0010291536649068,Staff,68.3,Monitor,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+346,6.123257521608402,0.054054054054054,4,0.9991013010342916,Pricing,87.4,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+347,9.9279964939919,0.1081081081081081,8,0.4058765172958374,Staff,65.2,Monitor,"Forecasts are reliable, but 8 anomalous sales days in the last quarter."
+348,9.099323209866617,0.0,0,0.9964686632156372,Stock Availability,90.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+349,7.94324103123756,0.0,0,0.0007873574892679,Staff,72.1,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+350,5.7069219531575,0.0135135135135135,1,0.7956862568855285,Pricing,88.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+351,7.551002558409264,0.0,0,0.989156703154246,Stock Availability,92.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+352,5.987730049940671,0.0,0,0.7499212324619293,Staff,89.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+353,9.28686532236995,0.5,45,0.1512850721677144,Stock Availability,43.7,Monitor,"Forecasts are reliable, but 45 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+354,8.834067375643711,0.0135135135135135,1,0.3285199403762817,Stock Availability,76.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+355,9.411329749576383,0.0133333333333333,1,0.7842516779899598,Pricing,84.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+356,8.751412304569742,0.027027027027027,2,0.4997602850198746,Cleanliness,78.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+357,6.2629134411460345,0.0,0,0.0811168551445007,Staff,75.4,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+358,5.733985221233314,0.0,0,0.3275791009267171,Staff,80.8,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+359,8.060546120763975,0.0675675675675675,5,0.6662960251172384,Cleanliness,77.2,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+360,7.225317877822433,0.0133333333333333,1,0.5003009587526321,Stock Availability,81.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+361,8.667423300177942,0.0,0,0.8448138117790223,Pricing,88.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+362,6.926205521640955,0.0,0,0.4954745769500732,Cleanliness,83.0,Performing Well,Forecasts are reliable.
+363,8.711240284164552,0.0,0,0.1997628569602966,Stock Availability,75.3,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+364,9.933508290728742,0.0675675675675675,5,0.4027159611384074,Staff,70.0,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+365,6.384477072599121,0.0,0,0.0006599426269531,Cleanliness,73.6,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+366,7.215529498329055,0.04,3,0.448140823841095,Staff,76.9,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+367,10.384282785295726,0.0,0,0.249123141169548,Cleanliness,74.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+368,10.290672744406612,0.0135135135135135,1,0.4002233743667602,Staff,76.1,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+369,6.458516948175546,0.0,0,0.000874787569046,Pricing,73.6,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+370,7.752623191722077,0.0135135135135135,1,0.4999971091747284,Cleanliness,80.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+371,7.17272661264655,0.0,0,0.7496652007102966,Staff,87.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+372,8.231224085773084,0.0,0,0.7931400537490845,Stock Availability,87.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+373,7.364473760371835,0.0135135135135135,1,0.3384745121002197,Staff,77.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+374,8.19005619120749,0.0533333333333333,4,0.7992634296417236,Pricing,81.4,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+375,9.191679296782691,0.0133333333333333,1,0.7994353771209717,Staff,85.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+376,7.061392317039784,0.0,0,0.5002570599317551,Pricing,82.9,Performing Well,Forecasts are reliable.
+377,10.101502321060629,0.0,0,0.4394370764493942,Pricing,78.7,Performing Well,Forecasts are moderately reliable.
+378,10.581946391969074,0.0,0,0.7420836538076401,Stock Availability,84.3,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about stock availability."
+379,8.747059794479464,0.08,6,0.2539169639348984,Cleanliness,66.7,Monitor,"Forecasts are reliable, but 6 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+380,9.901760629717757,0.0,0,0.556577667593956,Pricing,81.2,Performing Well,Forecasts are reliable.
+381,5.896672726993611,0.0666666666666666,5,0.3998762726783752,Cleanliness,74.1,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+382,7.285653578166127,0.0,0,0.6662869254748026,Pricing,86.0,Performing Well,Forecasts are reliable.
+383,7.175558499116479,0.0135135135135135,1,0.2505113631486892,Pricing,76.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+384,10.12168647500285,0.0666666666666666,5,0.5856708685557047,Stock Availability,73.6,Performing Well,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter."
+385,8.72104347370323,0.0,0,0.6714189648628235,Staff,84.7,Performing Well,Forecasts are reliable.
+386,7.056261823632412,0.0,0,0.6659973462422689,Pricing,86.3,Performing Well,Forecasts are reliable.
+387,9.104439556793004,0.0,0,0.07585475842158,Stock Availability,72.4,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+388,6.10669771380992,0.0,0,0.7500001937150955,Cleanliness,88.9,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+389,8.911882900119426,0.0666666666666666,5,0.7965839147567749,Stock Availability,79.0,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+390,7.220415368446453,0.0,0,0.9895491749048232,Pricing,92.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+391,8.094694806179323,0.1081081081081081,8,0.7505787372589111,Pricing,73.9,Performing Well,"Forecasts are reliable, but 8 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+392,8.397734192231992,0.0675675675675675,5,0.4090365370114644,Cleanliness,71.7,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+393,8.439798426178836,0.0135135135135135,1,0.3333115975062052,Staff,76.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+394,6.627916278022777,0.0,0,0.9955777645111084,Staff,93.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+395,7.664763277722329,0.2432432432432432,18,0.6471277475357056,Cleanliness,56.1,Monitor,"Forecasts are reliable, but 18 anomalous sales days in the last quarter."
+396,7.8319811787468625,0.0133333333333333,1,0.8309195280075073,Stock Availability,87.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+397,9.42284116253203,0.0135135135135135,1,0.4031088829040527,Staff,77.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+398,8.968932217957128,0.0133333333333333,1,0.4904151856899261,Staff,79.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+399,9.138942963432529,0.0,0,0.3387375871340434,Cleanliness,77.6,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+400,9.751645858861874,0.0133333333333333,1,0.3338495095570882,Pricing,75.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+401,8.999257208407965,0.0266666666666666,2,0.6452232241630554,Stock Availability,80.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+402,11.799220006172662,0.0,0,0.7410513758659363,Pricing,83.0,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+403,6.418608704818481,0.027027027027027,2,0.3923639178276062,Cleanliness,78.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+404,7.670898113148262,0.027027027027027,2,0.7995222687721253,Pricing,85.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+405,11.490025648999564,0.0135135135135135,1,0.6662682692209879,Cleanliness,80.2,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+406,7.73558399679119,0.0,0,0.5918031454086303,Pricing,84.1,Performing Well,Forecasts are reliable.
+407,9.186417665143582,0.0,0,0.9994927446047464,Pricing,90.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+408,8.385632202656737,0.0,0,0.1516789436340332,Stock Availability,74.6,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+409,7.541574066358336,0.027027027027027,2,0.189474731683731,Cleanliness,73.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+410,8.178752119574098,0.0135135135135135,1,0.0005786776542663,Cleanliness,70.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+411,7.68064499096322,0.0,0,0.3334885636965434,Stock Availability,79.0,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+412,9.858902734497304,0.0,0,0.792054045200348,Pricing,86.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+413,8.900042232307607,0.0,0,0.0758357644081115,Cleanliness,72.6,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+414,8.87633993466668,0.0675675675675675,5,0.6000976800918579,Staff,75.0,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+415,7.563039664003551,0.2,15,0.3433826764424642,Staff,55.3,Monitor,"Forecasts are reliable, but 15 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+416,5.783460640571043,0.0133333333333333,1,0.4086060523986816,Pricing,80.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+417,11.23956631991614,0.0,0,0.599118423461914,Staff,80.7,Performing Well,Forecasts are moderately reliable.
+418,8.754450312791294,0.081081081081081,6,0.5965699791908264,Stock Availability,73.4,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+419,9.59793524214786,0.08,6,0.6533607641855875,Pricing,73.9,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+420,9.053658379770042,0.0,0,0.1893717944622039,Stock Availability,74.7,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+421,9.413415488238144,0.0533333333333333,4,0.602746045589447,Staff,76.2,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+422,10.412882926532506,0.0,0,0.5993554949760437,Stock Availability,81.6,Performing Well,Forecasts are moderately reliable.
+423,7.142848315487667,0.5,45,0.4428415149450302,Pricing,51.7,Monitor,"Forecasts are reliable, but 45 anomalous sales days in the last quarter."
+424,10.632655664288412,0.0945945945945946,7,0.2529017180204391,Staff,63.1,Monitor,"Forecasts are moderately reliable, but 7 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+425,11.867504681053855,0.0945945945945946,7,0.5602345764636993,Pricing,68.0,Monitor,"Forecasts are moderately reliable, but 7 anomalous sales days in the last quarter."
+426,8.674932637653022,0.0,0,0.6536238392194113,Pricing,84.4,Performing Well,Forecasts are reliable.
+427,14.299114369807834,0.0,0,0.6790842264890671,Stock Availability,79.3,Performing Well,Forecasts are moderately reliable.
+428,7.757880384332291,0.0,0,0.4036591450373332,Stock Availability,80.3,Performing Well,Forecasts are reliable.
+429,8.383058097520408,0.0,0,0.6451404452323913,Staff,84.5,Performing Well,Forecasts are reliable.
+430,7.366982668707994,0.0,0,0.736515204111735,Stock Availability,87.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+431,6.097951196355318,0.0,0,0.4031038284301758,Cleanliness,82.0,Performing Well,Forecasts are reliable.
+432,8.711346546972159,0.0266666666666666,2,0.6534772515296936,Staff,81.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+433,10.69947512136987,0.4888888888888889,44,0.6534910003344218,Cleanliness,52.4,Monitor,"Forecasts are moderately reliable, but 44 anomalous sales days in the last quarter."
+434,7.331831709503693,0.0,0,0.599120581150055,Cleanliness,84.7,Performing Well,Forecasts are reliable.
+435,9.332259057079652,0.0,0,0.3963626146316528,Cleanliness,78.6,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+436,7.292600587863535,0.0,0,0.6652530233065287,Staff,86.0,Performing Well,Forecasts are reliable.
+437,16.15986905984187,0.0,0,0.5996059298515319,Stock Availability,75.8,Performing Well,Forecasts are moderately reliable.
+438,9.873999050805407,0.0,0,0.4961304664611816,Stock Availability,80.0,Performing Well,Forecasts are reliable.
+439,6.388717866337007,0.04,3,0.7399055659770966,Pricing,83.6,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+440,7.821056693167426,0.2567567567567567,19,0.8017740994691849,Staff,58.2,Monitor,"Forecasts are reliable, but 19 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+441,9.470436704864111,0.1216216216216216,9,0.328461746374766,Pricing,62.5,Monitor,"Forecasts are reliable, but 9 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+442,9.269790743257952,0.0,0,0.6666679779688517,Staff,84.1,Performing Well,Forecasts are reliable.
+443,9.552691708029972,0.0,0,0.905068576335907,Pricing,88.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+444,8.833007370956587,0.04,3,0.5002769082784653,Staff,76.4,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+445,11.162023337517374,0.027027027027027,2,0.2503890842199325,Cleanliness,70.6,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+446,8.53934068698836,0.081081081081081,6,0.0005358010530471,Cleanliness,61.7,Monitor,"Forecasts are reliable, but 6 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+447,10.065552661026889,0.08,6,0.3320965369542439,Staff,67.0,Monitor,"Forecasts are moderately reliable, but 6 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+448,7.769560655880954,0.0405405405405405,3,0.9854278862476348,Pricing,87.1,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+449,10.327567228838682,0.0,0,0.3513486862182617,Pricing,76.7,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+450,9.024271558994888,0.0945945945945946,7,0.7496020346879959,Pricing,74.6,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+451,8.737666649851974,0.0405405405405405,3,0.749842643737793,Staff,81.4,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+452,6.606712224643488,0.0133333333333333,1,0.7967090487480164,Pricing,87.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+453,12.517343252345649,0.3333333333333333,30,0.6665939887364706,Staff,50.8,Monitor,"Forecasts are moderately reliable, but 30 anomalous sales days in the last quarter."
+454,8.454021444535066,0.0666666666666666,5,0.7967670202255249,Staff,79.5,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+455,10.79619917359206,0.0675675675675675,5,0.79957594871521,Staff,77.1,Performing Well,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+456,10.187341194683002,0.0,0,0.9992290437221528,Staff,89.8,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about staff."
+457,8.150272255534997,0.0,0,0.8062784671783447,Stock Availability,88.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+458,9.33255849669258,0.0135135135135135,1,0.3338754375775655,Cleanliness,75.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+459,6.814949557324777,0.0133333333333333,1,0.3929365396499634,Stock Availability,79.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+460,9.942154838750026,0.0133333333333333,1,0.9947361350059508,Pricing,88.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+461,10.776369125839077,0.0,0,0.5039841532707214,Stock Availability,79.3,Performing Well,Forecasts are moderately reliable.
+462,10.224132166722685,0.0266666666666666,2,0.9950295984745026,Cleanliness,86.5,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+463,8.81103687851129,0.0945945945945946,7,0.7959613561630249,Cleanliness,75.8,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+464,7.146798014854388,0.0,0,0.6670259237289429,Staff,86.2,Performing Well,Forecasts are reliable.
+465,5.734898892966082,0.0,0,0.7961005687713623,Stock Availability,90.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+466,9.916101859334486,0.0405405405405405,3,0.0078426003456115,Cleanliness,65.4,Monitor,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+467,9.60753205690755,0.0,0,0.4088676969210307,Staff,78.6,Performing Well,Forecasts are reliable.
+468,10.168246921245812,0.0133333333333333,1,0.4962000995874405,Cleanliness,78.2,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+469,6.55350116692171,0.0,0,0.5526528209447861,Stock Availability,84.5,Performing Well,Forecasts are reliable.
+470,7.354721307306379,0.0,0,0.0003207723299662,Cleanliness,72.7,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+471,7.889544753422714,0.0,0,0.7959218621253967,Cleanliness,88.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+472,8.634867805869511,0.0933333333333333,7,0.5508846402168274,Pricing,71.2,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter."
+473,9.769292778990176,0.0,0,0.0038076043128967,Staff,70.3,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+474,6.972126968109215,0.0266666666666666,2,0.5000055730342865,Pricing,79.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+475,9.329515931637165,0.0,0,0.5513912558555603,Stock Availability,81.7,Performing Well,Forecasts are reliable.
+476,6.930233617718071,0.0533333333333333,4,0.7453915178775787,Stock Availability,81.6,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+477,8.522528664325426,0.0,0,0.6667106946309408,Cleanliness,84.8,Performing Well,Forecasts are reliable.
+478,7.206801214381389,0.0533333333333333,4,0.0002516210079193,Cleanliness,66.4,Monitor,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+479,9.609551508370442,0.0133333333333333,1,0.0760744015375773,Stock Availability,70.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+480,7.415694053853366,0.0666666666666666,5,0.4990347623825073,Cleanliness,74.6,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+481,8.677763889305986,0.0,0,0.5542614579200744,Pricing,82.4,Performing Well,Forecasts are reliable.
+482,6.654967350524328,0.0,0,0.6530613700548807,Pricing,86.4,Performing Well,Forecasts are reliable.
+483,14.087330919427252,0.0266666666666666,2,0.5035111606121063,Staff,72.8,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently."
+484,8.550420430287346,0.0133333333333333,1,0.702481722831726,Stock Availability,83.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+485,8.271384805788513,0.0,0,0.3331308166186015,Pricing,78.4,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+486,10.915422182556592,0.0135135135135135,1,0.4999118596315384,Pricing,77.5,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+487,8.574687935789084,0.0,0,0.9934106667836508,Cleanliness,91.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+488,11.224719264637086,0.0133333333333333,1,0.6665883858998617,Staff,80.5,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+489,6.8502400885326695,0.0133333333333333,1,0.250677227973938,Staff,76.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+490,7.007064084767115,0.0,0,0.3272343873977661,Cleanliness,79.5,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+491,6.868874172968418,0.0,0,0.9996439417203268,Pricing,93.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+492,6.58115666813339,0.0,0,0.3283511797587077,Cleanliness,80.0,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+493,6.895071101705264,0.0,0,0.3996710062026977,Cleanliness,81.1,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+494,6.214997415423267,0.1,9,0.5921206712722779,Pricing,73.6,Performing Well,"Forecasts are reliable, but 9 anomalous sales days in the last quarter."
+495,7.302202519720626,0.0,0,0.3282047112782796,Stock Availability,79.3,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+496,5.360228700009118,0.0133333333333333,1,0.6534772515296936,Stock Availability,86.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+497,7.945962027899897,0.0,0,0.4998558461666107,Stock Availability,82.1,Performing Well,Forecasts are reliable.
+498,8.5399087357348,0.0,0,0.792993140220642,Cleanliness,87.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+499,6.385780657029624,0.1081081081081081,8,0.5055339455604553,Stock Availability,70.8,Performing Well,"Forecasts are reliable, but 8 anomalous sales days in the last quarter."
+500,8.846038669991028,0.0,0,0.5994379639625549,Pricing,83.1,Performing Well,Forecasts are reliable.
+501,12.85435481215315,0.0,0,0.3068510591983795,Staff,73.3,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+502,9.27205935739972,0.0135135135135135,1,0.5482904434204101,Stock Availability,80.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+503,7.8106367738218525,0.0133333333333333,1,0.5000039041042328,Stock Availability,80.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+504,10.131083337661083,0.1066666666666666,8,0.7995660305023193,Cleanliness,73.1,Performing Well,"Forecasts are moderately reliable, but 8 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+505,7.698387424759528,0.0,0,0.4832044959068298,Cleanliness,82.0,Performing Well,Forecasts are reliable.
+506,6.6171564432535845,0.0135135135135135,1,0.6530523896217346,Pricing,84.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+507,7.142114839888619,0.0,0,0.7964211940765381,Stock Availability,88.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+508,8.272155970708448,0.0,0,0.0053228338559468,Cleanliness,71.8,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+509,8.477922620324998,0.0,0,0.3277824918429057,Stock Availability,78.1,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+510,6.860659508962355,0.081081081081081,6,0.6669206420580546,Staff,76.7,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+511,9.02452973019357,0.0933333333333333,7,0.7496650218963623,Staff,74.8,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+512,8.752465237583959,0.0,0,0.2523580590883891,Staff,76.3,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+513,6.059229261354163,0.0,0,0.3321143388748169,Cleanliness,80.6,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+514,9.631374094278604,0.0,0,0.7300922572612762,Pricing,85.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+515,7.561489440386793,0.0135135135135135,1,0.7494591027498245,Pricing,85.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+516,14.595412368815412,0.0135135135135135,1,0.6001191735267639,Pricing,75.8,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+517,6.39968143197311,0.0533333333333333,4,0.7948333263397217,Staff,83.1,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+518,17.062593024095403,0.0,0,0.4086344242095947,Stock Availability,71.1,Performing Well,Forecasts are moderately reliable.
+519,10.941302789204563,0.0,0,0.7509063243865967,Stock Availability,84.1,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about stock availability."
+520,12.054318787761408,0.0533333333333333,4,0.5960489630699157,Cleanliness,73.5,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter."
+521,8.76497387903996,0.0,0,0.9941522280375162,Stock Availability,91.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+522,10.73860867897131,0.0,0,0.6422858834266663,Stock Availability,82.1,Performing Well,Forecasts are moderately reliable.
+523,4.985649309204788,0.0,0,0.653087298075358,Pricing,88.1,Performing Well,Forecasts are reliable.
+524,8.015188643940784,0.4555555555555555,41,0.68868188560009,Pricing,55.8,Monitor,"Forecasts are reliable, but 41 anomalous sales days in the last quarter."
+525,8.281721422869131,0.0533333333333333,4,0.496249794960022,Pricing,75.2,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+526,8.294107985386276,0.0133333333333333,1,0.0568839609622955,Stock Availability,71.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+527,9.080229069479088,0.0,0,0.7921113133430481,Cleanliness,86.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+528,8.086246153434782,0.0,0,0.5000490695238113,Cleanliness,81.9,Performing Well,Forecasts are reliable.
+529,7.17245367274757,0.0,0,0.795648741722107,Cleanliness,88.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+530,15.144959056600898,0.0,0,0.7449936121702194,Pricing,79.8,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+531,11.71263316228582,0.04,3,0.6662948131561279,Staff,76.8,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter."
+532,6.672878921898988,0.0,0,0.500264897942543,Cleanliness,83.3,Performing Well,Forecasts are reliable.
+533,6.900959116076488,0.027027027027027,2,0.5036052912473679,Staff,79.9,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+534,20.913443078033573,0.0,0,0.747976291179657,Stock Availability,74.0,Performing Well,"Forecasts are unreliable, suggesting unpredictable demand patterns, but reviews are positive, largely about stock availability."
+535,8.401813668446435,0.027027027027027,2,0.6662522951761881,Pricing,81.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+536,9.116172481596958,0.0405405405405405,3,0.5602977424860001,Stock Availability,77.2,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+537,9.360620611709544,0.0,0,0.585426906744639,Staff,82.3,Performing Well,Forecasts are reliable.
+538,8.890318348030046,0.08,6,0.6888678073883057,Pricing,75.3,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+539,4.844071348345098,0.0,0,0.3282070557276408,Stock Availability,81.7,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+540,11.11532715575937,0.0,0,0.6030813097953797,Staff,80.9,Performing Well,Forecasts are moderately reliable.
+541,9.439800301150653,0.027027027027027,2,0.0007716218630472,Stock Availability,67.3,Monitor,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+542,8.685275778107604,0.0,0,0.6609809796015421,Stock Availability,84.5,Performing Well,Forecasts are reliable.
+543,16.83871826387916,0.0,0,0.0006961226463317,Staff,63.2,Monitor,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+544,7.735759165141813,0.0,0,0.6613470514615377,Stock Availability,85.5,Performing Well,Forecasts are reliable.
+545,6.037953919082304,0.0135135135135135,1,0.5037364661693573,Stock Availability,82.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+546,10.613585085227736,0.0133333333333333,1,0.5921220779418945,Pricing,79.6,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+547,10.089713605422302,0.0,0,0.7449471056461334,Cleanliness,84.8,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about cleanliness."
+548,11.21615890651074,0.0,0,0.666529913743337,Staff,82.1,Performing Well,Forecasts are moderately reliable.
+549,8.589159598620293,0.0933333333333333,7,0.7500842064619064,Stock Availability,75.2,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+550,9.201068395751618,0.0,0,0.5001147389411926,Pricing,80.8,Performing Well,Forecasts are reliable.
+551,10.756339669559598,0.0933333333333333,7,0.5567169189453125,Stock Availability,69.2,Monitor,"Forecasts are moderately reliable, but 7 anomalous sales days in the last quarter."
+552,10.68749867300722,0.0,0,0.0572616755962371,Stock Availability,70.5,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+553,8.759345539018287,0.1486486486486486,11,0.5959925651550293,Cleanliness,65.3,Monitor,"Forecasts are reliable, but 11 anomalous sales days in the last quarter."
+554,12.80512562671705,0.16,12,0.6471277475357056,Cleanliness,60.9,Monitor,"Forecasts are moderately reliable, but 12 anomalous sales days in the last quarter."
+555,9.260091006177142,0.0,0,0.599772596359253,Cleanliness,82.7,Performing Well,Forecasts are reliable.
+556,6.29456987191344,0.0,0,0.4004413485527038,Pricing,81.7,Performing Well,Forecasts are reliable.
+557,12.29833971026767,0.0,0,0.4388784617185592,Staff,76.5,Performing Well,Forecasts are moderately reliable.
+558,8.851565933176435,0.0266666666666666,2,0.9930656552314758,Pricing,87.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+559,8.511870806938916,0.04,3,0.6452685713768005,Cleanliness,79.6,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+560,6.978740603650975,0.0,0,0.4964454770088196,Cleanliness,83.0,Performing Well,Forecasts are reliable.
+561,10.770717640381498,0.0405405405405405,3,0.3432773947715759,Staff,71.2,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+562,5.250963432835929,0.3888888888888889,35,0.5001362413167953,Cleanliness,54.8,Monitor,"Forecasts are reliable, but 35 anomalous sales days in the last quarter."
+563,12.766367026999118,0.0,0,0.3513980388641357,Cleanliness,74.3,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+564,7.24648117766842,0.0,0,0.5920485615730285,Pricing,84.6,Performing Well,Forecasts are reliable.
+565,5.841879215220846,0.0675675675675675,5,0.5489806979894638,Stock Availability,77.0,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter."
+566,8.894907654568506,0.08,6,0.7419383525848389,Stock Availability,76.3,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+567,10.374160915791572,0.0945945945945946,7,0.3921268343925476,Cleanliness,66.1,Monitor,"Forecasts are moderately reliable, but 7 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+568,8.429021877077595,0.0405405405405405,3,0.4135836760203044,Stock Availability,75.0,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+569,8.834914581440657,0.12,9,0.0006049474080403,Staff,56.8,Monitor,"Forecasts are reliable, but 9 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+570,9.509114746510775,0.0,0,0.999774436155955,Cleanliness,90.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+571,11.329678324774822,0.0,0,0.6666620969772339,Cleanliness,82.0,Performing Well,Forecasts are moderately reliable.
+572,8.119860428003559,0.0,0,0.6665583848953247,Pricing,85.2,Performing Well,Forecasts are reliable.
+573,7.729413474803105,0.0,0,0.3340334892272949,Pricing,79.0,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+574,5.362856666530203,0.027027027027027,2,0.333141287167867,Stock Availability,78.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+575,15.351071423281134,0.0,0,0.0004050135612487,Cleanliness,64.7,Monitor,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+576,10.071656423176645,0.0,0,0.1930550038814544,Cleanliness,73.8,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+577,9.058167311432133,0.0133333333333333,1,0.4026508212089538,Pricing,77.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+578,11.09617617247376,0.5222222222222223,47,0.3278711835543315,Stock Availability,45.5,Monitor,"Forecasts are moderately reliable, but 47 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+579,8.201938576288237,0.0,0,0.7397592067718506,Pricing,86.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+580,10.767689774416748,0.0133333333333333,1,0.4920806288719177,Stock Availability,77.5,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+581,7.924651463459645,0.0135135135135135,1,0.6666092276573181,Cleanliness,83.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+582,9.553149817529592,0.0,0,0.6667083700497946,Cleanliness,83.8,Performing Well,Forecasts are reliable.
+583,6.943116891888383,0.0666666666666666,5,0.9950054883956908,Stock Availability,85.0,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+584,9.52329267602487,0.0,0,0.5792415936787924,Cleanliness,82.1,Performing Well,Forecasts are reliable.
+585,7.609127273989488,0.0,0,0.6890998780727386,Staff,86.2,Performing Well,Forecasts are reliable.
+586,10.236992880546053,0.0,0,0.4990096092224121,Pricing,79.7,Performing Well,Forecasts are moderately reliable.
+587,12.45639493212297,0.0,0,0.1513915657997131,Stock Availability,70.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+588,6.880972134644775,0.0133333333333333,1,0.5998286128044128,Pricing,83.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+589,9.487752144476334,0.0135135135135135,1,0.7510299205780029,Pricing,83.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+590,8.323677501013963,0.027027027027027,2,0.7488255500793457,Cleanliness,83.4,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+591,9.90896781336701,0.0135135135135135,1,0.5905061483383178,Stock Availability,80.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+592,9.742008712496489,0.1891891891891892,14,0.0102736751238505,Staff,47.8,Monitor,"Forecasts are reliable, but 14 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+593,11.202840663765572,0.0666666666666666,5,0.6599764625231425,Cleanliness,74.0,Performing Well,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter."
+594,8.172139433129068,0.1733333333333333,13,0.7995137691497802,Staff,67.0,Monitor,"Forecasts are reliable, but 13 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+595,8.074237963253077,0.0,0,0.7498769909143448,Staff,86.9,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+596,8.644015474824357,0.0,0,0.4961880445480346,Stock Availability,81.3,Performing Well,Forecasts are reliable.
+597,10.409321561575132,0.0,0,0.4953879714012146,Cleanliness,79.5,Performing Well,Forecasts are moderately reliable.
+598,6.916211727001732,0.0,0,0.4391065835952759,Staff,81.9,Performing Well,Forecasts are reliable.
+599,6.639940296053651,0.0133333333333333,1,0.4396504312753677,Stock Availability,80.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+600,7.7535315366482465,0.0533333333333333,4,0.6599773168563843,Cleanliness,79.0,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+601,8.409830331911998,0.0,0,0.9931498765945436,Cleanliness,91.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+602,9.283171935601194,0.0,0,0.5369285345077515,Pricing,81.5,Performing Well,Forecasts are reliable.
+603,8.373975886064649,0.0,0,0.7498597949743271,Staff,86.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+604,9.811388632186333,0.0,0,0.2465241402387619,Stock Availability,75.1,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+605,9.457907387268868,0.0,0,0.9957882016897202,Stock Availability,90.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+606,8.239788846898787,0.0,0,0.2459827542304992,Cleanliness,76.7,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+607,14.835260251706112,0.0666666666666666,5,0.4999120980501175,Cleanliness,67.2,Monitor,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter."
+608,9.006606758299542,0.0933333333333333,7,0.6028701901435852,Staff,71.9,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter."
+609,7.889728987482712,0.1066666666666666,8,0.9133179585138956,Stock Availability,77.6,Performing Well,"Forecasts are reliable, but 8 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+610,9.419650504234124,0.027027027027027,2,0.5420288890600204,Cleanliness,78.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+611,9.962081978209016,0.0,0,0.6614172458648682,Cleanliness,83.3,Performing Well,Forecasts are reliable.
+612,16.595759746967254,0.0,0,0.7360256761312485,Staff,78.1,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about staff."
+613,6.641595865092513,0.0,0,0.0007102489471435,Pricing,73.4,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+614,11.370503885374116,0.0,0,0.2004251837730407,Staff,72.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+615,5.949401832508458,0.0,0,0.666534940401713,Pricing,87.4,Performing Well,Forecasts are reliable.
+616,6.772410504517184,0.1486486486486486,11,0.4958126544952392,Stock Availability,65.3,Monitor,"Forecasts are reliable, but 11 anomalous sales days in the last quarter."
+617,9.799513736003036,0.0133333333333333,1,0.9181829889615376,Pricing,87.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+618,6.417161691551867,0.0,0,0.4392622262239456,Stock Availability,82.4,Performing Well,Forecasts are reliable.
+619,7.991187146590116,0.027027027027027,2,0.5997651934623718,Cleanliness,80.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+620,8.12770024684206,0.0,0,0.3513416051864624,Pricing,78.9,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+621,8.69018514505957,0.0,0,0.4389743506908417,Stock Availability,80.1,Performing Well,Forecasts are reliable.
+622,8.230341338188659,0.08,6,0.4451560735702514,Pricing,71.1,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+623,9.869862700293003,0.0,0,0.7539328336715698,Staff,85.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+624,7.335618826851643,0.1081081081081081,8,0.4453963279724121,Stock Availability,68.6,Monitor,"Forecasts are reliable, but 8 anomalous sales days in the last quarter."
+625,8.601685525907358,0.0,0,0.250163659453392,Cleanliness,76.4,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+626,8.828491187193208,0.0,0,0.3969892740249633,Cleanliness,79.1,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+627,8.695894196700642,0.0,0,0.987653112411499,Pricing,91.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+628,11.622112400282168,0.2133333333333333,16,0.3331331610679626,Stock Availability,49.4,Monitor,"Forecasts are moderately reliable, but 16 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+629,10.019175229207928,0.0,0,0.2501810491085052,Staff,75.0,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+630,9.8595602923369,0.0,0,0.6887772530317307,Cleanliness,83.9,Performing Well,Forecasts are reliable.
+631,8.140001798897565,0.0,0,0.3992885828018188,Cleanliness,79.8,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+632,5.190778462944399,0.0133333333333333,1,0.3785337507724762,Staff,80.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+633,10.732119095769836,0.0,0,0.0807194908459981,Stock Availability,70.9,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+634,6.891250993725152,0.0266666666666666,2,0.5997736930847168,Cleanliness,81.9,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+635,6.577060020256899,0.0266666666666666,2,0.745690107345581,Pricing,85.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+636,21.560513055709794,0.0,0,0.6612870097160339,Staff,71.7,Performing Well,"Forecasts are unreliable, suggesting unpredictable demand patterns."
+637,6.754032205758742,0.0,0,0.0053228338559468,Cleanliness,73.4,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+638,5.404878329035431,0.0,0,0.4483986020088196,Cleanliness,83.6,Performing Well,Forecasts are reliable.
+639,6.868098785490437,0.0,0,0.5037919878959656,Stock Availability,83.2,Performing Well,Forecasts are reliable.
+640,8.143645915859205,0.0,0,0.6840452253818512,Cleanliness,85.5,Performing Well,Forecasts are reliable.
+641,10.123283325661417,0.0,0,0.0006049474080403,Staff,69.9,Monitor,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+642,9.0798475970288,0.0135135135135135,1,0.6665802597999573,Staff,82.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+643,7.362995896952287,0.0133333333333333,1,0.5922593116760254,Pricing,82.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+644,7.594612859846997,0.0,0,0.4451995491981506,Stock Availability,81.3,Performing Well,Forecasts are reliable.
+645,10.783614045980492,0.0,0,0.0008336106936136,Cleanliness,69.2,Monitor,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+646,8.823446451205262,0.0,0,0.6852922290563583,Stock Availability,84.9,Performing Well,Forecasts are reliable.
+647,7.952652212792658,0.0133333333333333,1,0.4402225375175476,Pricing,79.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+648,9.447612771860324,0.0,0,0.5000600665807724,Staff,80.6,Performing Well,Forecasts are reliable.
+649,10.902772047131348,0.08,6,0.6665583848953247,Pricing,72.8,Performing Well,"Forecasts are moderately reliable, but 6 anomalous sales days in the last quarter."
+650,7.637578965969285,0.0,0,0.0003878871599833,Cleanliness,72.4,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+651,6.293688110468097,0.0,0,0.7451955378055573,Cleanliness,88.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+652,6.509545541202913,0.0133333333333333,1,0.3330971201260884,Pricing,78.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+653,8.362476688163754,0.0135135135135135,1,0.666217048962911,Staff,83.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+654,7.439639757148845,0.0133333333333333,1,0.5000389814376831,Pricing,81.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+655,8.661881953536682,0.0,0,0.2541417777538299,Staff,76.4,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+656,11.18195978272003,0.027027027027027,2,0.5038249790668488,Staff,75.7,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently."
+657,12.328830015387226,0.0,0,0.1930004060268402,Staff,71.5,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+658,7.155422428115917,0.0,0,0.3281292120615641,Cleanliness,79.4,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+659,7.610462878005256,0.0,0,0.7996345281600952,Cleanliness,88.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+660,7.858732851900063,0.0,0,0.5566287785768509,Pricing,83.3,Performing Well,Forecasts are reliable.
+661,10.691180123029834,0.0,0,0.2034282922744751,Staff,73.4,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+662,10.09453440969737,0.0,0,0.7496398538351059,Pricing,84.9,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+663,7.43689223066595,0.0,0,0.6421220660209656,Stock Availability,85.4,Performing Well,Forecasts are reliable.
+664,7.298951849282662,0.0133333333333333,1,0.9347213059663771,Stock Availability,89.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+665,7.82497642087803,0.0,0,0.9681022961934408,Pricing,91.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+666,7.940026298688751,0.0135135135135135,1,0.5443924307823181,Stock Availability,81.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+667,6.939573992646221,0.0,0,0.6665502190589905,Stock Availability,86.4,Performing Well,Forecasts are reliable.
+668,8.143459869940493,0.0133333333333333,1,0.5482728838920593,Stock Availability,81.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+669,9.528376716159247,0.0,0,0.9949196726083755,Staff,90.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+670,7.1651456671436815,0.0,0,0.7497065514326096,Pricing,87.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+671,6.309469006674402,0.0,0,0.5987749576568604,Pricing,85.7,Performing Well,Forecasts are reliable.
+672,6.469045218123191,0.0,0,0.4999442398548126,Cleanliness,83.5,Performing Well,Forecasts are reliable.
+673,6.80152466804026,0.0,0,0.3334463636080424,Staff,79.9,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+674,6.615139677309317,0.027027027027027,2,0.7414563298225403,Pricing,85.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+675,15.433035531971507,0.1621621621621621,12,0.3334155082702636,Pricing,51.8,Monitor,"Forecasts are moderately reliable, but 12 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+676,8.447170232131903,0.7,63,0.5854703982671102,Cleanliness,53.3,Monitor,"Forecasts are reliable, but 63 anomalous sales days in the last quarter."
+677,7.922714354629837,0.0,0,0.2447940826416015,Cleanliness,77.0,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+678,11.579819791383176,0.1081081081081081,8,0.6534067789713541,Pricing,68.5,Monitor,"Forecasts are moderately reliable, but 8 anomalous sales days in the last quarter."
+679,6.791744152145017,0.0,0,0.3996593713760376,Cleanliness,81.2,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+680,9.278321300417357,0.0133333333333333,1,0.2539478689432144,Staff,74.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+681,12.517469267536615,0.0,0,0.6452054023742676,Staff,80.4,Performing Well,Forecasts are moderately reliable.
+682,5.427735112257078,0.2222222222222222,20,0.3999915957450867,Staff,55.9,Monitor,"Forecasts are reliable, but 20 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+683,5.71565917215845,0.0,0,0.9995253682136536,Cleanliness,94.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+684,9.089073171823353,0.0,0,0.7510436296463012,Cleanliness,85.9,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+685,11.732120186149144,0.0,0,0.3068571835756302,Stock Availability,74.4,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+686,7.912490895515364,0.0133333333333333,1,0.4086083968480428,Stock Availability,78.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+687,7.336915806697938,0.0,0,0.5991098999977111,Staff,84.6,Performing Well,Forecasts are reliable.
+688,10.480381612169586,0.04,3,0.6453570604324341,Cleanliness,77.6,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter."
+689,8.06276926450444,0.0,0,0.9944511651992798,Stock Availability,91.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+690,8.600036131083222,0.0,0,0.6002110481262207,Staff,83.4,Performing Well,Forecasts are reliable.
+691,10.09779953972254,0.0,0,0.6665036876996359,Cleanliness,83.2,Performing Well,Forecasts are moderately reliable.
+692,14.352794448460712,0.054054054054054,4,0.653419554233551,Cleanliness,72.2,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter."
+693,9.54478904362379,0.0135135135135135,1,0.3338187535603841,Pricing,75.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+694,4.799662562030027,0.0,0,0.4391613751649856,Stock Availability,84.0,Performing Well,Forecasts are reliable.
+695,15.535047612097989,0.0135135135135135,1,0.5565100610256195,Pricing,74.0,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+696,10.419735008422256,0.2533333333333333,19,0.0007873574892679,Staff,39.6,Needs Attention,"Forecasts are moderately reliable, but 19 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+697,9.415678280244254,0.0135135135135135,1,0.000868022441864,Pricing,69.0,Monitor,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+698,6.697992954110851,0.1466666666666666,11,0.6665754318237305,Pricing,69.0,Monitor,"Forecasts are reliable, but 11 anomalous sales days in the last quarter."
+699,8.643789462859308,0.0,0,0.357320499420166,Cleanliness,78.5,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+700,7.007290625841364,0.027027027027027,2,0.6665039459864298,Staff,83.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+701,14.036271698931351,0.0,0,0.637180233001709,Pricing,78.7,Performing Well,Forecasts are moderately reliable.
+702,10.72087423653873,0.0,0,0.7511383295059204,Staff,84.3,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about staff."
+703,11.57064039771345,0.0135135135135135,1,0.9839547872543336,Stock Availability,86.5,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+704,6.687403859011273,0.0133333333333333,1,0.5527317821979523,Cleanliness,82.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+705,9.258067610230489,0.0675675675675675,5,0.7405683845281601,Cleanliness,77.4,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+706,6.812697419995049,0.0,0,0.999416490395864,Cleanliness,93.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+707,9.318382337896525,0.1216216216216216,9,0.7536268383264542,Cleanliness,71.2,Performing Well,"Forecasts are reliable, but 9 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+708,7.761207063412506,0.0,0,0.6029711604118347,Cleanliness,84.3,Performing Well,Forecasts are reliable.
+709,8.315005786815515,0.08,6,0.000653068224589,Pricing,62.1,Monitor,"Forecasts are reliable, but 6 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+710,22.96590127567016,0.0,0,0.4955771565437317,Cleanliness,66.9,Monitor,"Forecasts are unreliable, suggesting unpredictable demand patterns."
+711,9.055751453953423,0.0,0,0.8382734060287476,Stock Availability,87.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+712,7.565572917019502,0.0,0,0.5034983307123184,Cleanliness,82.5,Performing Well,Forecasts are reliable.
+713,13.13718048510551,0.0,0,0.2499575763940811,Stock Availability,71.9,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+714,9.783777314398998,0.0,0,0.9911256581544876,Cleanliness,90.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+715,8.18665977725701,0.0133333333333333,1,0.496209055185318,Stock Availability,80.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+716,9.69305250601916,0.0,0,0.9941683014233909,Stock Availability,90.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+717,10.734714766568482,0.0135135135135135,1,0.2575885653495788,Staff,72.8,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+718,7.598193585471725,0.0,0,0.7353812456130981,Cleanliness,87.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+719,12.354340592548644,0.0,0,0.1982284665107727,Staff,71.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+720,7.646922035738357,0.0133333333333333,1,0.8065150827169418,Cleanliness,86.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+721,7.711195189721698,0.0,0,0.9865376551946003,Pricing,92.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+722,7.843141299962676,0.0,0,0.5477173209190369,Staff,83.1,Performing Well,Forecasts are reliable.
+723,5.841427154205856,0.0,0,0.080743928750356,Cleanliness,75.8,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+724,9.297913681535006,0.0675675675675675,5,0.0005646149317423,Stock Availability,62.6,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+725,7.869633482251261,0.04,3,0.585776150226593,Stock Availability,79.0,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+726,6.2658283666627295,0.0,0,0.602731716632843,Staff,85.8,Performing Well,Forecasts are reliable.
+727,7.486616093296705,0.0945945945945946,7,0.5997374057769775,Stock Availability,73.2,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter."
+728,7.772653302446455,0.0,0,0.9811885207891464,Stock Availability,91.9,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+729,7.317210178095411,0.0135135135135135,1,0.6711581746737162,Staff,84.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+730,9.033080961731804,0.0,0,0.1965062618255615,Cleanliness,74.9,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+731,8.663606833086343,0.0,0,0.912350594997406,Cleanliness,89.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+732,13.448246191604804,0.4777777777777778,43,0.9946954697370528,Pricing,56.4,Monitor,"Forecasts are moderately reliable, but 43 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+733,5.267689334536508,0.1111111111111111,10,0.3844841122627258,Pricing,69.1,Monitor,"Forecasts are reliable, but 10 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+734,7.253152149287234,0.0,0,0.1953095078468322,Staff,76.7,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+735,6.665050171131496,0.0133333333333333,1,0.6537752350171407,Staff,84.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+736,11.254961114447749,0.0,0,0.3338294823964436,Cleanliness,75.4,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+737,13.769009019412584,0.054054054054054,4,0.3103249222040176,Pricing,66.0,Monitor,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+738,8.05710547759538,0.0,0,0.602973210811615,Cleanliness,84.0,Performing Well,Forecasts are reliable.
+739,9.193979089300065,0.0,0,0.2514381170272827,Staff,75.8,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+740,7.378316074315975,0.0,0,0.788806962966919,Stock Availability,88.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+741,6.323880608546547,0.0133333333333333,1,0.7399183064699173,Pricing,86.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+742,5.894746808347048,0.0,0,0.5850775440533956,Cleanliness,85.8,Performing Well,Forecasts are reliable.
+743,11.242958126695402,0.0266666666666666,2,0.9760285417238872,Stock Availability,85.1,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+744,7.712173658320568,0.0,0,0.7919423580169678,Cleanliness,88.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+745,9.539709985541542,0.0266666666666666,2,0.2878658652305603,Stock Availability,73.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+746,7.553812359522148,0.0,0,0.2538940906524658,Staff,77.5,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+747,6.286133237825155,0.0,0,0.4861743599176407,Cleanliness,83.4,Performing Well,Forecasts are reliable.
+748,9.107956309208925,0.0,0,0.3381542166074117,Pricing,77.7,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+749,9.014067907060411,0.0,0,0.7420402566591898,Staff,85.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+750,12.543587670743738,0.0,0,0.4953541457653045,Staff,77.4,Performing Well,Forecasts are moderately reliable.
+751,12.987727800106828,0.0,0,0.2454715520143509,Cleanliness,71.9,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+752,8.28157530046825,0.0135135135135135,1,0.6533002853393555,Pricing,83.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+753,7.775950987773772,0.0135135135135135,1,0.3513509392738342,Stock Availability,77.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+754,8.618119960067448,0.0,0,0.354359495639801,Staff,78.5,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+755,7.180541944317211,0.0,0,0.5968813538551331,Stock Availability,84.8,Performing Well,Forecasts are reliable.
+756,9.388780563174937,0.0135135135135135,1,0.302421823143959,Pricing,75.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+757,9.935252422566048,0.081081081081081,6,0.4987875819206238,Staff,70.3,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+758,9.140440738050886,0.054054054054054,4,0.6715275843938192,Cleanliness,77.8,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+759,8.910973083812628,0.0135135135135135,1,0.7448578327894211,Pricing,84.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+760,9.527025992301986,0.04,3,0.9431127667427064,Stock Availability,84.5,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+761,8.957819522184995,0.0133333333333333,1,0.5036964267492294,Cleanliness,79.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+762,10.607717267406894,0.0,0,0.0758179624875386,Staff,70.9,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+763,6.382328351039349,0.0133333333333333,1,0.802455723285675,Stock Availability,88.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+764,10.422636667803843,0.027027027027027,2,0.7986053973436356,Stock Availability,82.3,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+765,7.682682381306829,0.0135135135135135,1,0.7978726625442505,Stock Availability,86.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+766,8.906246427010357,0.0,0,0.9958852529525756,Cleanliness,91.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+767,8.688117050340855,0.0133333333333333,1,0.658268928527832,Pricing,82.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+768,7.223043074127138,0.0133333333333333,1,0.5566791594028473,Stock Availability,82.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+769,8.778212085896827,0.0222222222222222,2,0.2575557380914688,Staff,73.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+770,8.518290485030176,0.0135135135135135,1,0.3337844610214233,Stock Availability,76.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+771,6.813957950459305,0.0,0,0.6551424463589987,Stock Availability,86.3,Performing Well,Forecasts are reliable.
+772,10.288675039681294,0.0933333333333333,7,0.4455763101577759,Staff,67.4,Monitor,"Forecasts are moderately reliable, but 7 anomalous sales days in the last quarter."
+773,6.905276293191796,0.0,0,0.0052960515022277,Cleanliness,73.2,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+774,7.608435497834777,0.1333333333333333,10,0.4391647726297378,Pricing,65.2,Monitor,"Forecasts are reliable, but 10 anomalous sales days in the last quarter."
+775,6.115134442365118,0.0,0,0.4453650116920471,Pricing,82.8,Performing Well,Forecasts are reliable.
+776,11.24178285080715,0.0135135135135135,1,0.6533976594607035,Pricing,80.2,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+777,8.52999867464293,0.0,0,0.599432361125946,Pricing,83.5,Performing Well,Forecasts are reliable.
+778,5.403894204829944,0.0,0,0.4001867175102234,Cleanliness,82.6,Performing Well,Forecasts are reliable.
+779,10.850081226230447,0.0533333333333333,4,0.6383416533470154,Stock Availability,75.5,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter."
+780,9.181177005041494,0.0533333333333333,4,0.7459793835878372,Stock Availability,79.3,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+781,9.027929733732057,0.0,0,0.6666527390480042,Staff,84.3,Performing Well,Forecasts are reliable.
+782,12.060874825245287,0.0675675675675675,5,0.6889006197452545,Staff,73.6,Performing Well,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter."
+783,7.077895979402446,0.0933333333333333,7,0.7997022151947022,Staff,77.7,Performing Well,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+784,9.319053240075942,0.0,0,0.7510923862457275,Cleanliness,85.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+785,9.48843067579001,0.0,0,0.9996472795804342,Cleanliness,90.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+786,14.273572698694784,0.0533333333333333,4,0.3202029665311177,Pricing,65.7,Monitor,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+787,7.128775974176817,0.0133333333333333,1,0.3336579004923503,Pricing,77.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+788,7.0483912340069805,0.0,0,0.2504197955131531,Pricing,78.0,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+789,13.632041934829685,0.054054054054054,4,0.6714433630307516,Staff,73.3,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter."
+790,7.352283763160751,0.0405405405405405,3,0.8062405288219452,Pricing,83.9,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+791,8.777594109902395,0.027027027027027,2,0.7499891817569733,Cleanliness,83.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+792,6.144364102592907,0.0135135135135135,1,0.9895846098661424,Staff,92.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+793,8.665419944766645,0.0135135135135135,1,0.7459521591663361,Cleanliness,84.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+794,13.783257507201558,0.2666666666666666,20,0.5999976396560669,Staff,48.2,Monitor,"Forecasts are moderately reliable, but 20 anomalous sales days in the last quarter."
+795,10.736399105495256,0.0,0,0.5999457120895386,Cleanliness,81.3,Performing Well,Forecasts are moderately reliable.
+796,7.268783514398872,0.027027027027027,2,0.9934741854667664,Staff,89.4,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about staff."
+797,9.47012815359155,0.0,0,0.4391108393669128,Stock Availability,79.3,Performing Well,Forecasts are reliable.
+798,7.673577241322474,0.0533333333333333,4,0.4003441333770752,Cleanliness,73.9,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+799,7.592369578323556,0.0135135135135135,1,0.6714985569318136,Staff,84.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+800,8.191264980782064,0.0,0,0.6663377285003662,Staff,85.1,Performing Well,Forecasts are reliable.
+801,9.89169751412476,0.08,6,0.6602985858917236,Staff,73.7,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+802,6.346315110484974,0.0,0,0.2541367560625076,Staff,78.7,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+803,7.164524991735376,0.0,0,0.6890392750501633,Staff,86.6,Performing Well,Forecasts are reliable.
+804,8.59925335250256,0.0,0,0.917944073677063,Pricing,89.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+805,5.620793338989055,0.0,0,0.5006070286035538,Staff,84.4,Performing Well,Forecasts are reliable.
+806,7.572134458403852,0.0,0,0.6471854448318481,Pricing,85.4,Performing Well,Forecasts are reliable.
+807,6.829446098375429,0.0,0,0.6651848753293356,Pricing,86.5,Performing Well,Forecasts are reliable.
+808,8.812395916442926,0.0133333333333333,1,0.7498989552259445,Cleanliness,84.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+809,5.571860826309168,0.0,0,0.6442899703979492,Staff,87.3,Performing Well,Forecasts are reliable.
+810,6.724639737740593,0.027027027027027,2,0.5997248530387879,Staff,82.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+811,9.37556438380722,0.0,0,0.599219000339508,Cleanliness,82.6,Performing Well,Forecasts are reliable.
+812,8.021530151789156,0.0666666666666666,5,0.7412835955619812,Stock Availability,78.8,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+813,9.273198620813607,0.0675675675675675,5,0.7462452054023743,Cleanliness,77.5,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+814,8.321217722721828,0.0266666666666666,2,0.5000587701797485,Cleanliness,78.5,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+815,5.8291754880755065,0.0,0,0.5000835955142975,Stock Availability,84.2,Performing Well,Forecasts are reliable.
+816,10.580805503406085,0.0,0,0.3633307963609695,Stock Availability,76.7,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+817,5.137097830037783,0.04,3,0.333463191986084,Cleanliness,76.7,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+818,7.917682416951652,0.0135135135135135,1,0.2482820749282837,Stock Availability,75.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+819,8.245657248341344,0.0133333333333333,1,0.5963991403579711,Staff,82.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+820,6.54395008375477,0.0,0,0.5999305963516235,Pricing,85.5,Performing Well,Forecasts are reliable.
+821,8.894305600515613,0.0933333333333333,7,0.2006643533706665,Staff,63.9,Monitor,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+822,10.16954370018126,0.0,0,0.9122453133265176,Stock Availability,88.1,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about stock availability."
+823,8.257229701723276,0.0266666666666666,2,0.994954377412796,Stock Availability,88.4,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+824,9.630151792651514,0.0133333333333333,1,0.9930875301361084,Staff,88.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+825,8.792628042672781,0.0,0,0.3334542115529378,Cleanliness,77.9,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+826,8.006114601986555,0.0135135135135135,1,0.9857965707778932,Pricing,90.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+827,10.392116900972509,0.08,6,0.5527184307575226,Stock Availability,71.1,Performing Well,"Forecasts are moderately reliable, but 6 anomalous sales days in the last quarter."
+828,7.955537746717191,0.0133333333333333,1,0.39652019739151,Stock Availability,78.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+829,9.493604795998197,0.0,0,0.5903159578641256,Staff,82.3,Performing Well,Forecasts are reliable.
+830,9.521651878603704,0.0133333333333333,1,0.9898748397827148,Cleanliness,88.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+831,10.56140041385016,0.0,0,0.3282378117243449,Stock Availability,76.0,Performing Well,"Forecasts are moderately reliable, but negative feedback about stock availability suggests an issue worth investigating."
+832,7.668258086374891,0.0,0,0.6711581746737162,Staff,85.8,Performing Well,Forecasts are reliable.
+833,7.87892768399307,0.0,0,0.7460024505853653,Staff,87.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+834,7.585866077008467,0.0266666666666666,2,0.3380560874938965,Staff,76.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+835,8.231217384488835,0.0675675675675675,5,0.9846704363822936,Pricing,83.4,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+836,9.228865244562224,0.1066666666666666,8,0.7923405766487122,Cleanliness,73.8,Performing Well,"Forecasts are reliable, but 8 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+837,9.137199103543049,0.054054054054054,4,0.9993483424186708,Pricing,84.4,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+838,6.794975972256295,0.0133333333333333,1,0.9990333318710328,Pricing,91.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+839,7.898661702657112,0.0,0,0.6665926774342855,Pricing,85.4,Performing Well,Forecasts are reliable.
+840,9.344185284104968,0.0266666666666666,2,0.6669496695200602,Cleanliness,80.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+841,12.45832825659246,0.0666666666666666,5,0.9856177568435668,Cleanliness,79.3,Performing Well,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+842,11.130698483290384,0.0,0,0.3252410689989726,Staff,75.4,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+843,9.725714070995066,0.0,0,0.6666956742604574,Staff,83.6,Performing Well,Forecasts are reliable.
+844,9.859737141322745,0.027027027027027,2,0.3963600277900695,Cleanliness,74.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+845,10.343331774394104,0.0945945945945946,7,0.7498293519020081,Staff,73.3,Performing Well,"Forecasts are moderately reliable, but 7 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+846,9.842863290159872,0.027027027027027,2,0.5949699759483338,Staff,78.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+847,7.339388020300857,0.0,0,0.3271122773488362,Cleanliness,79.2,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+848,10.780466306094388,0.0135135135135135,1,0.4989049911499023,Stock Availability,77.6,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+849,4.588952549795118,0.0,0,0.6714652379353842,Staff,88.8,Performing Well,Forecasts are reliable.
+850,12.11114837405372,0.0,0,0.3334997296333313,Cleanliness,74.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+851,8.322823394777714,0.0,0,0.3334529002507527,Stock Availability,78.3,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+852,9.427784363240344,0.0,0,0.6665926774342855,Pricing,83.9,Performing Well,Forecasts are reliable.
+853,6.649176570324829,0.0,0,0.9997012257575988,Staff,93.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+854,13.052612478381208,0.0,0,0.6450668931007385,Pricing,79.8,Performing Well,Forecasts are moderately reliable.
+855,7.834748048872216,0.027027027027027,2,0.5995692491531373,Staff,80.9,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+856,6.557220400476224,0.0133333333333333,1,0.9429354071617126,Stock Availability,90.7,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+857,8.185364120816638,0.0135135135135135,1,0.4088587164878845,Cleanliness,78.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+858,8.831779200072774,0.0,0,0.4392279684543609,Stock Availability,80.0,Performing Well,Forecasts are reliable.
+859,7.899427331641198,0.0,0,0.4004808783531189,Pricing,80.1,Performing Well,Forecasts are reliable.
+860,6.983193506911252,0.0,0,0.3273404041926066,Pricing,79.6,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+861,10.848019336366404,0.0135135135135135,1,0.7453903406858444,Cleanliness,82.4,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+862,8.084581296958296,0.0,0,0.7368812759717306,Stock Availability,86.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+863,8.933550948521257,0.5222222222222223,47,0.0006050070126851,Stock Availability,41.1,Monitor,"Forecasts are reliable, but 47 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+864,8.309669618596145,0.081081081081081,6,0.666282037893931,Pricing,75.3,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+865,9.274041996557097,0.0,0,0.3919335603713989,Cleanliness,78.6,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+866,7.18833137097796,0.0135135135135135,1,0.7451034188270569,Staff,86.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+867,10.969273010594424,0.4,36,0.6668362220128378,Cleanliness,52.4,Monitor,"Forecasts are moderately reliable, but 36 anomalous sales days in the last quarter."
+868,8.821741584950667,0.1081081081081081,8,0.9474515080451964,Pricing,77.2,Performing Well,"Forecasts are reliable, but 8 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+869,11.241672676617702,0.0133333333333333,1,0.5921708345413208,Pricing,79.0,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+870,10.48909428340292,0.2,15,0.397156810760498,Cleanliness,53.5,Monitor,"Forecasts are moderately reliable, but 15 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+871,11.697455043526752,0.054054054054054,4,0.5964217185974121,Cleanliness,73.7,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter."
+872,7.08838571253731,0.0,0,0.8024904280900955,Stock Availability,89.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+873,9.372760089948978,0.0933333333333333,7,0.5034991502761841,Staff,69.5,Monitor,"Forecasts are reliable, but 7 anomalous sales days in the last quarter."
+874,8.829668406175248,0.0133333333333333,1,0.3107624799013138,Staff,75.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+875,6.222997793560883,0.0405405405405405,3,0.7937620639801025,Stock Availability,84.8,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+876,62.47202114916601,0.2131147540983606,13,0.6888032406568527,Staff,18.2,Needs Attention,"Forecasts are unreliable, suggesting unpredictable demand patterns, but 13 anomalous sales days in the last quarter."
+877,12.167165189021292,0.2692307692307692,21,0.0643218159675598,Staff,39.1,Needs Attention,"Forecasts are moderately reliable, but 21 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+878,5.631276318489058,0.0133333333333333,1,0.792499053478241,Cleanliness,88.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+879,9.272597441039771,0.0,0,0.6652863423029581,Staff,84.0,Performing Well,Forecasts are reliable.
+880,6.028607966579532,0.0135135135135135,1,0.686614990234375,Cleanliness,86.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+881,10.817432808448098,0.054054054054054,4,0.4297297239303589,Pricing,71.3,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter."
+882,7.946922020145944,0.0,0,0.5504709601402282,Pricing,83.1,Performing Well,Forecasts are reliable.
+883,8.867643948115774,0.0675675675675675,5,0.3285682400067647,Stock Availability,69.6,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+884,7.48965537166135,0.0,0,0.3334466020266215,Staff,79.2,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+885,7.03804811804736,0.0,0,0.0002813935279846,Staff,73.0,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+886,7.728770130961676,0.0675675675675675,5,0.999774436155955,Cleanliness,84.2,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+887,7.670580877496539,0.0,0,0.7368555863698324,Stock Availability,87.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+888,7.974353943113719,0.0,0,0.3386946519215901,Pricing,78.8,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+889,8.325593554256159,0.12,9,0.5991024374961853,Cleanliness,69.3,Monitor,"Forecasts are reliable, but 9 anomalous sales days in the last quarter."
+890,8.191145454386865,0.0,0,0.9995386600494384,Staff,91.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+891,10.37502903921878,0.0135135135135135,1,0.5851701498031616,Stock Availability,79.7,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+892,7.49717278703267,0.0133333333333333,1,0.6451873660087586,Staff,83.8,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+893,8.13732960174949,0.0,0,0.5854179263114929,Stock Availability,83.6,Performing Well,Forecasts are reliable.
+894,7.532360464598628,0.0135135135135135,1,0.3334399660428365,Cleanliness,77.5,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+895,6.998413315029469,0.0,0,0.7399761527776718,Staff,87.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+896,9.67336906235954,0.0,0,0.5000509917736053,Cleanliness,80.3,Performing Well,Forecasts are reliable.
+897,9.018991901055122,0.0,0,0.2539053559303283,Staff,76.1,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+898,12.859052894053146,0.0666666666666666,5,0.3384305238723755,Stock Availability,65.9,Monitor,"Forecasts are moderately reliable, but 5 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+899,9.032810732211788,0.0133333333333333,1,0.4404842972755432,Cleanliness,78.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+900,9.678355073170165,0.0,0,0.9429027676582336,Pricing,89.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+901,9.508885661429932,0.0133333333333333,1,0.6537924806276957,Staff,82.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+902,8.898807114179496,0.0,0,0.0041292905807495,Cleanliness,71.2,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+903,7.907393921857428,0.0,0,0.8018401265144348,Cleanliness,88.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+904,7.913665411434212,0.0,0,0.0005583018064498,Staff,72.1,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+905,11.319377325869764,0.0,0,0.0006422996520996,Cleanliness,68.7,Monitor,"Forecasts are moderately reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+906,8.040239444468632,0.0,0,0.599657130241394,Pricing,84.0,Performing Well,Forecasts are reliable.
+907,12.131549311004214,0.0,0,0.3383715152740478,Pricing,74.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+908,12.558045666671442,0.0135135135135135,1,0.6335352182388305,Cleanliness,78.5,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+909,28.265171186992397,0.2166666666666666,13,0.3338161905606587,Pricing,32.4,Needs Attention,"Forecasts are unreliable, suggesting unpredictable demand patterns, but 13 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+910,8.770728650461791,0.0133333333333333,1,0.3142401725053787,Staff,75.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+911,7.700344430075715,0.0133333333333333,1,0.7961423546075821,Pricing,86.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+912,9.731335818864354,0.0133333333333333,1,0.6385278940200806,Stock Availability,81.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+913,7.385071461816583,0.0,0,0.5566638857126236,Pricing,83.7,Performing Well,Forecasts are reliable.
+914,9.427485829526866,0.0133333333333333,1,0.000411570072174,Staff,69.0,Monitor,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+915,11.36751785138482,0.0,0,0.2504157125949859,Staff,73.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+916,14.25090187735099,0.054054054054054,4,0.3476690769195557,Stock Availability,66.2,Monitor,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+917,7.968094775044507,0.1081081081081081,8,0.5963965773582458,Cleanliness,71.0,Performing Well,"Forecasts are reliable, but 8 anomalous sales days in the last quarter."
+918,11.984332170866251,0.0533333333333333,4,0.7498616129159927,Cleanliness,76.6,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+919,9.040505615076151,0.0,0,0.0052163402239481,Staff,71.1,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+920,6.264218938131351,0.0,0,0.0457646965980529,Stock Availability,74.7,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+921,9.31021150536666,0.0533333333333333,4,0.0005188226699829,Staff,64.3,Monitor,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+922,6.299825059688841,0.027027027027027,2,0.5855331619580587,Stock Availability,82.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+923,8.639266191702974,0.0,0,0.740013912320137,Pricing,86.2,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+924,11.480704135725937,0.0135135135135135,1,0.7883392572402954,Pricing,82.7,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+925,9.853415077510704,0.0,0,0.6666189233462015,Staff,83.5,Performing Well,Forecasts are reliable.
+926,14.27660488688538,0.0,0,0.793378472328186,Pricing,81.6,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+927,9.701276004642448,0.0,0,0.500264510512352,Cleanliness,80.3,Performing Well,Forecasts are reliable.
+928,9.995384247633526,0.0135135135135135,1,0.0002132058143615,Stock Availability,68.4,Monitor,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+929,8.161695726254848,0.0133333333333333,1,0.2061726450920105,Staff,74.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+930,9.425932841899265,0.0,0,0.5002768039703369,Cleanliness,80.6,Performing Well,Forecasts are reliable.
+931,13.457547598514012,0.2888888888888888,26,0.2424922585487365,Stock Availability,41.4,Monitor,"Forecasts are moderately reliable, but 26 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+932,9.21004713550735,0.0,0,0.5999973177909851,Cleanliness,82.8,Performing Well,Forecasts are reliable.
+933,9.670893516165735,0.04,3,0.7452111393213272,Cleanliness,80.4,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+934,8.543011588737825,0.0,0,0.7448761612176895,Cleanliness,86.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+935,7.002863642984974,0.0266666666666666,2,0.7447042614221573,Cleanliness,84.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+936,6.554140491095434,0.0,0,0.5513076066970826,Staff,84.5,Performing Well,Forecasts are reliable.
+937,5.790132457453037,0.0,0,0.2466918528079986,Stock Availability,79.1,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+938,6.351042777612428,0.0266666666666666,2,0.5968352675437927,Stock Availability,82.4,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+939,7.494465366400282,0.0,0,0.6556729873021444,Stock Availability,85.6,Performing Well,Forecasts are reliable.
+940,8.621954970888854,0.0,0,0.6583531498908997,Cleanliness,84.5,Performing Well,Forecasts are reliable.
+941,9.846903966010313,0.0,0,0.6453349232673645,Cleanliness,83.1,Performing Well,Forecasts are reliable.
+942,8.931892957412574,0.027027027027027,2,0.6652067502339681,Staff,81.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+943,9.13115912781974,0.027027027027027,2,0.6027231216430664,Staff,79.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+944,8.593945744806994,0.0,0,0.7493975013494492,Pricing,86.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+945,8.467639148102663,0.0666666666666666,5,0.9916458606719972,Stock Availability,83.4,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+946,6.962530992414536,0.0,0,0.3068621009588241,Cleanliness,79.2,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+947,14.553353911193224,0.1081081081081081,8,0.4961554557085037,Staff,62.4,Monitor,"Forecasts are moderately reliable, but 8 anomalous sales days in the last quarter."
+948,8.313431344124307,0.5666666666666667,51,0.6603344082832336,Cleanliness,54.9,Monitor,"Forecasts are reliable, but 51 anomalous sales days in the last quarter."
+949,8.007848631664084,0.0266666666666666,2,0.3205265204111735,Pricing,75.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+950,7.285100760162841,0.0135135135135135,1,0.9930737813313802,Pricing,91.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+951,10.64091588344743,0.0405405405405405,3,0.7895484328269958,Stock Availability,80.3,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+952,8.843510126648937,0.0,0,0.9990327060222626,Pricing,91.1,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+953,8.369206906840791,0.04,3,0.7456941306591034,Pricing,81.7,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+954,12.649109838834786,0.0,0,0.6715705196062723,Stock Availability,80.8,Performing Well,Forecasts are moderately reliable.
+955,6.7225849778375455,0.027027027027027,2,0.6001806378364563,Stock Availability,82.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+956,13.325486201775616,0.054054054054054,4,0.9931419293085734,Cleanliness,80.1,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+957,8.585094869317665,0.0266666666666666,2,0.4394692778587341,Pricing,77.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+958,7.735805653983687,0.0266666666666666,2,0.4001762747764587,Cleanliness,77.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+959,8.456343795870643,0.0133333333333333,1,0.99971208969752,Cleanliness,89.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+960,7.479293428747627,0.0,0,0.5002769082784653,Staff,82.5,Performing Well,Forecasts are reliable.
+961,7.5308524997439745,0.0405405405405405,3,0.7449781745672226,Staff,82.5,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about staff."
+962,8.204520559690462,0.0135135135135135,1,0.3922250270843506,Stock Availability,78.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+963,11.871640510486811,0.0266666666666666,2,0.5978204488754273,Staff,76.9,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently."
+964,8.54117957520748,0.0,0,0.9997235337893168,Pricing,91.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+965,10.80740411212228,0.0,0,0.3383473555246989,Staff,76.0,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+966,8.013462558402038,0.054054054054054,4,0.0051985383033752,Staff,65.6,Monitor,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+967,9.872932389848032,0.081081081081081,6,0.6606141130129496,Stock Availability,73.6,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+968,8.338071097808058,0.0,0,0.998794416586558,Pricing,91.6,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+969,9.549236573910187,0.0,0,0.5001070648431778,Pricing,80.5,Performing Well,Forecasts are reliable.
+970,16.13749076892046,0.1756756756756756,13,0.2456605076789856,Cleanliness,47.7,Monitor,"Forecasts are moderately reliable, but 13 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+971,6.599422772005267,0.2121212121212121,14,0.5566280484199524,Pricing,59.1,Monitor,"Forecasts are reliable, but 14 anomalous sales days in the last quarter."
+972,8.509461004569735,0.0266666666666666,2,0.9917737960815428,Stock Availability,88.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+973,9.09614953432205,0.0135135135135135,1,0.499687910079956,Staff,79.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+974,5.296589603738925,0.0,0,0.2502087652683258,Pricing,79.7,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+975,9.7188152862985,0.027027027027027,2,0.9023020982742308,Stock Availability,85.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+976,6.595744127060479,0.027027027027027,2,0.9994498093922932,Staff,90.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about staff."
+977,15.514826510902402,0.0,0,0.989219049612681,Stock Availability,84.3,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about stock availability."
+978,9.268802880791544,0.0266666666666666,2,0.6660433610280355,Pricing,80.9,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+979,8.109926311210833,0.0133333333333333,1,0.2002318501472473,Cleanliness,74.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+980,7.549063609144352,0.0,0,0.3380413254102071,Pricing,79.2,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+981,6.593986373463112,0.0266666666666666,2,0.7456302046775818,Pricing,85.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+982,10.028509494702751,0.0266666666666666,2,0.9868834416071574,Cleanliness,86.5,Performing Well,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+983,12.62555971810102,0.0,0,0.0758637388547261,Pricing,68.9,Monitor,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+984,13.436278006805608,0.0,0,0.2501742243766784,Staff,71.6,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+985,8.212441881390637,0.0,0,0.2505094110965729,Cleanliness,76.8,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+986,10.085924967099242,0.0,0,0.7494226545095444,Pricing,84.9,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+987,8.766224238243538,0.0533333333333333,4,0.9879932284355164,Pricing,84.6,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+988,15.530839558193572,0.32,24,0.7962332487106323,Pricing,50.4,Monitor,"Forecasts are moderately reliable, but 24 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+989,7.866539307528179,0.0,0,0.7438198328018188,Cleanliness,87.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+990,6.57615411769317,0.0533333333333333,4,0.2610525041818619,Staff,72.2,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+991,8.602223481251102,0.0405405405405405,3,0.0010046561559041,Staff,66.6,Monitor,"Forecasts are reliable, but 3 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+992,9.97200310696049,0.0405405405405405,3,0.5000839680433273,Pricing,75.2,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+993,6.524804871219167,0.0,0,0.6661668022473654,Pricing,86.8,Performing Well,Forecasts are reliable.
+994,9.974375662465896,0.027027027027027,2,0.6666346589724222,Staff,80.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+995,7.1207113443877175,0.0,0,0.6666183670361837,Pricing,86.2,Performing Well,Forecasts are reliable.
+996,10.896057553759029,0.04,3,0.7887471318244934,Pricing,80.1,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+997,10.000376405187298,0.0,0,0.6026879549026489,Cleanliness,82.1,Performing Well,Forecasts are moderately reliable.
+998,8.362933988448875,0.0,0,0.5855159163475037,Stock Availability,83.3,Performing Well,Forecasts are reliable.
+999,8.003156439778314,0.0,0,0.666610062122345,Cleanliness,85.3,Performing Well,Forecasts are reliable.
+1000,8.453591427332235,0.0,0,0.7355130314826965,Pricing,86.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+1001,7.438147009478886,0.0133333333333333,1,0.4990096092224121,Pricing,80.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1002,9.956123999100944,0.04,3,0.4956143051385879,Cleanliness,75.2,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+1003,12.2281054708929,0.027027027027027,2,0.2573122382164001,Staff,69.7,Monitor,"Forecasts are moderately reliable, but 2 anomalous sales day(s) recently; negative feedback about staff suggests an issue worth investigating."
+1004,7.749468990060591,0.0,0,0.2527343233426412,Stock Availability,77.3,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+1005,9.86042476979662,0.0945945945945946,7,0.4871397733688354,Stock Availability,68.5,Monitor,"Forecasts are reliable, but 7 anomalous sales days in the last quarter."
+1006,8.347894863515755,0.0,0,0.4089139699935913,Stock Availability,79.8,Performing Well,Forecasts are reliable.
+1007,6.824350904711086,0.0,0,0.7888076186180115,Cleanliness,89.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+1008,7.99283636966785,0.0266666666666666,2,0.0002991954485575,Cleanliness,68.8,Monitor,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+1009,9.478835771987736,0.0,0,0.4034496188163757,Staff,78.6,Performing Well,Forecasts are reliable.
+1010,7.915316086694661,0.0,0,0.2523153821627299,Stock Availability,77.1,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+1011,11.565624216901035,0.0,0,0.6534910003344218,Cleanliness,81.5,Performing Well,Forecasts are moderately reliable.
+1012,10.555073231437774,0.0,0,0.9928267399470012,Pricing,89.3,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+1013,9.202955204008202,0.0405405405405405,3,0.6666028499603271,Stock Availability,79.3,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+1014,11.816870082231407,0.0405405405405405,3,0.5997276067733764,Stock Availability,75.3,Performing Well,"Forecasts are moderately reliable, but 3 anomalous sales days in the last quarter."
+1015,6.9204546550381245,0.081081081081081,6,0.6662793954213461,Stock Availability,76.7,Performing Well,"Forecasts are reliable, but 6 anomalous sales days in the last quarter."
+1016,8.802520727363273,0.0135135135135135,1,0.4344817548990249,Cleanliness,78.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1017,8.843874391290646,0.0,0,0.6665570735931396,Staff,84.5,Performing Well,Forecasts are reliable.
+1018,6.741873524510389,0.0,0,0.0005112290382385,Staff,73.3,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+1019,15.135969200962888,0.0,0,0.3104814887046814,Staff,71.1,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+1020,7.785335133867218,0.0,0,0.7289550304412842,Stock Availability,86.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+1021,8.099163404751122,0.0133333333333333,1,0.445247209072113,Stock Availability,79.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1022,7.532743204768996,0.0135135135135135,1,0.6665695508321127,Stock Availability,84.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1023,8.304360063562935,0.0,0,0.4001761436462402,Cleanliness,79.7,Performing Well,Forecasts are reliable.
+1024,5.182475102459196,0.0,0,0.7838756561279296,Pricing,90.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+1025,7.982318163528074,0.0405405405405405,3,0.5971599817276001,Pricing,79.1,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+1026,6.952258382060707,0.0,0,0.3338833649953206,Stock Availability,79.7,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+1027,12.994462636553752,0.0,0,0.4036835829416911,Stock Availability,75.1,Performing Well,Forecasts are moderately reliable.
+1028,12.045296168509966,0.0135135135135135,1,0.2503637075424194,Pricing,71.3,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently; negative feedback about pricing suggests an issue worth investigating."
+1029,12.879445852130106,0.2666666666666666,20,0.7353149056434631,Cleanliness,51.8,Monitor,"Forecasts are moderately reliable, but 20 anomalous sales days in the last quarter; reviews are positive, largely about cleanliness."
+1030,10.081933426428446,0.0533333333333333,4,0.806161567568779,Pricing,79.6,Performing Well,"Forecasts are moderately reliable, but 4 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+1031,8.165521674900642,0.0,0,0.4390745759010315,Cleanliness,80.6,Performing Well,Forecasts are reliable.
+1032,8.507519123918122,0.0,0,0.7498825490474701,Cleanliness,86.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+1033,7.1293890705952805,0.0133333333333333,1,0.5032499581575394,Pricing,81.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1034,8.535889902667789,0.0,0,0.9997235337893168,Cleanliness,91.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+1035,8.531623062928638,0.0266666666666666,2,0.7965553522109985,Pricing,84.2,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about pricing."
+1036,9.951592929824333,0.027027027027027,2,0.6602843801180521,Stock Availability,80.0,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+1037,11.433470090590832,0.0,0,0.3964924216270447,Staff,76.5,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+1038,7.618940412091141,0.0,0,0.5966696500778198,Stock Availability,84.3,Performing Well,Forecasts are reliable.
+1039,10.302297481516662,0.0,0,0.3337482810020447,Pricing,76.4,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+1040,5.401622878173298,0.0,0,0.9940978288650512,Staff,94.5,Performing Well,"Forecasts are reliable, but reviews are positive, largely about staff."
+1041,7.292830063931575,0.0,0,0.5451183080673218,Stock Availability,83.6,Performing Well,Forecasts are reliable.
+1042,9.614061582505558,0.2162162162162162,16,0.3285680015881856,Pricing,51.0,Monitor,"Forecasts are reliable, but 16 anomalous sales days in the last quarter; negative feedback about pricing suggests an issue worth investigating."
+1043,7.76861794769732,0.0,0,0.5000277161598206,Pricing,82.2,Performing Well,Forecasts are reliable.
+1044,11.229432024129444,0.0135135135135135,1,0.4002934694290161,Cleanliness,75.2,Performing Well,"Forecasts are moderately reliable, but 1 anomalous sales day(s) recently."
+1045,13.571901820134572,0.4888888888888889,44,0.6600459218025208,Cleanliness,49.6,Monitor,"Forecasts are moderately reliable, but 44 anomalous sales days in the last quarter."
+1046,6.878900432897693,0.0666666666666666,5,0.7497084140777588,Pricing,80.1,Performing Well,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; reviews are positive, largely about pricing."
+1047,9.964035383923727,0.0675675675675675,5,0.3331308166186015,Cleanliness,68.6,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+1048,8.417688071371671,0.0133333333333333,1,0.4998424053192138,Stock Availability,80.0,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1049,8.700462911935485,0.0,0,0.6612265308698019,Staff,84.5,Performing Well,Forecasts are reliable.
+1050,7.628176247079908,0.0,0,0.944491708278656,Stock Availability,91.3,Performing Well,"Forecasts are reliable, but reviews are positive, largely about stock availability."
+1051,7.503672401267098,0.0135135135135135,1,0.660216232140859,Pricing,84.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1052,7.667628909245085,0.0135135135135135,1,0.7850428819656372,Cleanliness,86.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+1053,5.746009952285824,0.0133333333333333,1,0.4482975482940673,Staff,81.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1054,7.9842552613028195,0.0266666666666666,2,0.9943586190541586,Staff,88.7,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about staff."
+1055,7.021654005850573,0.0,0,0.9861497084299724,Pricing,92.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+1056,13.665052732097465,0.0,0,0.3334801793098449,Staff,73.0,Performing Well,"Forecasts are moderately reliable, but negative feedback about staff suggests an issue worth investigating."
+1057,8.471633338868061,0.1066666666666666,8,0.9070433974266052,Stock Availability,76.9,Performing Well,"Forecasts are reliable, but 8 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+1058,8.7144582411381,0.054054054054054,4,0.4901821315288543,Pricing,74.6,Performing Well,"Forecasts are reliable, but 4 anomalous sales days in the last quarter."
+1059,6.615081157219439,0.0,0,0.0004279017448425,Pricing,73.4,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+1060,9.30118278764466,0.0405405405405405,3,0.6026398658752441,Staff,77.9,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+1061,6.320682010101299,0.0,0,0.1513605713844299,Stock Availability,76.7,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+1062,7.370662247074787,0.0,0,0.6914090394973755,Stock Availability,86.5,Performing Well,Forecasts are reliable.
+1063,8.753867604512845,0.0133333333333333,1,0.0759244561195373,Stock Availability,71.2,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+1064,7.570846108323345,0.0,0,0.7496425062417984,Cleanliness,87.4,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+1065,10.039417138234166,0.0,0,0.7935348153114319,Stock Availability,85.8,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about stock availability."
+1066,7.960243999334547,0.0,0,0.6616172591845194,Pricing,85.3,Performing Well,Forecasts are reliable.
+1067,6.999444952762053,0.0,0,0.391767680644989,Pricing,80.8,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+1068,8.167529412733977,0.027027027027027,2,0.7432827711105346,Cleanliness,83.5,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."
+1069,11.647241753609563,0.08,6,0.4998830407857895,Pricing,68.8,Monitor,"Forecasts are moderately reliable, but 6 anomalous sales days in the last quarter."
+1070,8.813281022184684,0.0,0,0.2502407729625702,Pricing,76.2,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+1071,8.681243643559087,0.0266666666666666,2,0.5472718954086304,Cleanliness,79.1,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently."
+1072,6.291309636335959,0.0945945945945946,7,0.310487687587738,Staff,68.6,Monitor,"Forecasts are reliable, but 7 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+1073,14.873108058417122,0.2432432432432432,18,0.3970807313919067,Staff,43.9,Monitor,"Forecasts are moderately reliable, but 18 anomalous sales days in the last quarter; negative feedback about staff suggests an issue worth investigating."
+1074,11.039498179994771,0.0,0,0.5918866991996765,Pricing,80.8,Performing Well,Forecasts are moderately reliable.
+1075,7.98541126564172,0.0,0,0.4292947947978973,Pricing,80.6,Performing Well,Forecasts are reliable.
+1076,12.140432892516406,0.1486486486486486,11,0.3338164289792378,Cleanliness,56.7,Monitor,"Forecasts are moderately reliable, but 11 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+1077,7.476384232490324,0.0135135135135135,1,0.7357656955718994,Staff,85.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+1078,9.0132648125042,0.0,0,0.739918515086174,Pricing,85.8,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+1079,8.577781858093344,0.0,0,0.6450336694717407,Pricing,84.3,Performing Well,Forecasts are reliable.
+1080,6.485361450347095,0.0,0,0.6535336971282959,Pricing,86.6,Performing Well,Forecasts are reliable.
+1081,8.218777458320568,0.2777777777777778,25,0.9130029479662576,Stock Availability,60.0,Monitor,"Forecasts are reliable, but 25 anomalous sales days in the last quarter; reviews are positive, largely about stock availability."
+1082,7.833113718690197,0.0,0,0.4958282262086868,Stock Availability,82.1,Performing Well,Forecasts are reliable.
+1083,8.94605818439088,0.0,0,0.7959685921669006,Pricing,87.0,Performing Well,"Forecasts are reliable, but reviews are positive, largely about pricing."
+1084,9.618129799886717,0.0,0,0.4348997473716736,Stock Availability,79.1,Performing Well,Forecasts are reliable.
+1085,7.664667255514332,0.04,3,0.6452462911605835,Stock Availability,80.4,Performing Well,"Forecasts are reliable, but 3 anomalous sales days in the last quarter."
+1086,8.687387134117616,0.0,0,0.2004011750221252,Staff,75.3,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+1087,7.58237631063033,0.0,0,0.5000162720680237,Pricing,82.4,Performing Well,Forecasts are reliable.
+1088,12.497411550115382,0.0,0,0.338131586710612,Pricing,74.3,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+1089,5.122726990300557,0.0,0,0.3964079141616821,Cleanliness,82.8,Performing Well,"Forecasts are reliable, but negative feedback about cleanliness suggests an issue worth investigating."
+1090,8.857031922325039,0.0133333333333333,1,0.6666364073753357,Staff,82.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1091,8.087573218169181,0.0133333333333333,1,0.7417967120806376,Stock Availability,85.1,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+1092,6.393000460551429,0.0,0,0.4088676969210307,Staff,81.8,Performing Well,Forecasts are reliable.
+1093,9.587884853249596,0.0133333333333333,1,0.7402442097663879,Stock Availability,83.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+1094,10.04639985292066,0.0,0,0.8374007940292358,Stock Availability,86.7,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about stock availability."
+1095,9.603038890541502,0.0,0,0.3205355008443196,Pricing,76.8,Performing Well,"Forecasts are reliable, but negative feedback about pricing suggests an issue worth investigating."
+1096,9.026151368640791,0.027027027027027,2,0.3515011787414551,Stock Availability,74.8,Performing Well,"Forecasts are reliable, but 2 anomalous sales day(s) recently; negative feedback about stock availability suggests an issue worth investigating."
+1097,5.577484613193247,0.5666666666666667,51,0.3333870967229207,Stock Availability,51.1,Monitor,"Forecasts are reliable, but 51 anomalous sales days in the last quarter; negative feedback about stock availability suggests an issue worth investigating."
+1098,7.552137683967179,0.0666666666666666,5,0.1972275137901306,Cleanliness,68.4,Monitor,"Forecasts are reliable, but 5 anomalous sales days in the last quarter; negative feedback about cleanliness suggests an issue worth investigating."
+1099,12.651624988133788,0.3222222222222222,29,0.5924099087715149,Staff,49.2,Monitor,"Forecasts are moderately reliable, but 29 anomalous sales days in the last quarter."
+1100,7.275342512878905,0.0,0,0.2572057445844014,Staff,77.9,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+1101,6.9428017216973945,0.0133333333333333,1,0.3070735186338424,Cleanliness,77.6,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; negative feedback about cleanliness suggests an issue worth investigating."
+1102,8.230041829148266,0.0,0,0.599750530719757,Staff,83.8,Performing Well,Forecasts are reliable.
+1103,7.524774702730093,0.0,0,0.0002987583478291,Stock Availability,72.5,Performing Well,"Forecasts are reliable, but negative feedback about stock availability suggests an issue worth investigating."
+1104,9.015629913612374,0.0,0,0.4997346699237823,Cleanliness,81.0,Performing Well,Forecasts are reliable.
+1105,7.867266281964532,0.0,0,0.780314588546753,Cleanliness,87.7,Performing Well,"Forecasts are reliable, but reviews are positive, largely about cleanliness."
+1106,7.881237319252684,0.0133333333333333,1,0.9943586190541586,Staff,90.4,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about staff."
+1107,13.671362340795634,0.0,0,0.3275577028592427,Pricing,72.9,Performing Well,"Forecasts are moderately reliable, but negative feedback about pricing suggests an issue worth investigating."
+1108,9.701027642707237,0.0133333333333333,1,0.6613884766896566,Staff,81.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently."
+1109,11.431916812156793,0.0,0,0.4999766796827316,Staff,78.6,Performing Well,Forecasts are moderately reliable.
+1110,6.230368926101185,0.0133333333333333,1,0.9346770495176316,Stock Availability,90.9,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about stock availability."
+1111,12.860479743409586,0.0,0,0.999126672744751,Pricing,87.1,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+1112,10.275126711807534,0.0,0,0.4030462106068929,Stock Availability,77.8,Performing Well,Forecasts are moderately reliable.
+1113,11.07520421071598,0.0,0,0.8022636771202087,Pricing,85.0,Performing Well,"Forecasts are moderately reliable, but reviews are positive, largely about pricing."
+1114,6.482554398104444,0.0,0,0.3289196491241455,Staff,80.1,Performing Well,"Forecasts are reliable, but negative feedback about staff suggests an issue worth investigating."
+1115,7.030839886573781,0.0135135135135135,1,0.9997710982958476,Cleanliness,91.3,Performing Well,"Forecasts are reliable, but 1 anomalous sales day(s) recently; reviews are positive, largely about cleanliness."

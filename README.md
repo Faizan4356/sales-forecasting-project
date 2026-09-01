@@ -6,6 +6,14 @@ A time-series forecasting pipeline that predicts daily store-level sales using
 historical patterns, engineered lag/rolling features, and a comparison of
 Prophet vs. XGBoost. Deployed as an interactive Streamlit app.
 
+> Retail chains lose money when forecasts miss — overstaffing quiet days,
+> understocking busy ones. I built a sales intelligence platform on 3 years
+> of Rossmann drugstore data, testing XGBoost against Prophet. XGBoost won
+> by ~22% (RMSE 314 vs. 403) because it learns directly from a store's own
+> recent sales trend, not just a generic seasonal curve. I extended it with
+> LSTM anomaly detection, review sentiment analysis, and a combined Store
+> Health Score, deployed as a live interactive app.
+
 ## Business Problem
 
 Retail chains need reliable short-term sales forecasts (1–4 weeks out) to plan
@@ -118,24 +126,71 @@ Combined Score          Store Health Score (0-100) + What-If Simulator
   anomaly rates, and low sentiment; best stores (93-94.5) have ~5-6%
   MAPE, zero anomalies, and near-perfect sentiment.
 
+## Value-Add Features
+
+Beyond the core forecast and the four platform tabs above, the app and a
+few extra scripts add business-facing polish:
+
+- **Business Impact box** (Tab 1, above the chart): translates the raw
+  forecast into decision language — total forecasted sales vs. the prior
+  period, a suggested staffing level (`forecast / editable units-per-staff
+  ratio`), a suggested inventory order quantity, and flags on any day whose
+  forecast is 25%+ off that store's own typical pattern for that weekday,
+  with an inferred reason (holiday, promo, or unexplained).
+- **80% prediction interval**: two extra XGBoost quantile-regression models
+  (10th/90th percentile) shade a confidence band around the forecast line,
+  instead of a single number implying false precision.
+- **"Why this forecast?" panel**: SHAP `TreeExplainer` on the point model
+  shows the top 5 features driving the selected store's forecast (e.g.
+  "sales_lag_14: -730", "Promo: -605"), averaged across the forecast window.
+- **Signature interaction**: the Tab 1 chart is Plotly (not matplotlib),
+  kept at a stable component `key` with `layout.transition` set, so
+  changing the forecast horizon animates the line smoothly instead of an
+  instant redraw.
+- **🗺️ Portfolio Overview tab**: all 1,115 stores at once — chain-wide
+  forecast total, tier counts, best/worst store this week, a top-10/
+  bottom-10 growth chart, and a filterable/sortable table (by StoreType,
+  CompetitionDistance). Precomputed offline (`generate_portfolio_forecast.py`)
+  since a live forecast across all stores measured at ~11 minutes.
+  **⚠️ Known caveat, shown in-app**: the comparison period (late July) had
+  a 58-84% `SchoolHoliday` rate, but the forecast assumes 0% (future
+  holidays aren't knowable) — this alone plausibly explains most of the
+  uniform ~23% average "decline" the % change column shows. Treat it as a
+  rough signal, not a clean apples-to-apples number, until a real forward
+  holiday calendar is added.
+- **Weekly alert report** (`generate_weekly_alert.py`): a proactive,
+  plain-language Markdown summary — health tiers that dropped since last
+  week (tracked via a saved snapshot, `store_health_scores_previous.csv`),
+  stores with recent anomalous days, and stores with large forecasted
+  swings (capped/summarized rather than dumping hundreds of rows when a
+  systematic effect like the holiday mismatch above triggers many at
+  once). See `.github/workflows/weekly_alert.yml` for a scheduled-run
+  example (generates + uploads the report; emailing/Slack-posting it needs
+  a credential added as a repo secret, deliberately not included here).
+
 ## Project Structure
 
 ```
-train.csv, store.csv              Raw Kaggle data
-sales_forecast_phase1.py          Load data, parse dates, plot raw sales
-sales_forecast_phase2.py          Clean: reindex dates, handle closures, merge store metadata
-sales_forecast_phase3.py          EDA: decomposition, seasonality, ADF test, ACF/PACF
-sales_forecast_phase4.py          Feature engineering: lags, rolling stats, calendar/promo flags
-sales_forecast_phase5.py          Model comparison: Prophet vs XGBoost
-train_anomaly_model.py            LSTM Autoencoder anomaly detection -> anomaly_flags.csv
-generate_and_analyze_reviews.py   Synthetic reviews + sentiment -> store_review_scores.csv
-combine_store_health.py           Combines everything -> store_health_scores.csv
-app.py                            Streamlit app: 4 tabs (forecast, upload, health, what-if)
-requirements.txt                  Deployed app's dependencies
-requirements-offline.txt          Extra deps for the offline Steps 1-2 scripts (torch, transformers)
-train_cleaned.csv                 Output of Phase 2
-train_features.csv                Output of Phase 4
-store_health_scores.csv           Output of combine_store_health.py (committed -- app.py reads it)
+train.csv, store.csv                    Raw Kaggle data
+sales_forecast_phase1.py                Load data, parse dates, plot raw sales
+sales_forecast_phase2.py                Clean: reindex dates, handle closures, merge store metadata
+sales_forecast_phase3.py                EDA: decomposition, seasonality, ADF test, ACF/PACF
+sales_forecast_phase4.py                Feature engineering: lags, rolling stats, calendar/promo flags
+sales_forecast_phase5.py                Model comparison: Prophet vs XGBoost
+train_anomaly_model.py                  LSTM Autoencoder anomaly detection -> anomaly_flags.csv
+generate_and_analyze_reviews.py         Synthetic reviews + sentiment -> store_review_scores.csv
+combine_store_health.py                 Combines everything -> store_health_scores.csv
+generate_portfolio_forecast.py          Precomputes all-store 7-day forecasts -> portfolio_forecast.csv
+generate_weekly_alert.py                Proactive weekly Markdown report -> weekly_alert_report.md
+.github/workflows/weekly_alert.yml      Example scheduled run (GitHub Actions)
+app.py                                  Streamlit app: 5 tabs (forecast, upload, health, what-if, portfolio)
+requirements.txt                        Deployed app's dependencies (now incl. plotly, shap)
+requirements-offline.txt                Extra deps for the offline Steps 1-2 scripts (torch, transformers)
+train_cleaned.csv                       Output of Phase 2
+train_features.csv                      Output of Phase 4
+store_health_scores.csv                 Output of combine_store_health.py (committed -- app.py reads it)
+portfolio_forecast.csv                  Output of generate_portfolio_forecast.py (committed -- app.py reads it)
+store_health_scores_previous.csv        Snapshot for weekly tier-drop comparison (committed)
 ```
 
 ## How to Run
@@ -171,6 +226,8 @@ python sales_forecast_phase5.py         # compare Prophet vs XGBoost
 python train_anomaly_model.py           # LSTM Autoencoder -> anomaly_flags.csv (needs requirements-offline.txt)
 python generate_and_analyze_reviews.py  # synthetic reviews + sentiment -> store_review_scores.csv (needs requirements-offline.txt)
 python combine_store_health.py          # merges everything -> store_health_scores.csv
+python generate_portfolio_forecast.py   # all-store 7-day forecasts -> portfolio_forecast.csv (~11 min)
+python generate_weekly_alert.py         # proactive summary -> weekly_alert_report.md
 ```
 
 ### 4. Launch the app
@@ -179,11 +236,14 @@ python combine_store_health.py          # merges everything -> store_health_scor
 streamlit run app.py
 ```
 
-The app has four tabs:
+The app has five tabs:
 
 - **🏬 Rossmann Store Forecast** — select a store and a forecast horizon
-  (7 / 14 / 30 days) to see historical sales alongside the XGBoost forecast,
-  with closed-day predictions flagged separately.
+  (7 / 14 / 30 days) to see historical sales, an 80% prediction interval,
+  and the XGBoost forecast, with closed-day predictions flagged separately.
+  A Business Impact box above the chart translates the forecast into a
+  suggested staffing level and inventory order, and a "Why this forecast?"
+  panel shows the top SHAP feature contributions.
 - **📁 Upload Your Own Data** — upload any CSV with a date column and a
   numeric value column (sales, revenue, orders, etc.). The app auto-detects
   likely date/value columns (editable via dropdown), then generates: the raw
@@ -205,6 +265,11 @@ The app has four tabs:
   matcher — not the transformer model Tab 3's data uses — so the live
   simulator adds no memory overhead to the deployed app. Clearly labeled
   as a projection, not a guarantee.
+- **🗺️ Portfolio Overview** — reads `portfolio_forecast.csv`. All stores at
+  once: chain-wide forecast total, tier counts, best/worst store this week,
+  a top-10/bottom-10 growth chart, and a filterable/sortable table
+  (StoreType, CompetitionDistance). Carries a warning banner about the
+  school-holiday comparison caveat described above.
 
 ## Deployment (Streamlit Community Cloud)
 
@@ -244,3 +309,13 @@ hosted app has data to read — no extra secrets or storage setup required.
   **synthetically generated** text, not real customer feedback. Both
   would need real labeled anomalies and real review data respectively
   before the Store Health Score should inform actual business decisions.
+- The 80% prediction interval scores the SAME feature row (built from the
+  median forecast path) with the 10th/90th percentile quantile models,
+  rather than running 3 fully independent recursive rollouts — a
+  documented simplification that keeps the interval self-consistent but
+  doesn't capture how uncertainty would compound differently at each
+  quantile over a multi-day horizon.
+- The Portfolio Overview's `pct_change` column has a known systematic bias
+  from a school-holiday rate mismatch between the comparison period and
+  the forecast — see the Value-Add Features section and the tab's own
+  warning banner. A real forward holiday calendar would fix this.
