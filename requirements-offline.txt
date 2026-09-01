@@ -1,0 +1,9 @@
+# Extra dependencies for the offline Sales Intelligence Platform scripts
+# (train_anomaly_model.py, generate_and_analyze_reviews.py,
+# combine_store_health.py). NOT needed by the deployed app.py, and
+# deliberately kept OUT of requirements.txt so Streamlit Community Cloud's
+# free-tier build doesn't install these heavy libraries for nothing --
+# the app only ever reads these scripts' CSV outputs, never imports them.
+torch
+transformers
+joblib

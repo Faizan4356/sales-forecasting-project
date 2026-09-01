@@ -315,7 +315,9 @@ exploration Tab 1's model was originally built on top of.
 
 st.divider()
 
-tab_forecast, tab_upload = st.tabs(["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data"])
+tab_forecast, tab_upload, tab_health = st.tabs(
+    ["🏬 Rossmann Store Forecast", "📁 Upload Your Own Data", "📊 Store Health"]
+)
 
 # =================================================================
 # TAB 1 — existing Rossmann forecast (unchanged behavior)
@@ -537,3 +539,109 @@ with tab_upload:
 
         with st.expander("View cleaned data used for these charts"):
             st.dataframe(df_u, use_container_width=True)
+
+# =================================================================
+# TAB 3 — combined Store Health Score
+# (forecast reliability + LSTM anomaly rate + synthetic review sentiment)
+# =================================================================
+with tab_health:
+    st.subheader("Store Health Score")
+    st.caption(
+        "Combines three independent signals into one 0-100 score: how reliable this store's "
+        "forecast is (XGBoost MAPE on held-out days it wasn't trained on), how many "
+        "anomalous sales days an LSTM Autoencoder flagged in the last 90 days, and review "
+        "sentiment. **Review sentiment is synthetically generated for demonstration** — the "
+        "Rossmann dataset has no real customer review data."
+    )
+
+    try:
+        health_df = pd.read_csv("store_health_scores.csv")
+    except FileNotFoundError:
+        st.warning(
+            "`store_health_scores.csv` not found. Run, in order: "
+            "`train_anomaly_model.py` → `generate_and_analyze_reviews.py` → "
+            "`combine_store_health.py`, then reload this app."
+        )
+        st.stop()
+
+    TIER_ORDER = ["Needs Attention", "Monitor", "Performing Well"]
+    TIER_COLORS = {
+        "Needs Attention": COLOR_CLOSED,
+        "Monitor": COLOR_FORECAST,
+        "Performing Well": COLOR_ACTUAL,
+    }
+
+    # --- Chain-wide overview ---
+    st.markdown("#### Chain-wide overview")
+    tier_counts = health_df["tier"].value_counts().reindex(TIER_ORDER).fillna(0)
+
+    ov1, ov2 = st.columns([1, 2])
+    with ov1:
+        for tier in TIER_ORDER:
+            st.metric(tier, int(tier_counts[tier]))
+    with ov2:
+        fig_ov, ax_ov = plt.subplots(figsize=(7, 4))
+        ax_ov.bar(TIER_ORDER, tier_counts.values, color=[TIER_COLORS[t] for t in TIER_ORDER])
+        ax_ov.set_ylabel("Number of stores")
+        ax_ov.set_title("Stores by Health Tier", color=TEXT_LIGHT)
+        ax_ov.grid(alpha=0.25, axis="y")
+        plt.tight_layout()
+        st.pyplot(fig_ov)
+
+    st.divider()
+
+    # --- Individual store lookup ---
+    health_store_ids = sorted(health_df["Store"].unique())
+    health_selected_store = st.selectbox(
+        "Select a store to inspect", health_store_ids, key="health_store_select"
+    )
+
+    row = health_df[health_df["Store"] == health_selected_store].iloc[0]
+    score = row["health_score"]
+    tier = row["tier"]
+    tier_color = TIER_COLORS.get(tier, TEXT_LIGHT)
+
+    st.markdown(
+        f"<div style='display:flex; align-items:baseline; gap:16px; margin-top:8px;'>"
+        f"<span style='font-size:64px; font-weight:700; color:{tier_color};'>{score:.0f}</span>"
+        f"<span style='font-size:20px; color:{TEXT_LIGHT};'>/ 100</span>"
+        f"<span style='background:{tier_color}; color:{BG_DARK}; padding:4px 14px; "
+        f"border-radius:14px; font-weight:600; font-size:14px;'>{tier}</span>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(f"*{row['explanation']}*")
+
+    h1, h2, h3 = st.columns(3)
+    reliability = max(0.0, 100 - row["forecast_mape"] * 2)
+    h1.metric("Forecast Reliability", f"{reliability:.0f}/100",
+              help=f"XGBoost MAPE on this store's last 30 held-out days: {row['forecast_mape']:.1f}%")
+    h2.metric("Anomaly Rate (90d)", f"{row['anomaly_rate'] * 100:.1f}%",
+              help=f"{int(row['anomaly_count_90d'])} day(s) flagged by the LSTM Autoencoder")
+    h3.metric("Review Sentiment", f"{row['avg_sentiment'] * 100:.0f}/100",
+              help=f"Dominant theme: {row['dominant_theme']} (synthetic reviews)")
+
+    st.divider()
+
+    # --- Same forecast chart as Tab 1, for this store, for context ---
+    st.markdown(f"#### Forecast context for Store {health_selected_store}")
+    health_store_history = data[data["Store"] == health_selected_store].sort_values("Date")
+    health_forecast_df = recursive_forecast(model, health_store_history, 14)
+    health_open = health_forecast_df[health_forecast_df["Open"] == 1]
+    health_closed = health_forecast_df[health_forecast_df["Open"] == 0]
+
+    fig_h, ax_h = plt.subplots(figsize=(14, 5))
+    hist_window = health_store_history.tail(90)
+    ax_h.plot(hist_window["Date"], hist_window["Sales"], label="Historical Sales",
+              color=COLOR_ACTUAL, linewidth=2)
+    ax_h.plot(health_open["Date"], health_open["Predicted_Sales"], label="14-Day Forecast",
+              color=COLOR_FORECAST, linestyle="--", marker="o", markersize=4, linewidth=2)
+    if len(health_closed):
+        ax_h.scatter(health_closed["Date"], health_closed["Predicted_Sales"], label="Predicted closed",
+                     color=COLOR_CLOSED, marker="x", s=50, zorder=5)
+    ax_h.set_title(f"Store {health_selected_store} — Sales & Forecast (health context)", color=TEXT_LIGHT)
+    ax_h.legend(loc="upper left")
+    ax_h.grid(alpha=0.25)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    st.pyplot(fig_h)

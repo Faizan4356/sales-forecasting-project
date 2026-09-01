@@ -8,6 +8,14 @@ train_cleaned.csv
 train_features.csv
 *.png
 
+# Sales Intelligence Platform intermediate artifacts (large / regenerable
+# from train_anomaly_model.py, generate_and_analyze_reviews.py --
+# store_health_scores.csv IS committed since app.py reads it directly)
+anomaly_model.pt
+anomaly_threshold.joblib
+anomaly_flags.csv
+store_review_scores.csv
+
 # Python
 __pycache__/
 *.pyc
