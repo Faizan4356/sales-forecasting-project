@@ -36,6 +36,8 @@ feature-driven ML approach (XGBoost) forecasts better in practice.
   `CompetitionDistance`, `Promo2` (recurring promotion) and its start
   date/interval
 
+![Store 1 raw daily sales, 2013-2015](images/store_1_sales_over_time.png)
+
 ## Models Compared
 
 Evaluated on Store 1's last 30 days as a chronological holdout (no random
@@ -46,6 +48,8 @@ future).
 |---|---:|---:|---:|
 | Prophet | 402.8 | 313.2 | 7.08% |
 | **XGBoost** | **314.4** | **243.7** | **5.54%** |
+
+![Prophet vs XGBoost, actual vs predicted over the last 30 days](images/store_1_prophet_vs_xgboost.png)
 
 **XGBoost outperformed Prophet by ~22%** on every metric. Both models track
 the broad weekly seasonality well, but XGBoost — with direct access to lag
@@ -79,6 +83,10 @@ all 1,115 stores (with `Store` as a feature), instead of one model per store.
   Sunday). These days were kept (not dropped) during cleaning since they are
   a real, recurring pattern the model needs to learn — dropping them would
   reintroduce time gaps and bias the model toward never predicting closures.
+
+![Seasonal decomposition: trend, weekly seasonal component, residual](images/store_1_decomposition.png)
+![Average sales by day of week and by month](images/store_1_seasonality.png)
+![ACF and PACF of raw daily sales, showing weekly-lag peaks](images/store_1_acf_pacf.png)
 
 ## Sales Intelligence Platform
 
@@ -191,6 +199,7 @@ train_features.csv                      Output of Phase 4
 store_health_scores.csv                 Output of combine_store_health.py (committed -- app.py reads it)
 portfolio_forecast.csv                  Output of generate_portfolio_forecast.py (committed -- app.py reads it)
 store_health_scores_previous.csv        Snapshot for weekly tier-drop comparison (committed)
+images/                                 Committed plots embedded in this README (phase1/3/5 output snapshots)
 ```
 
 ## How to Run

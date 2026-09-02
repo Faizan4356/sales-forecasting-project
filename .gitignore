@@ -7,6 +7,8 @@ sample_submission.csv
 train_cleaned.csv
 train_features.csv
 *.png
+# ...except curated documentation plots committed for the README
+!images/*.png
 
 # Sales Intelligence Platform intermediate artifacts (large / regenerable
 # from train_anomaly_model.py, generate_and_analyze_reviews.py --
